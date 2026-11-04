@@ -1,0 +1,12 @@
+{
+  "name": "private-practice-designer",
+  "version": "1.0.0",
+  "description": "Bespoke, subscription-free professional web design for clinicians.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}
