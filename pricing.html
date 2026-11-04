@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transparent Pricing | Private Practice Designer</title>
+    <meta name="description" content="One-time setup fees ($1,250 Solo | $2,200 Group) with $0 monthly platform rent. Break even in under 10 months and own your therapy website 100% outright.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Compiled Production CSS -->
+    <link href="/output.css" rel="stylesheet">
+
+    <style>
+        input[type="range"] {
+            accent-color: #3A86B2;
+        }
+        .tier-toggle-active {
+            background-color: #3A86B2 !important;
+            color: #ffffff !important;
+            border-color: #3A86B2 !important;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-rentblue selection:text-white bg-[#EAEFE9] text-[#2B302C] font-sans overflow-x-hidden">
+    <!-- TOP ANNOUNCEMENT / CREDIBILITY BAR -->
+    <div class="border-b border-[#D5DFD7] bg-[#222A24] px-6 py-2.5 text-xs text-[#EAEFE9]">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-rentblue animate-pulse"></span>
+                <span class="font-medium tracking-wide text-white">Subscription-free mental health professional web designs</span>
+            </div>
+            <div class="text-[#C8D3CA] hidden md:block">
+                Designed by <strong class="text-white font-semibold">Jesse</strong> — 20+ Yrs Tech Veteran & Emerging Mental Health Clinician
+            </div>
+            <div>
+                <a href="portfolio.html" class="underline underline-offset-4 decoration-rentblue hover:decoration-white text-white transition">View Live Demos &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-[#EAEFE9]/90 backdrop-blur-xl border-b border-[#D5DFD7]">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="group flex items-baseline">
+                <span class="font-serif text-2xl font-bold tracking-tight text-textdark group-hover:text-rentblue transition">Private Practice</span>
+                <span class="font-sans text-xs font-semibold tracking-widest text-rentblue uppercase ml-1.5">Designer</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-10 text-sm font-medium tracking-wide">
+                <a href="portfolio.html" class="text-textdark hover:text-rentblue transition-colors">Example Designs</a>
+                <a href="about.html" class="text-textdark hover:text-rentblue transition-colors">About Us</a>
+                <a href="pricing.html" class="text-rentblue font-semibold transition-colors" aria-current="page">Pricing</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="get-started.html" class="relative group inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold text-white bg-rentblue hover:bg-[#2C6A90] rounded-lg transition-all duration-300 shadow-md">
+                    <span>Get Started</span>
+                    <svg class="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO HEADER -->
+        <section class="relative pt-12 pb-16 lg:pt-16 lg:pb-20 overflow-hidden">
+            <div class="absolute top-1/4 left-[-10%] w-[500px] h-[500px] bg-rentbluelight/60 rounded-full blur-[140px] pointer-events-none"></div>
+            <div class="absolute bottom-10 right-[-5%] w-[450px] h-[450px] bg-boxgreen-200/40 rounded-full blur-[140px] pointer-events-none"></div>
+
+            <div class="max-w-4xl mx-auto px-6 text-center space-y-5">
+                <span class="inline-block px-3 py-1 bg-boxgreen-100 text-boxgreen-700 text-xs font-semibold uppercase tracking-wider rounded-full border border-boxgreen-200">
+                    Break Even in Under 10 Months • Own It 100% Outright
+                </span>
+                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal leading-tight text-textdark">
+                    Transparent one-time pricing with <span class="italic text-rentblue font-light">$0 monthly rent</span>.
+                </h1>
+                <p class="text-base sm:text-lg text-textdark/80 font-light leading-relaxed max-w-2xl mx-auto">
+                    Traditional therapy web platforms bleed clinicians for $1,200 to $1,650+ every single year. Invest once in bespoke engineering, break even before Year 1 ends, and never pay a monthly platform fee again.
+                </p>
+            </div>
+        </section>
+
+        <!-- TWO-TIER PRICING GRID ($1,250 SOLO & $2,200 GROUP) -->
+        <section class="pb-20 max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
+                
+                <!-- TIER 1: THE SOLO PRACTITIONER ESSENTIAL ($1,250) -->
+                <div class="glass-panel p-8 sm:p-10 rounded-3xl glow-custom flex flex-col justify-between space-y-8 bg-boxgreen-50/90 border-2 border-boxgreen-600 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-boxgreen-600 text-white text-[10px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-bl-xl">
+                        Most Popular • Solo Clinicians
+                    </div>
+
+                    <div class="space-y-6">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-boxgreen-700 block mb-1">Tier 01 • Solo Private Practice</span>
+                            <h2 class="font-serif text-3xl text-textdark">The Solo Practitioner Essential</h2>
+                            <p class="text-sm text-textdark/80 mt-2 font-light leading-relaxed">
+                                You break even compared to Brighter Vision in <strong>under 10 months</strong>. After that, every single month for the rest of your practice’s lifespan is 100% money saved.
+                            </p>
+                        </div>
+
+                        <div class="pt-4 border-t border-boxgreen-200 flex flex-wrap items-baseline justify-between gap-4">
+                            <div>
+                                <div class="flex items-baseline gap-2">
+                                    <span class="text-5xl font-extrabold text-textdark">$1,250</span>
+                                    <span class="text-xs text-textdark/70 font-semibold uppercase tracking-wider">One-Time Setup</span>
+                                </div>
+                                <span class="text-xs text-boxgreen-700 font-medium block mt-1">
+                                    Saves $3,494+ over 3 years vs. Brighter Vision
+                                </span>
+                            </div>
+                            <span class="px-3 py-1.5 bg-boxgreen-600 text-white text-xs font-bold rounded-lg shadow-sm">
+                                $0 / Month Forever
+                            </span>
+                        </div>
+
+                        <ul class="space-y-3.5 text-sm text-textdark/90 pt-2">
+                            <li class="flex items-start gap-3">
+                                <span class="text-boxgreen-700 font-bold text-base">✓</span>
+                                <span><strong>Bespoke Multi-Page Architecture:</strong> Custom Home, About/Therapeutic Approach, Specialties/Modalities, Rates & Insurance FAQ, and Contact/Intake pages.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-boxgreen-700 font-bold text-base">✓</span>
+                                <span><strong>HIPAA-Safe EHR Sync:</strong> Direct client portal & appointment routing for SimplePractice, TherapyNotes, Jane, or your preferred EHR.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-boxgreen-700 font-bold text-base">✓</span>
+                                <span><strong>Niche & Local Clinician SEO:</strong> Engineered for instant load speeds and local search visibility (LPC, LCSW, LMFT, PsyD specialties).</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-boxgreen-700 font-bold text-base">✓</span>
+                                <span><strong>Interactive Discovery Call & Intake Funnel:</strong> Built-in 2-minute intake and custom consultation request system.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-boxgreen-700 font-bold text-base">✓</span>
+                                <span><strong>Zero Hostage Handover:</strong> 100% full domain, code, and $0/month enterprise cloud hosting ownership.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="get-started.html" class="w-full py-4 px-8 bg-rentblue hover:bg-[#2C6A90] text-white font-semibold text-sm rounded-xl transition duration-300 shadow-lg flex items-center justify-center gap-2">
+                            <span>Get Started — Solo Practitioner ($1,250)</span>
+                            <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TIER 2: THE GROUP PRACTICE & MULTI-PROVIDER SUITE ($2,200) -->
+                <div class="glass-panel p-8 sm:p-10 rounded-3xl flex flex-col justify-between space-y-8 bg-white/90 border-2 border-[#D5DFD7] hover:border-rentblue transition-all">
+                    <div class="space-y-6">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-rentblue block mb-1">Tier 02 • Expanding Clinics</span>
+                            <h2 class="font-serif text-3xl text-textdark">The Group Practice & Multi-Provider Suite</h2>
+                            <p class="text-sm text-textdark/80 mt-2 font-light leading-relaxed">
+                                Built for practices adding associate clinicians, multi-page provider directories, and advanced scheduling funnels—while still paying <strong>$0/month recurring</strong>.
+                            </p>
+                        </div>
+
+                        <div class="pt-4 border-t border-[#D5DFD7] flex flex-wrap items-baseline justify-between gap-4">
+                            <div>
+                                <div class="flex items-baseline gap-2">
+                                    <span class="text-5xl font-extrabold text-textdark">$2,200</span>
+                                    <span class="text-xs text-textdark/70 font-semibold uppercase tracking-wider">One-Time Setup</span>
+                                </div>
+                                <span class="text-xs text-rentblue font-medium block mt-1">
+                                    No per-clinician monthly add-on fees
+                                </span>
+                            </div>
+                            <span class="px-3 py-1.5 bg-rentbluelight text-rentblue border border-rentblue/20 text-xs font-bold rounded-lg">
+                                $0 / Month Forever
+                            </span>
+                        </div>
+
+                        <ul class="space-y-3.5 text-sm text-textdark/85 pt-2">
+                            <li class="flex items-start gap-3">
+                                <span class="text-rentblue font-bold text-base">✓</span>
+                                <span><strong>Everything in the Solo Tier, plus:</strong> Expanded site architecture for multi-clinician group practices.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-rentblue font-bold text-base">✓</span>
+                                <span><strong>Interactive "Meet the Team" Directory:</strong> Dedicated individual bio pages for your clinicians with specialty tags and direct EHR booking links.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-rentblue font-bold text-base">✓</span>
+                                <span><strong>Advanced Client Matching Funnel:</strong> Custom intake routing that pairs prospective clients with the right clinician in your group.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-rentblue font-bold text-base">✓</span>
+                                <span><strong>Multi-Location & State Licensure SEO:</strong> Structured to rank across multiple cities, offices, or telehealth licensure states.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-rentblue font-bold text-base">✓</span>
+                                <span><strong>Scalable Associate Template:</strong> Easily add future associates or interns without redesigning your site.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="get-started.html" class="w-full py-4 px-8 bg-[#222A24] hover:bg-textdark text-white font-semibold text-sm rounded-xl transition duration-300 shadow-md flex items-center justify-center gap-2">
+                            <span>Get Started — Group Practice ($2,200)</span>
+                            <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- THE COMPETITOR COST REALITY & INTERACTIVE CALCULATOR -->
+        <section class="py-16 bg-white/60 border-y border-[#D5DFD7]">
+            <div class="max-w-6xl mx-auto px-6 space-y-12">
+                <div class="text-center space-y-3 max-w-3xl mx-auto">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-rentblue">The Competitor Cost Reality</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl text-textdark">What Clinicians Are Actually Bleeding Over Time</h2>
+                    <p class="text-sm text-textdark/80 font-light leading-relaxed">
+                        Compare your one-time setup investment against the perpetual subscription loops of traditional therapy website providers.
+                    </p>
+                </div>
+
+                <!-- Interactive Calculator Box -->
+                <div class="glass-panel p-8 sm:p-10 rounded-3xl bg-white space-y-8 shadow-lg">
+                    
+                    <!-- Top Controls: Package Toggle + Year Slider -->
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-[#D5DFD7] pb-8">
+                        <div class="lg:col-span-5 space-y-2">
+                            <span class="text-xs font-bold uppercase tracking-wider text-textdark block">1. Select Your Practice Tier:</span>
+                            <div class="grid grid-cols-2 gap-3">
+                                <button type="button" id="btnSoloTier" onclick="setTierPrice(1250)" class="py-2.5 px-4 rounded-xl border border-[#D5DFD7] text-xs font-bold uppercase tracking-wider transition cursor-pointer tier-toggle-active">
+                                    Solo ($1,250)
+                                </button>
+                                <button type="button" id="btnGroupTier" onclick="setTierPrice(2200)" class="py-2.5 px-4 rounded-xl border border-[#D5DFD7] bg-[#EAEFE9]/50 text-textdark text-xs font-bold uppercase tracking-wider transition cursor-pointer">
+                                    Group ($2,200)
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-7 space-y-2">
+                            <div class="flex justify-between items-center">
+                                <label for="yearsSlider" class="text-xs font-bold uppercase tracking-wider text-textdark">
+                                    2. Practice Timeframe: <span id="yearsLabel" class="text-rentblue text-base font-extrabold ml-1">3 Years</span>
+                                </label>
+                                <span class="text-xs text-textdark/60">Slide to compare (1 to 10 years)</span>
+                            </div>
+                            <input type="range" id="yearsSlider" min="1" max="10" value="3" oninput="updateCalculator()" class="w-full h-2.5 bg-[#EAEFE9] rounded-lg cursor-pointer">
+                        </div>
+                    </div>
+
+                    <!-- 4-Column Comparison Output -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                        
+                        <!-- Brighter Vision -->
+                        <div class="p-5 rounded-2xl bg-red-50/70 border border-red-200 space-y-2">
+                            <span class="text-xs font-bold text-red-700 uppercase block">Brighter Vision (Mid-Tier)</span>
+                            <div id="bvCost" class="text-3xl font-extrabold text-red-700">$4,744</div>
+                            <p class="text-xs text-red-700/80 leading-relaxed">
+                                ~$129/mo + $100 setup fee. If you stop paying, your website is taken offline.
+                            </p>
+                        </div>
+
+                        <!-- TherapySites -->
+                        <div class="p-5 rounded-2xl bg-red-50/70 border border-red-200 space-y-2">
+                            <span class="text-xs font-bold text-red-700 uppercase block">TherapySites (Mid-Tier)</span>
+                            <div id="tsCost" class="text-3xl font-extrabold text-red-700">$3,259</div>
+                            <p class="text-xs text-red-700/80 leading-relaxed">
+                                ~$85/mo + $199 setup fee. Locked into generic clinical templates you don't own.
+                            </p>
+                        </div>
+
+                        <!-- Wix / Squarespace DIY -->
+                        <div class="p-5 rounded-2xl bg-amber-50/80 border border-amber-200 space-y-2">
+                            <span class="text-xs font-bold text-amber-800 uppercase block">Wix / Squarespace (DIY)</span>
+                            <div id="diyCost" class="text-3xl font-extrabold text-amber-800">$1,080</div>
+                            <p class="text-xs text-amber-900/80 leading-relaxed">
+                                ~$30/mo <strong>+ 20+ frustrating hours</strong> building & troubleshooting it yourself between client notes.
+                            </p>
+                        </div>
+
+                        <!-- Private Practice Designer -->
+                        <div class="p-5 rounded-2xl bg-boxgreen-100 border-2 border-boxgreen-600 space-y-2 relative">
+                            <span class="text-xs font-bold text-boxgreen-700 uppercase block">Private Practice Designer ✓</span>
+                            <div id="ourCostDisplay" class="text-3xl font-extrabold text-textdark">$1,250</div>
+                            <p id="totalSavedBadge" class="text-xs font-bold text-boxgreen-700 leading-relaxed">
+                                Save $3,494 vs. Brighter Vision! $0/mo forever & 100% ownership.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY THIS MODEL WINS FOR CLINICIANS -->
+        <section class="py-20 max-w-6xl mx-auto px-6 space-y-12">
+            <div class="text-center space-y-3 max-w-2xl mx-auto">
+                <span class="text-xs font-semibold uppercase tracking-widest text-rentblue">Built for Clinical Peace of Mind</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-textdark">Why Clinicians Choose One-Time Ownership</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-panel p-8 rounded-2xl bg-white space-y-3">
+                    <span class="text-xs font-bold uppercase tracking-wider text-rentblue">01 • Fast ROI</span>
+                    <h3 class="font-serif text-xl text-textdark">Payback in Under a Year</h3>
+                    <p class="text-sm text-textdark/80 font-light leading-relaxed">
+                        When you compare a $1,250 one-time fee against paying $1,648 in your very first year with a subscription agency, the math clicks immediately. Just 8–10 private-pay therapy sessions cover your website for life.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-8 rounded-2xl bg-white space-y-3">
+                    <span class="text-xs font-bold uppercase tracking-wider text-boxgreen-700">02 • Bespoke Quality</span>
+                    <h3 class="font-serif text-xl text-textdark">20-Year Enterprise Engineering</h3>
+                    <p class="text-sm text-textdark/80 font-light leading-relaxed">
+                        You aren't getting a fragile, cookie-cutter template or spending 20 hours fighting a DIY drag-and-drop builder. Your site is custom-engineered for calming aesthetics, accessibility, and local search performance.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-8 rounded-2xl bg-white space-y-3">
+                    <span class="text-xs font-bold uppercase tracking-wider text-rentblue">03 • Freedom</span>
+                    <h3 class="font-serif text-xl text-textdark">Zero Hostage Situations</h3>
+                    <p class="text-sm text-textdark/80 font-light leading-relaxed">
+                        Traditional agencies hold your domain and content hostage behind their monthly fee. Our setup includes full domain handover and direct cloud deployment so nobody can ever take your practice offline.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-[#D5DFD7] py-8 bg-[#222A24] text-xs text-[#C8D3CA]">
+        <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-between items-center gap-4">
+            <p class="text-white">&copy; 2026 Private Practice Designer. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a href="index.html" class="hover:text-white">Home</a>
+                <a href="portfolio.html" class="hover:text-white">Example Designs</a>
+                <a href="about.html" class="hover:text-white">About Us</a>
+                <a href="pricing.html" class="text-white font-semibold">Pricing</a>
+                <a href="get-started.html" class="hover:text-white">Get Started</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let selectedOneTimePrice = 1250;
+
+        function setTierPrice(price) {
+            selectedOneTimePrice = price;
+            const btnSolo = document.getElementById('btnSoloTier');
+            const btnGroup = document.getElementById('btnGroupTier');
+
+            if (price === 1250) {
+                btnSolo.classList.add('tier-toggle-active');
+                btnGroup.classList.remove('tier-toggle-active');
+            } else {
+                btnGroup.classList.add('tier-toggle-active');
+                btnSolo.classList.remove('tier-toggle-active');
+            }
+            updateCalculator();
+        }
+
+        function updateCalculator() {
+            const years = parseInt(document.getElementById('yearsSlider').value, 10);
+            const months = years * 12;
+
+            // Competitor formulas based on real mid-tier rates
+            const bvTotal = (129 * months) + 100;   // Brighter Vision: $129/mo + $100 setup
+            const tsTotal = (85 * months) + 199;    // TherapySites: $85/mo + $199 setup
+            const diyTotal = (30 * months);         // Wix/Squarespace: $30/mo + 20+ hrs sanity
+            const savingsVsBv = bvTotal - selectedOneTimePrice;
+
+            document.getElementById('yearsLabel').textContent = years === 1 ? '1 Year' : `${years} Years`;
+            document.getElementById('bvCost').textContent = `$${bvTotal.toLocaleString()}`;
+            document.getElementById('tsCost').textContent = `$${tsTotal.toLocaleString()}`;
+            document.getElementById('diyCost').textContent = `$${diyTotal.toLocaleString()}`;
+            document.getElementById('ourCostDisplay').textContent = `$${selectedOneTimePrice.toLocaleString()}`;
+
+            const badge = document.getElementById('totalSavedBadge');
+            if (savingsVsBv > 0) {
+                badge.textContent = `You save $${savingsVsBv.toLocaleString()} vs. Brighter Vision (+ $0/mo forever)!`;
+            } else {
+                badge.textContent = `Pay once ($${selectedOneTimePrice.toLocaleString()}) & pay $0/mo in Year 2 and beyond!`;
+            }
+        }
+    </script>
+</body>
+</html>
