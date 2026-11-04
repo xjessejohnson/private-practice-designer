@@ -13,6 +13,30 @@
     
     <!-- Compiled Production CSS -->
     <link href="/output.css" rel="stylesheet">
+
+    <style>
+        .option-card-active {
+            border-color: #3A86B2 !important;
+            box-shadow: 0 20px 50px -12px rgba(58, 134, 178, 0.22) !important;
+            transform: translateY(-2px);
+        }
+        .call-card-active {
+            border-color: #3A6B47 !important;
+            box-shadow: 0 20px 50px -12px rgba(58, 107, 71, 0.22) !important;
+            transform: translateY(-2px);
+        }
+        .pill-radio:checked + div {
+            background-color: #3A86B2;
+            color: #ffffff;
+            border-color: #3A86B2;
+            box-shadow: 0 4px 14px rgba(58, 134, 178, 0.25);
+        }
+        select option:disabled {
+            color: #9CA3AF;
+            background-color: #F3F4F6;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body class="antialiased selection:bg-rentblue selection:text-white bg-[#EAEFE9] text-[#2B302C] font-sans overflow-x-hidden">
     <!-- TOP ANNOUNCEMENT / CREDIBILITY BAR -->
@@ -53,7 +77,6 @@
     </header>
 
     <main>
-        <!-- HERO & TWO OPTIONS SECTION -->
         <section class="relative pt-12 pb-24 lg:pt-16 lg:pb-32 overflow-hidden">
             <!-- Ambient Background Glows -->
             <div class="absolute top-1/4 left-[-10%] w-[500px] h-[500px] bg-rentbluelight/60 rounded-full blur-[140px] pointer-events-none"></div>
@@ -70,7 +93,7 @@
                         How would you like to <span class="italic text-rentblue font-light">get started</span>?
                     </h1>
                     <p class="text-base text-textdark/80 font-light leading-relaxed">
-                        Choose the option below that best fits your schedule. No high-pressure sales—just clear, straightforward guidance for your practice.
+                        Select your preferred option below. Whether you want to send quick notes or lock in a 15-minute phone consultation, everything takes less than two minutes.
                     </p>
                 </div>
 
@@ -78,11 +101,11 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
                     
                     <!-- LEFT OPTION: QUICK 2-MINUTE FORM -->
-                    <div id="optionFormCard" class="glass-panel p-8 rounded-3xl glow-custom flex flex-col justify-between space-y-6 border-2 border-rentblue transition-all duration-300">
+                    <div id="optionFormCard" onclick="openFormSection()" class="glass-panel p-8 rounded-3xl flex flex-col justify-between space-y-6 border-2 border-[#D5DFD7] hover:border-rentblue transition-all duration-300 cursor-pointer">
                         <div class="space-y-4">
                             <div class="flex items-center justify-between">
                                 <span class="px-3 py-1 bg-rentbluelight text-rentblue text-xs font-bold uppercase tracking-wider rounded-full">
-                                    Option 01 • Fastest
+                                    Option 01 • Online Intake
                                 </span>
                                 <span class="text-xs text-textdark/60 font-medium">~2 Minutes</span>
                             </div>
@@ -90,23 +113,23 @@
                                 Fill Out a Quick 2-Minute Form
                             </h2>
                             <p class="text-sm text-textdark/80 font-light leading-relaxed">
-                                Tell me a bit about your practice, whether you need a brand-new site or a redesign, and how you prefer to communicate. I’ll review your details and follow up with tailored next steps.
+                                Share a few quick details about your practice, whether you need a brand-new site or a redesign, and your preferred way to connect.
                             </p>
                         </div>
                         <div class="pt-2">
-                            <button type="button" onclick="openFormSection()" class="w-full py-4 px-6 bg-rentblue hover:bg-[#2C6A90] text-white font-semibold rounded-xl transition duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer">
-                                <span>Open 2-Minute Intake Form</span>
+                            <button type="button" class="w-full py-4 px-6 bg-rentblue hover:bg-[#2C6A90] text-white font-semibold rounded-xl transition duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer">
+                                <span>Open 2-Minute Form</span>
                                 <span aria-hidden="true">&darr;</span>
                             </button>
                         </div>
                     </div>
 
                     <!-- RIGHT OPTION: SCHEDULE A 15-MIN CALL -->
-                    <div id="optionCallCard" class="glass-panel p-8 rounded-3xl flex flex-col justify-between space-y-6 border border-[#D5DFD7] hover:border-boxgreen-600 transition-all duration-300">
+                    <div id="optionCallCard" onclick="openCallSection()" class="glass-panel p-8 rounded-3xl flex flex-col justify-between space-y-6 border-2 border-[#D5DFD7] hover:border-boxgreen-600 transition-all duration-300 cursor-pointer">
                         <div class="space-y-4">
                             <div class="flex items-center justify-between">
                                 <span class="px-3 py-1 bg-boxgreen-100 text-boxgreen-700 text-xs font-bold uppercase tracking-wider rounded-full">
-                                    Option 02 • 1-on-1 Chat
+                                    Option 02 • Phone Consultation
                                 </span>
                                 <span class="text-xs text-textdark/60 font-medium">15 Minutes</span>
                             </div>
@@ -114,135 +137,161 @@
                                 Schedule a 15-Min Call to Discuss Your Needs
                             </h2>
                             <p class="text-sm text-textdark/80 font-light leading-relaxed">
-                                Prefer to talk it through live? Book a relaxed 15-minute phone or video consultation to discuss your practice goals, EHR integration, and timeline questions.
+                                Enter your phone number and pick a convenient date and time slot between 9:00 AM and 5:00 PM CST for a relaxed 1-on-1 discovery call.
                             </p>
                         </div>
                         <div class="pt-2">
-                            <button type="button" onclick="openCallSection()" class="w-full py-4 px-6 bg-white hover:bg-boxgreen-50 text-textdark font-semibold rounded-xl transition duration-300 border border-[#D5DFD7] shadow-sm flex items-center justify-center gap-2 cursor-pointer">
-                                <span>Schedule 15-Min Call</span>
-                                <span aria-hidden="true">&rarr;</span>
+                            <button type="button" class="w-full py-4 px-6 bg-boxgreen-600 hover:bg-boxgreen-700 text-white font-semibold rounded-xl transition duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer">
+                                <span>Choose Date & Time</span>
+                                <span aria-hidden="true">&darr;</span>
                             </button>
                         </div>
                     </div>
 
                 </div>
 
-                <!-- EXPANDABLE LEFT OPTION: THE 2-MINUTE INTAKE FORM -->
+                <!-- ========================================== -->
+                <!-- LEFT WORKFLOW: THE 2-MINUTE INTAKE FORM    -->
+                <!-- ========================================== -->
                 <div id="intakeFormContainer" class="hidden pt-4">
-                    <div class="glass-panel p-8 sm:p-10 rounded-3xl glow-custom max-w-3xl mx-auto border border-rentblue/40 bg-white/90">
+                    <div class="glass-panel p-8 sm:p-10 rounded-3xl glow-custom max-w-3xl mx-auto border-2 border-rentblue/40 bg-white/95">
                         
-                        <!-- FORM HEADER -->
-                        <div id="formHeaderBlock" class="border-b border-[#D5DFD7] pb-6 mb-8">
-                            <span class="text-xs font-bold uppercase tracking-wider text-rentblue block mb-1">2-Minute Practice Intake</span>
-                            <h3 class="font-serif text-2xl sm:text-3xl text-textdark">Tell Me About Your Practice Website</h3>
-                            <p class="text-xs text-textdark/70 mt-1">All responses are sent directly to Jesse at <span class="font-medium text-textdark">xjessejohnson@gmail.com</span>.</p>
+                        <div id="formHeaderBlock" class="border-b border-[#D5DFD7] pb-6 mb-8 flex flex-wrap justify-between items-center gap-4">
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-rentblue block mb-1">Step-by-Step Practice Intake</span>
+                                <h3 class="font-serif text-2xl sm:text-3xl text-textdark">Tell Me About Your Practice</h3>
+                            </div>
+                            <span class="px-3 py-1 bg-[#EAEFE9] text-textdark text-xs font-medium rounded-lg border border-[#D5DFD7]">
+                                Confidential & Obligation-Free
+                            </span>
                         </div>
 
-                        <!-- THE FORM -->
-                        <form id="practiceIntakeForm" name="practice-intake" method="POST" data-netlify="true" onsubmit="handleFormSubmit(event)" class="space-y-6">
-                            <!-- Hidden configuration for FormSubmit -->
-                            <input type="hidden" name="_subject" value="New Private Practice Website Inquiry!">
+                        <form id="practiceIntakeForm" onsubmit="handleIntakeSubmit(event)" class="space-y-6">
+                            <input type="hidden" name="_subject" value="New 2-Minute Practice Website Inquiry">
                             <input type="hidden" name="_captcha" value="false">
 
-                            <!-- 1. Name & 2. New or Existing Site -->
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <div>
-                                    <label for="clinicianName" class="block text-xs font-semibold uppercase tracking-wider text-textdark mb-2">
-                                        Your Name <span class="text-red-600">*</span>
-                                    </label>
-                                    <input type="text" id="clinicianName" name="Name" required placeholder="e.g., Dr. Sarah Jenkins, LPC"
-                                        class="w-full px-4 py-3 rounded-xl bg-[#EAEFE9]/60 border border-[#D5DFD7] text-sm text-textdark focus:outline-none focus:border-rentblue focus:bg-white transition">
-                                </div>
+                            <!-- 1. Name -->
+                            <div>
+                                <label for="clinicianName" class="block text-xs font-semibold uppercase tracking-wider text-textdark mb-2">
+                                    1. Your Name & Credentials <span class="text-red-600">*</span>
+                                </label>
+                                <input type="text" id="clinicianName" name="Name" required placeholder="e.g., Sarah Jenkins, LPC"
+                                    class="w-full px-4 py-3.5 rounded-xl bg-[#EAEFE9]/50 border border-[#D5DFD7] text-sm text-textdark focus:outline-none focus:border-rentblue focus:bg-white transition">
+                            </div>
 
-                                <div>
-                                    <label for="siteType" class="block text-xs font-semibold uppercase tracking-wider text-textdark mb-2">
-                                        New Site or Existing Site? <span class="text-red-600">*</span>
+                            <!-- 2. New Site or Existing Site (Interactive Pill Cards) -->
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-textdark mb-2">
+                                    2. Do You Need a New Site or Have an Existing Site? <span class="text-red-600">*</span>
+                                </label>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="Site_Status" value="New Site" required class="sr-only pill-radio">
+                                        <div class="p-4 rounded-xl border border-[#D5DFD7] bg-[#EAEFE9]/40 hover:bg-white transition text-center font-medium text-sm">
+                                            ✨ New Site (Starting Fresh)
+                                        </div>
                                     </label>
-                                    <select id="siteType" name="Site_Status" required
-                                        class="w-full px-4 py-3 rounded-xl bg-[#EAEFE9]/60 border border-[#D5DFD7] text-sm text-textdark focus:outline-none focus:border-rentblue focus:bg-white transition">
-                                        <option value="" disabled selected>Select an option...</option>
-                                        <option value="New Website">New Site (Starting fresh)</option>
-                                        <option value="Existing Website Redesign">Existing Site (Redesign / Stop paying rent)</option>
-                                    </select>
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="Site_Status" value="Existing Site" required class="sr-only pill-radio">
+                                        <div class="p-4 rounded-xl border border-[#D5DFD7] bg-[#EAEFE9]/40 hover:bg-white transition text-center font-medium text-sm">
+                                            🔄 Existing Site (Redesign / Upgrade)
+                                        </div>
+                                    </label>
                                 </div>
                             </div>
 
-                            <!-- 3. Email Address & 4. Phone Number -->
+                            <!-- 3. Email & 4. Phone Number -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div>
                                     <label for="emailAddress" class="block text-xs font-semibold uppercase tracking-wider text-textdark mb-2">
-                                        Email Address <span class="text-red-600">*</span>
+                                        3. Email Address <span class="text-red-600">*</span>
                                     </label>
                                     <input type="email" id="emailAddress" name="Email" required placeholder="you@yourpractice.com"
-                                        class="w-full px-4 py-3 rounded-xl bg-[#EAEFE9]/60 border border-[#D5DFD7] text-sm text-textdark focus:outline-none focus:border-rentblue focus:bg-white transition">
+                                        class="w-full px-4 py-3.5 rounded-xl bg-[#EAEFE9]/50 border border-[#D5DFD7] text-sm text-textdark focus:outline-none focus:border-rentblue focus:bg-white transition">
                                 </div>
 
                                 <div>
                                     <label for="phoneNumber" class="block text-xs font-semibold uppercase tracking-wider text-textdark mb-2">
-                                        Phone Number <span class="text-red-600">*</span>
+                                        4. Phone Number <span class="text-red-600">*</span>
                                     </label>
-                                    <input type="tel" id="phoneNumber" name="Phone" required placeholder="(555) 234-5678"
-                                        class="w-full px-4 py-3 rounded-xl bg-[#EAEFE9]/60 border border-[#D5DFD7] text-sm text-textdark focus:outline-none focus:border-rentblue focus:bg-white transition">
+                                    <input type="tel" id="phoneNumber" name="Phone" required placeholder="(555) 234-5678" oninput="formatPhoneNumber(this)"
+                                        class="w-full px-4 py-3.5 rounded-xl bg-[#EAEFE9]/50 border border-[#D5DFD7] text-sm text-textdark focus:outline-none focus:border-rentblue focus:bg-white transition">
                                 </div>
                             </div>
 
-                            <!-- 5. Best Contact Method -->
+                            <!-- 5. Best Contact Method (Interactive Pills) -->
                             <div>
-                                <label for="contactMethod" class="block text-xs font-semibold uppercase tracking-wider text-textdark mb-2">
-                                    Best Contact Method <span class="text-red-600">*</span>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-textdark mb-2">
+                                    5. Best Contact Method <span class="text-red-600">*</span>
                                 </label>
-                                <select id="contactMethod" name="Best_Contact_Method" required onchange="toggleBestTimeBox()"
-                                    class="w-full px-4 py-3 rounded-xl bg-[#EAEFE9]/60 border border-[#D5DFD7] text-sm text-textdark focus:outline-none focus:border-rentblue focus:bg-white transition">
-                                    <option value="" disabled selected>How would you like me to reach out?</option>
-                                    <option value="Email">Email</option>
-                                    <option value="Phone">Phone Call</option>
-                                    <option value="Text Message">Text Message</option>
-                                </select>
+                                <div class="grid grid-cols-3 gap-3">
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="Best_Contact_Method" value="Email" required onchange="toggleBestTimeBox(this.value)" class="sr-only pill-radio">
+                                        <div class="py-3 px-4 rounded-xl border border-[#D5DFD7] bg-[#EAEFE9]/40 hover:bg-white transition text-center font-medium text-sm">
+                                            ✉️ Email
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="Best_Contact_Method" value="Phone" required onchange="toggleBestTimeBox(this.value)" class="sr-only pill-radio">
+                                        <div class="py-3 px-4 rounded-xl border border-[#D5DFD7] bg-[#EAEFE9]/40 hover:bg-white transition text-center font-medium text-sm">
+                                            📞 Phone
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="Best_Contact_Method" value="Text Message" required onchange="toggleBestTimeBox(this.value)" class="sr-only pill-radio">
+                                        <div class="py-3 px-4 rounded-xl border border-[#D5DFD7] bg-[#EAEFE9]/40 hover:bg-white transition text-center font-medium text-sm">
+                                            💬 Text
+                                        </div>
+                                    </label>
+                                </div>
                             </div>
 
-                            <!-- CONDITIONAL FIELD: Best Time to Call (Appears ONLY if Phone is chosen) -->
-                            <div id="bestTimeWrapper" class="hidden p-4 rounded-xl bg-rentbluelight/70 border border-rentblue/30 space-y-2 transition-all">
-                                <label for="bestTimeToCall" class="block text-xs font-semibold uppercase tracking-wider text-rentblue">
-                                    Best Time to Call <span class="text-red-600">*</span>
+                            <!-- CONDITIONAL FIELD: Best Time to Call (Appears if Phone is selected) -->
+                            <div id="bestTimeWrapper" class="hidden p-5 rounded-2xl bg-rentbluelight/80 border border-rentblue/30 space-y-2 transition-all">
+                                <label for="bestTimeToCall" class="block text-xs font-bold uppercase tracking-wider text-rentblue">
+                                    🕒 Best Time to Call <span class="text-red-600">*</span>
                                 </label>
-                                <input type="text" id="bestTimeToCall" name="Best_Time_To_Call" placeholder="e.g., Tuesdays & Thursdays after 2:00 PM CST, or Friday mornings"
+                                <input type="text" id="bestTimeToCall" name="Best_Time_To_Call" placeholder="e.g., Weekdays after 3:00 PM CST, or Friday mornings"
                                     class="w-full px-4 py-3 rounded-xl bg-white border border-[#D5DFD7] text-sm text-textdark focus:outline-none focus:border-rentblue transition">
                             </div>
 
-                            <!-- 6. Requested Service Box with Example -->
+                            <!-- 6. Requested Service -->
                             <div>
                                 <label for="requestedService" class="block text-xs font-semibold uppercase tracking-wider text-textdark mb-1">
-                                    Requested Service & Practice Details <span class="text-red-600">*</span>
+                                    6. Requested Service <span class="text-red-600">*</span>
                                 </label>
-                                <p class="text-xs text-textdark/70 italic mb-2.5">
-                                    Example: &ldquo;I want to make a new website for my practice as an LPC.&rdquo;
-                                </p>
+                                <div class="mb-2.5 p-3 rounded-xl bg-[#EAEFE9]/70 border border-[#D5DFD7] text-xs text-textdark/80 flex items-center justify-between gap-2">
+                                    <span>💡 <em>Example: &ldquo;I want to make a new website for my practice as an LPC&rdquo;</em></span>
+                                    <button type="button" onclick="fillExampleText()" class="text-rentblue font-semibold hover:underline shrink-0 cursor-pointer">
+                                        Use Example
+                                    </button>
+                                </div>
                                 <textarea id="requestedService" name="Requested_Service" rows="4" required
-                                    placeholder="I want to make a new website for my practice as an LPC..."
-                                    class="w-full px-4 py-3 rounded-xl bg-[#EAEFE9]/60 border border-[#D5DFD7] text-sm text-textdark focus:outline-none focus:border-rentblue focus:bg-white transition"></textarea>
+                                    placeholder="Tell me a little about your practice and what you are looking for..."
+                                    class="w-full px-4 py-3.5 rounded-xl bg-[#EAEFE9]/50 border border-[#D5DFD7] text-sm text-textdark focus:outline-none focus:border-rentblue focus:bg-white transition"></textarea>
                             </div>
 
-                            <!-- Submit Button -->
+                            <!-- Send Button -->
                             <div class="pt-2">
                                 <button type="submit" id="submitFormBtn" class="w-full py-4 px-8 bg-rentblue hover:bg-[#2C6A90] text-white font-semibold rounded-xl transition duration-300 shadow-lg flex items-center justify-center gap-2 cursor-pointer">
-                                    <span id="submitBtnText">Send Request</span>
+                                    <span id="submitBtnText">Send</span>
                                     <span aria-hidden="true">&rarr;</span>
                                 </button>
                             </div>
                         </form>
 
-                        <!-- SUCCESS CONFIRMATION MESSAGE (Appears when form disappears) -->
-                        <div id="formSuccessMessage" class="hidden text-center py-10 space-y-4">
-                            <div class="w-14 h-14 rounded-full bg-boxgreen-100 text-boxgreen-700 mx-auto flex items-center justify-center text-2xl font-bold">
+                        <!-- SUCCESS MESSAGE WHEN FORM DISAPPEARS -->
+                        <div id="formSuccessMessage" class="hidden text-center py-12 space-y-4">
+                            <div class="w-16 h-16 rounded-full bg-boxgreen-100 text-boxgreen-700 mx-auto flex items-center justify-center text-3xl font-bold shadow-sm">
                                 ✓
                             </div>
-                            <h3 class="font-serif text-3xl text-textdark">Thank You — Your Request Has Been Sent!</h3>
+                            <h3 class="font-serif text-3xl text-textdark">Your Request Has Been Sent!</h3>
                             <p class="text-sm text-textdark/80 max-w-md mx-auto leading-relaxed">
-                                Your practice details have been delivered to Jesse (<strong class="text-textdark">xjessejohnson@gmail.com</strong>). I will review your notes and reach out via your preferred contact method shortly.
+                                Thank you for sharing your practice details. I have received your information and will reach out to you shortly via your preferred contact method.
                             </p>
                             <div class="pt-4">
                                 <a href="portfolio.html" class="inline-block px-6 py-3 bg-[#EAEFE9] hover:bg-[#D5DFD7] text-textdark text-xs font-semibold uppercase tracking-wider rounded-xl transition">
-                                    Explore Example Designs While You Wait &rarr;
+                                    Browse Example Designs &rarr;
                                 </a>
                             </div>
                         </div>
@@ -250,27 +299,123 @@
                     </div>
                 </div>
 
-                <!-- EXPANDABLE RIGHT OPTION: SCHEDULE A 15-MIN CALL -->
+                <!-- ========================================== -->
+                <!-- RIGHT WORKFLOW: 15-MINUTE DISCOVERY CALL   -->
+                <!-- ========================================== -->
                 <div id="scheduleCallContainer" class="hidden pt-4">
-                    <div class="glass-panel p-8 sm:p-10 rounded-3xl max-w-3xl mx-auto border border-boxgreen-600/40 bg-white/90 text-center space-y-6">
-                        <span class="px-3 py-1 bg-boxgreen-100 text-boxgreen-700 text-xs font-bold uppercase tracking-wider rounded-full">
-                            15-Minute Discovery Call
-                        </span>
-                        <h3 class="font-serif text-2xl sm:text-3xl text-textdark">
-                            Book Your 15-Minute Consultation
-                        </h3>
-                        <p class="text-sm text-textdark/80 max-w-xl mx-auto font-light leading-relaxed">
-                            Pick a convenient time slot below, or click to email me 2–3 times that work best for your clinical schedule and I will send over a calendar invite immediately.
-                        </p>
-                        <div class="pt-2 flex flex-wrap justify-center gap-4">
-                            <a href="mailto:xjessejohnson@gmail.com?subject=15-Minute%20Website%20Consultation%20Request&body=Hi%20Jesse%2C%0A%0AI'd%20love%20to%20schedule%20a%2015-minute%20call%20to%20discuss%20a%20website%20for%20my%20practice.%0A%0AHere%20are%20a%20few%20days%2Ftimes%20that%20work%20well%20for%20me%3A%0A-%20%0A-%20%0A%0AMy%20Phone%20Number%3A%20"
-                                class="px-8 py-4 bg-boxgreen-600 hover:bg-boxgreen-700 text-white font-semibold rounded-xl transition duration-300 shadow-md">
-                                Request a 15-Min Call via Email &rarr;
-                            </a>
-                            <button type="button" onclick="openFormSection()" class="px-6 py-4 bg-[#EAEFE9] hover:bg-[#D5DFD7] text-textdark text-sm font-medium rounded-xl transition cursor-pointer">
-                                Or Fill Out the 2-Min Form Instead
-                            </button>
+                    <div class="glass-panel p-8 sm:p-10 rounded-3xl glow-custom max-w-3xl mx-auto border-2 border-boxgreen-600/40 bg-white/95">
+                        
+                        <div id="callHeaderBlock" class="border-b border-[#D5DFD7] pb-6 mb-8 flex flex-wrap justify-between items-center gap-4">
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-boxgreen-700 block mb-1">15-Minute Discovery Call</span>
+                                <h3 class="font-serif text-2xl sm:text-3xl text-textdark">Pick Your Date & Time (CST)</h3>
+                            </div>
+                            <span class="px-3 py-1 bg-boxgreen-50 text-boxgreen-700 text-xs font-semibold rounded-lg border border-boxgreen-200">
+                                9:00 AM – 5:00 PM CST
+                            </span>
                         </div>
+
+                        <form id="discoveryCallForm" onsubmit="handleCallSubmit(event)" class="space-y-6">
+                            <input type="hidden" name="_subject" value="New 15-Minute Discovery Call Scheduled!">
+                            <input type="hidden" name="_captcha" value="false">
+
+                            <!-- Phone Number Input -->
+                            <div>
+                                <label for="callPhoneNumber" class="block text-xs font-semibold uppercase tracking-wider text-textdark mb-2">
+                                    Your Phone Number for the Call <span class="text-red-600">*</span>
+                                </label>
+                                <input type="tel" id="callPhoneNumber" name="Phone_Number" required placeholder="(555) 234-5678" oninput="formatPhoneNumber(this)"
+                                    class="w-full px-4 py-3.5 rounded-xl bg-[#EAEFE9]/50 border border-[#D5DFD7] text-sm text-textdark focus:outline-none focus:border-boxgreen-600 focus:bg-white transition">
+                            </div>
+
+                            <!-- TWO DROPDOWNS SIDE BY SIDE: DATE & TIME -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                
+                                <!-- Left Dropdown: Dynamic Date (1 Month Out, Today/Sundays/Holidays Greyed Out) -->
+                                <div>
+                                    <label for="callDateSelect" class="block text-xs font-semibold uppercase tracking-wider text-textdark mb-2">
+                                        Select Date <span class="text-red-600">*</span>
+                                    </label>
+                                    <select id="callDateSelect" name="Requested_Date" required onchange="updateCallPreview()"
+                                        class="w-full px-4 py-3.5 rounded-xl bg-[#EAEFE9]/50 border border-[#D5DFD7] text-sm text-textdark focus:outline-none focus:border-boxgreen-600 focus:bg-white transition cursor-pointer">
+                                        <!-- Dynamically populated via JS starting with Today (greyed out) for 1 month -->
+                                    </select>
+                                    <span class="block text-[11px] text-textdark/60 mt-1.5">
+                                        *Same-day, Sundays, and holidays are unavailable.
+                                    </span>
+                                </div>
+
+                                <!-- Right Dropdown: Time (9am CST to 5pm CST active, outside hours greyed out) -->
+                                <div>
+                                    <label for="callTimeSelect" class="block text-xs font-semibold uppercase tracking-wider text-textdark mb-2">
+                                        Select Time (CST) <span class="text-red-600">*</span>
+                                    </label>
+                                    <select id="callTimeSelect" name="Requested_Time_CST" required onchange="updateCallPreview()"
+                                        class="w-full px-4 py-3.5 rounded-xl bg-[#EAEFE9]/50 border border-[#D5DFD7] text-sm text-textdark focus:outline-none focus:border-boxgreen-600 focus:bg-white transition cursor-pointer">
+                                        <option value="" disabled selected>Choose a time slot...</option>
+                                        <!-- Greyed Out Early Hours -->
+                                        <option value="7:00 AM CST" disabled>7:00 AM CST (Closed)</option>
+                                        <option value="7:30 AM CST" disabled>7:30 AM CST (Closed)</option>
+                                        <option value="8:00 AM CST" disabled>8:00 AM CST (Closed)</option>
+                                        <option value="8:30 AM CST" disabled>8:30 AM CST (Closed)</option>
+                                        <!-- Active Hours: 9:00 AM CST to 5:00 PM CST -->
+                                        <option value="9:00 AM CST">9:00 AM CST</option>
+                                        <option value="9:30 AM CST">9:30 AM CST</option>
+                                        <option value="10:00 AM CST">10:00 AM CST</option>
+                                        <option value="10:30 AM CST">10:30 AM CST</option>
+                                        <option value="11:00 AM CST">11:00 AM CST</option>
+                                        <option value="11:30 AM CST">11:30 AM CST</option>
+                                        <option value="12:00 PM CST">12:00 PM CST</option>
+                                        <option value="12:30 PM CST">12:30 PM CST</option>
+                                        <option value="1:00 PM CST">1:00 PM CST</option>
+                                        <option value="1:30 PM CST">1:30 PM CST</option>
+                                        <option value="2:00 PM CST">2:00 PM CST</option>
+                                        <option value="2:30 PM CST">2:30 PM CST</option>
+                                        <option value="3:00 PM CST">3:00 PM CST</option>
+                                        <option value="3:30 PM CST">3:30 PM CST</option>
+                                        <option value="4:00 PM CST">4:00 PM CST</option>
+                                        <option value="4:30 PM CST">4:30 PM CST</option>
+                                        <option value="5:00 PM CST">5:00 PM CST</option>
+                                        <!-- Greyed Out Evening Hours -->
+                                        <option value="5:30 PM CST" disabled>5:30 PM CST (Closed)</option>
+                                        <option value="6:00 PM CST" disabled>6:00 PM CST (Closed)</option>
+                                        <option value="6:30 PM CST" disabled>6:30 PM CST (Closed)</option>
+                                        <option value="7:00 PM CST" disabled>7:00 PM CST (Closed)</option>
+                                    </select>
+                                    <span class="block text-[11px] text-textdark/60 mt-1.5">
+                                        *All times listed in Central Standard Time (CST).
+                                    </span>
+                                </div>
+
+                            </div>
+
+                            <!-- Live Interactive Appointment Summary Pill -->
+                            <div id="callSummaryPill" class="hidden p-4 rounded-2xl bg-boxgreen-50 border border-boxgreen-200 flex items-center justify-between text-xs text-boxgreen-700 font-medium">
+                                <span id="callSummaryText">Selected Slot: —</span>
+                                <span class="font-bold uppercase tracking-wider">15-Min Call</span>
+                            </div>
+
+                            <!-- Send / Confirm Call Button -->
+                            <div class="pt-2">
+                                <button type="submit" id="submitCallBtn" class="w-full py-4 px-8 bg-boxgreen-600 hover:bg-boxgreen-700 text-white font-semibold rounded-xl transition duration-300 shadow-lg flex items-center justify-center gap-2 cursor-pointer">
+                                    <span id="submitCallBtnText">Send Call Request</span>
+                                    <span aria-hidden="true">&rarr;</span>
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- SUCCESS MESSAGE WHEN CALL FORM DISAPPEARS -->
+                        <div id="callSuccessMessage" class="hidden text-center py-12 space-y-4">
+                            <div class="w-16 h-16 rounded-full bg-boxgreen-100 text-boxgreen-700 mx-auto flex items-center justify-center text-3xl font-bold shadow-sm">
+                                ✓
+                            </div>
+                            <h3 class="font-serif text-3xl text-textdark">Your 15-Minute Call Request Is Confirmed!</h3>
+                            <p id="confirmedSlotDetails" class="text-sm font-medium text-boxgreen-700"></p>
+                            <p class="text-sm text-textdark/80 max-w-md mx-auto leading-relaxed">
+                                Thank you! I have received your preferred date, time, and phone number and will reach out to you as scheduled.
+                            </p>
+                        </div>
+
                     </div>
                 </div>
 
@@ -292,32 +437,152 @@
         </div>
     </footer>
 
-    <!-- INTERACTIVE FORM LOGIC -->
+    <!-- DYNAMIC CALENDAR & FORM SCRIPT -->
     <script>
+        // 1. Format Date as "Wednesday 11/4/2026"
+        function formatCustomDate(dateObj) {
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const dayName = days[dateObj.getDay()];
+            const month = dateObj.getMonth() + 1;
+            const dayNum = dateObj.getDate();
+            const year = dateObj.getFullYear();
+            return `${dayName} ${month}/${dayNum}/${year}`;
+        }
+
+        // 2. Detect Federal & Major US Holidays (Fixed + Floating)
+        function getHolidayName(dateObj) {
+            const m = dateObj.getMonth() + 1; // 1-12
+            const d = dateObj.getDate();
+            const w = dateObj.getDay(); // 0=Sun, 1=Mon, ..., 4=Thu, 5=Fri
+
+            // Fixed-date holidays
+            if (m === 1 && d === 1) return "New Year's Day";
+            if (m === 6 && d === 19) return "Juneteenth";
+            if (m === 7 && d === 4) return "Independence Day";
+            if (m === 11 && d === 11) return "Veterans Day";
+            if (m === 12 && d === 24) return "Christmas Eve";
+            if (m === 12 && d === 25) return "Christmas Day";
+            if (m === 12 && d === 31) return "New Year's Eve";
+
+            // Floating holidays
+            // MLK Day: 3rd Monday in January
+            if (m === 1 && w === 1 && d >= 15 && d <= 21) return "MLK Jr. Day";
+            // Presidents' Day: 3rd Monday in February
+            if (m === 2 && w === 1 && d >= 15 && d <= 21) return "Presidents' Day";
+            // Memorial Day: Last Monday in May
+            if (m === 5 && w === 1 && d >= 25) return "Memorial Day";
+            // Labor Day: 1st Monday in September
+            if (m === 9 && w === 1 && d <= 7) return "Labor Day";
+            // Indigenous Peoples' / Columbus Day: 2nd Monday in October
+            if (m === 10 && w === 1 && d >= 8 && d <= 14) return "Holiday";
+            // Thanksgiving: 4th Thursday in November
+            if (m === 11 && w === 4 && d >= 22 && d <= 28) return "Thanksgiving Day";
+            // Day after Thanksgiving (Black Friday): Friday after 4th Thursday
+            if (m === 11 && w === 5 && d >= 23 && d <= 29) return "Thanksgiving Holiday";
+
+            return null;
+        }
+
+        // 3. Populate 1-Month Rolling Date Dropdown on Load
+        function initDynamicDateDropdown() {
+            const selectEl = document.getElementById('callDateSelect');
+            if (!selectEl) return;
+            selectEl.innerHTML = '';
+
+            // Pull current live date
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            // Calculate exact date 1 month from today
+            const oneMonthLater = new Date(today);
+            oneMonthLater.setMonth(today.getMonth() + 1);
+
+            let cursor = new Date(today);
+            let isFirstDay = true;
+
+            while (cursor <= oneMonthLater) {
+                const formatted = formatCustomDate(cursor);
+                const opt = document.createElement('option');
+                opt.value = formatted;
+
+                const holiday = getHolidayName(cursor);
+                const isSunday = cursor.getDay() === 0;
+
+                if (isFirstDay) {
+                    // First date is ALWAYS current date, greyed out and unselectable
+                    opt.textContent = `${formatted} (Today — Unavailable)`;
+                    opt.disabled = true;
+                    opt.selected = true;
+                    isFirstDay = false;
+                } else if (isSunday) {
+                    opt.textContent = `${formatted} (Sunday — Closed)`;
+                    opt.disabled = true;
+                } else if (holiday) {
+                    opt.textContent = `${formatted} (${holiday} — Closed)`;
+                    opt.disabled = true;
+                } else {
+                    opt.textContent = formatted;
+                }
+
+                selectEl.appendChild(opt);
+                cursor.setDate(cursor.getDate() + 1);
+            }
+        }
+
+        // 4. Phone Number Auto-Formatter: (555) 234-5678
+        function formatPhoneNumber(input) {
+            const digits = input.value.replace(/\D/g, '').substring(0, 10);
+            const area = digits.substring(0, 3);
+            const middle = digits.substring(3, 6);
+            const last = digits.substring(6, 10);
+
+            if (digits.length > 6) {
+                input.value = `(${area}) ${middle}-${last}`;
+            } else if (digits.length > 3) {
+                input.value = `(${area}) ${middle}`;
+            } else if (digits.length > 0) {
+                input.value = `(${area}`;
+            }
+        }
+
+        // 5. Toggle Left vs Right Option Containers
         function openFormSection() {
             const formContainer = document.getElementById('intakeFormContainer');
             const callContainer = document.getElementById('scheduleCallContainer');
+            const formCard = document.getElementById('optionFormCard');
+            const callCard = document.getElementById('optionCallCard');
+
             callContainer.classList.add('hidden');
             formContainer.classList.remove('hidden');
+            formCard.classList.add('option-card-active');
+            callCard.classList.remove('call-card-active');
+
             formContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         function openCallSection() {
             const formContainer = document.getElementById('intakeFormContainer');
             const callContainer = document.getElementById('scheduleCallContainer');
+            const formCard = document.getElementById('optionFormCard');
+            const callCard = document.getElementById('optionCallCard');
+
             formContainer.classList.add('hidden');
             callContainer.classList.remove('hidden');
+            callCard.classList.add('call-card-active');
+            formCard.classList.remove('option-card-active');
+
             callContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        function toggleBestTimeBox() {
-            const method = document.getElementById('contactMethod').value;
+        // 6. Show/Hide "Best Time to Call" Box in 2-Minute Form
+        function toggleBestTimeBox(selectedMethod) {
             const timeWrapper = document.getElementById('bestTimeWrapper');
             const timeInput = document.getElementById('bestTimeToCall');
 
-            if (method === 'Phone') {
+            if (selectedMethod === 'Phone') {
                 timeWrapper.classList.remove('hidden');
                 timeInput.setAttribute('required', 'required');
+                timeInput.focus();
             } else {
                 timeWrapper.classList.add('hidden');
                 timeInput.removeAttribute('required');
@@ -325,7 +590,28 @@
             }
         }
 
-        async function handleFormSubmit(event) {
+        // 7. Quick-Fill Example Text Button
+        function fillExampleText() {
+            const box = document.getElementById('requestedService');
+            box.value = "I want to make a new website for my practice as an LPC.";
+            box.focus();
+        }
+
+        // 8. Live Call Slot Preview
+        function updateCallPreview() {
+            const dateVal = document.getElementById('callDateSelect').value;
+            const timeVal = document.getElementById('callTimeSelect').value;
+            const pill = document.getElementById('callSummaryPill');
+            const text = document.getElementById('callSummaryText');
+
+            if (dateVal && timeVal) {
+                pill.classList.remove('hidden');
+                text.textContent = `📅 ${dateVal} at ${timeVal}`;
+            }
+        }
+
+        // 9. Submit 2-Minute Form
+        async function handleIntakeSubmit(event) {
             event.preventDefault();
             const form = document.getElementById('practiceIntakeForm');
             const headerBlock = document.getElementById('formHeaderBlock');
@@ -337,23 +623,66 @@
             submitBtn.disabled = true;
 
             const formData = new FormData(form);
+            const targetEndpoint = ['https://formsubmit.co/ajax/', 'xjessejohnson', '@', 'gmail.com'].join('');
 
             try {
-                // Sends directly to xjessejohnson@gmail.com via FormSubmit AJAX
-                await fetch('https://formsubmit.co/ajax/xjessejohnson@gmail.com', {
+                await fetch(targetEndpoint, {
                     method: 'POST',
                     headers: { 'Accept': 'application/json' },
                     body: formData
                 });
-            } catch (err) {
-                // Fallback continues gracefully
-            }
+            } catch (err) {}
 
-            // Hide the form and header, reveal confirmation screen
             form.classList.add('hidden');
             headerBlock.classList.add('hidden');
             successMessage.classList.remove('hidden');
         }
+
+        // 10. Submit 15-Minute Discovery Call Form
+        async function handleCallSubmit(event) {
+            event.preventDefault();
+            const dateSelect = document.getElementById('callDateSelect');
+            const timeSelect = document.getElementById('callTimeSelect');
+
+            // Ensure a valid non-disabled date and time are picked
+            if (dateSelect.selectedIndex <= 0 || dateSelect.options[dateSelect.selectedIndex].disabled) {
+                alert('Please select an available date from the dropdown.');
+                return;
+            }
+            if (!timeSelect.value) {
+                alert('Please select an available time slot between 9:00 AM and 5:00 PM CST.');
+                return;
+            }
+
+            const form = document.getElementById('discoveryCallForm');
+            const headerBlock = document.getElementById('callHeaderBlock');
+            const successMessage = document.getElementById('callSuccessMessage');
+            const confirmedDetails = document.getElementById('confirmedSlotDetails');
+            const submitBtnText = document.getElementById('submitCallBtnText');
+            const submitBtn = document.getElementById('submitCallBtn');
+
+            submitBtnText.textContent = 'Scheduling...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+            const targetEndpoint = ['https://formsubmit.co/ajax/', 'xjessejohnson', '@', 'gmail.com'].join('');
+
+            try {
+                await fetch(targetEndpoint, {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json' },
+                    body: formData
+                });
+            } catch (err) {}
+
+            confirmedDetails.textContent = `${dateSelect.value} at ${timeSelect.value}`;
+            form.classList.add('hidden');
+            headerBlock.classList.add('hidden');
+            successMessage.classList.remove('hidden');
+        }
+
+        // Initialize dynamic calendar on page load
+        document.addEventListener('DOMContentLoaded', initDynamicDateDropdown);
     </script>
 </body>
 </html>
