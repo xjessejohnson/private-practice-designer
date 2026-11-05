@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redesign Existing Site | Live Before &amp; After Comparison | Private Practice Designer</title>
-    <meta name="description" content="Have an outdated or expensive subscription therapy website? Click into our live Before & After comparison to see how we transform existing practice sites with $0/month hosting.">
+    <title>Redesign Existing Site | Live Old Way vs. New Way Demo | Private Practice Designer</title>
+    <meta name="description" content="Experience a typical stretched, cluttered counseling website ('Old Way Counseling') and click the toggle button to instantly transform it into a modern Private Practice Designer site.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +15,179 @@
     <link href="/output.css" rel="stylesheet">
 
     <style>
-        /* Bulletproof Floating Consent Bar Styling */
+        /* ========================================================= */
+        /* SWAPPABLE MODE BAR (PINNED BELOW YOUR MAIN HEADER)        */
+        /* ========================================================= */
+        .mode-switcher-bar {
+            position: sticky;
+            top: 80px;
+            z-index: 45;
+            background-color: #222A24;
+            color: #ffffff;
+            border-bottom: 3px solid #3A86B2;
+            padding: 12px 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+        .swap-pill-container {
+            display: inline-flex;
+            background-color: #141915;
+            padding: 5px;
+            border-radius: 14px;
+            border: 1px solid #3A423C;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .swap-btn-active-old {
+            background-color: #b91c1c;
+            color: #ffffff;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: default;
+        }
+        .swap-btn-Action-new {
+            background-color: #3A6B47;
+            color: #ffffff;
+            padding: 10px 22px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 14px rgba(58, 107, 71, 0.4);
+        }
+        .swap-btn-Action-new:hover {
+            background-color: #2C5236;
+            transform: translateY(-1px);
+        }
+
+        /* ========================================================= */
+        /* INTENTIONALLY STRETCHED "OLD WAY COUNSELING" STYLES       */
+        /* (Replicates full-width 100% stretched counseling sites)   */
+        /* ========================================================= */
+        .old-site-wrapper {
+            font-family: Arial, Helvetica, sans-serif !important;
+            background-color: #ffffff !important;
+            color: #222222 !important;
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        .old-full-bleed {
+            width: 100% !important;
+            padding-left: 18px !important;
+            padding-right: 18px !important;
+            box-sizing: border-box !important;
+        }
+        .old-top-utility {
+            background-color: #0d2c54;
+            color: #ffffff;
+            padding: 10px 18px;
+            font-size: 14px;
+            border-bottom: 3px solid #eab308;
+        }
+        .old-crowded-nav {
+            background-color: #16437e;
+            color: #ffffff;
+            padding: 14px 18px;
+            font-size: 13px;
+            line-height: 1.9;
+            border-bottom: 1px solid #0d2c54;
+        }
+        .old-crowded-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-right: 12px;
+            white-space: nowrap;
+        }
+        .old-crowded-nav a:hover {
+            text-decoration: underline;
+        }
+        .old-hero-banner {
+            background: linear-gradient(180deg, #e5e7eb 0%, #d1d5db 100%);
+            padding: 36px 18px;
+            border-bottom: 2px solid #9ca3af;
+            text-align: center;
+        }
+        .old-broken-video {
+            width: 100%;
+            background-color: #000000;
+            color: #f87171;
+            padding: 75px 20px;
+            margin: 20px 0;
+            border: 3px solid #4b5563;
+            font-family: monospace;
+            font-size: 15px;
+            text-align: center;
+        }
+        .old-stretched-text {
+            width: 100%;
+            padding: 28px 18px;
+            font-size: 16px;
+            line-height: 1.65;
+            color: #333333;
+        }
+        .old-stretched-text p {
+            margin-bottom: 18px;
+            max-width: none !important; /* Forces text to stretch 100% across monitor */
+        }
+        .old-service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 10px;
+            width: 100%;
+            padding: 20px 18px;
+        }
+        .old-service-tile {
+            background-color: #1e4d8c;
+            color: #ffffff;
+            padding: 34px 12px;
+            text-align: center;
+            border: 2px solid #0d2c54;
+        }
+        .old-counselor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 14px;
+            width: 100%;
+            padding: 20px 18px;
+        }
+        .old-counselor-tile {
+            border: 1px solid #cccccc;
+            background-color: #f8fafc;
+            padding: 20px 14px;
+            text-align: center;
+        }
+        .old-avatar-placeholder {
+            width: 90px;
+            height: 90px;
+            background-color: #cbd5e1;
+            border-radius: 50%;
+            margin: 0 auto 12px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #475569;
+            font-size: 20px;
+        }
+        .old-review-wall {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 12px;
+            width: 100%;
+            padding: 20px 18px;
+        }
+        .old-review-box {
+            background-color: #ffffff;
+            border: 1px solid #d1d5db;
+            padding: 16px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Floating Consent Bar */
         .consent-floating-bar {
             position: fixed;
             bottom: 0;
@@ -47,22 +219,18 @@
             color: #ffffff;
             border: 2px solid #C8D3CA;
         }
-        .consent-btn-decline:hover {
-            background-color: #3A423C;
-        }
         .consent-btn-accept {
             background-color: #3A86B2;
             color: #ffffff;
             border: 2px solid #3A86B2;
         }
-        .consent-btn-accept:hover {
-            background-color: #2C6A90;
-        }
     </style>
 </head>
 <body class="antialiased selection:bg-rentblue selection:text-white bg-[#EAEFE9] text-[#2B302C] font-sans overflow-x-hidden">
 
-    <!-- MAIN NAVIGATION (MOBILE-OPTIMIZED, NO TOP BAR, NO OVERLAP) -->
+    <!-- ========================================================= -->
+    <!-- 1. YOUR PRIVATE PRACTICE DESIGNER HEADER (STAYS AT TOP)   -->
+    <!-- ========================================================= -->
     <header class="sticky top-0 z-50 bg-[#EAEFE9]/95 backdrop-blur-xl border-b border-[#D5DFD7]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-2">
             
@@ -100,209 +268,288 @@
         </div>
     </header>
 
-    <main>
-        <!-- HERO HEADER -->
-        <section class="relative pt-10 pb-12 lg:pt-16 lg:pb-14">
-            <div class="max-w-4xl mx-auto px-6 text-center space-y-4">
-                <span class="inline-block px-4 py-1.5 bg-rentbluelight text-rentblue text-sm font-bold uppercase tracking-wider rounded-full border border-rentblue/20">
-                    Interactive Before &amp; After Transformation
-                </span>
-                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal leading-[1.12] text-textdark">
-                    See how we transform an <span class="italic text-rentblue font-light">outdated practice site</span>.
-                </h1>
-                <p class="text-lg sm:text-xl text-textdark/85 font-normal leading-relaxed max-w-3xl mx-auto">
-                    Already have a practice website that feels cluttered, outdated, or locks you into a $99+/month bill? Click into both live websites below—built using the exact same counseling practice details, 12 specialties, and 13 therapists—to experience the difference firsthand.
+    <!-- ========================================================= -->
+    <!-- 2. SWAPPABLE LIVE COMPARISON BAR (TYPICAL WIX VS NEW WAY) -->
+    <!-- ========================================================= -->
+    <div class="mode-switcher-bar">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+            <div class="space-y-0.5">
+                <span class="text-xs font-bold uppercase tracking-wider text-[#C8D3CA] block">Interactive Redesign Showcase</span>
+                <p class="text-sm sm:text-base font-medium text-white">
+                    Below is a real-world example of a stretched, cluttered counseling site. Click the green button to transform it!
                 </p>
             </div>
-        </section>
+            <div class="swap-pill-container">
+                <span class="swap-btn-active-old">
+                    😞 Typical Wix / Old Agency Site (Viewing)
+                </span>
+                <a href="new-way-counseling.html" class="swap-btn-Action-new">
+                    ✨ Click to Swap to &ldquo;New Way Counseling&rdquo; Redesign &rarr;
+                </a>
+            </div>
+        </div>
+    </div>
 
-        <!-- SIDE-BY-SIDE CLICKABLE LIVE COMPARISON -->
-        <section class="pb-20 max-w-7xl mx-auto px-6">
-            <div class="glass-panel p-6 sm:p-10 rounded-3xl glow-custom bg-white border-2 border-[#D5DFD7] space-y-8">
-                
-                <div class="flex flex-wrap items-center justify-between gap-4 border-b border-[#D5DFD7] pb-5">
-                    <div>
-                        <span class="text-sm font-bold uppercase tracking-wider text-rentblue block">Live Interactive Demo</span>
-                        <h2 class="font-serif text-2xl sm:text-3xl text-textdark">Click Either Website Below to Open &amp; Explore It</h2>
-                    </div>
-                    <span class="px-4 py-2 bg-[#222A24] text-white text-sm font-semibold rounded-full">
-                        Same Practice Content • Completely Different Client Experience
-                    </span>
+    <!-- ========================================================= -->
+    <!-- 3. THE FULL-WIDTH STRETCHED "OLD WAY COUNSELING" WEBSITE  -->
+    <!-- ========================================================= -->
+    <div class="old-site-wrapper">
+        
+        <!-- Top Utility Banner (Stretched 100% Width) -->
+        <div class="old-top-utility">
+            <div class="flex flex-wrap justify-between items-center gap-2">
+                <div>
+                    <strong>Marriage &amp; Family Counselors Oklahoma City OK - Christian Counseling Therapists</strong>
                 </div>
-
-                <!-- 2 COMPARISON CARDS -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-                    
-                    <!-- LEFT CARD: OLD WAY COUNSELING -->
-                    <a href="old-way-counseling.html" target="_blank" class="group flex flex-col justify-between rounded-2xl border-2 border-red-300 bg-red-50/40 hover:bg-red-50/70 transition-all duration-300 overflow-hidden shadow-sm hover:shadow-xl">
-                        <div>
-                            <!-- Browser Bar -->
-                            <div class="bg-red-800 text-white px-5 py-3 flex items-center justify-between text-sm">
-                                <span class="font-semibold">😞 Before: Outdated Website</span>
-                                <span class="px-2.5 py-0.5 bg-red-900 text-white font-bold uppercase text-xs rounded">The Old Way</span>
-                            </div>
-
-                            <!-- Visual Wireframe Preview -->
-                            <div class="p-6 bg-white border-b border-red-200 space-y-3">
-                                <div class="bg-[#1a3c6e] text-white p-2.5 text-xs font-bold text-center uppercase tracking-tight">
-                                    Home | 12 Crowded Service Links | Counselors | Success Stories | Blog | Get Started
-                                </div>
-                                <div class="p-4 bg-gray-100 border border-gray-300 text-center space-y-2">
-                                    <span class="text-xs font-bold text-[#1a3c6e] uppercase">#1 Rated Counseling Practice</span>
-                                    <h3 class="font-sans text-lg font-extrabold text-gray-900 uppercase">Old Way Counseling &amp; Consulting</h3>
-                                    <div class="bg-black text-red-300 text-xs py-3 px-2 font-mono">
-                                        [Broken Video Embed / Stretched Edge-to-Edge Text]
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-4 gap-1.5 text-xs text-center font-bold text-white">
-                                    <div class="bg-[#1a3c6e] py-2">ANXIETY</div>
-                                    <div class="bg-[#1a3c6e] py-2">MARRIAGE</div>
-                                    <div class="bg-[#1a3c6e] py-2">TRAUMA</div>
-                                    <div class="bg-[#1a3c6e] py-2">DEPRESSION</div>
-                                </div>
-                            </div>
-
-                            <!-- Critique Points (16px Base Text) -->
-                            <div class="p-6 space-y-4">
-                                <div>
-                                    <span class="text-sm font-bold uppercase tracking-wider text-red-700">What Pushes Clients Away</span>
-                                    <h4 class="font-serif text-2xl sm:text-3xl text-textdark mt-1">Old Way Counseling</h4>
-                                </div>
-                                <ul class="space-y-3 text-base text-textdark/90">
-                                    <li class="flex items-start gap-2.5">
-                                        <span class="text-red-700 font-bold">•</span>
-                                        <span><strong>Stretched Full-Width Text:</strong> Paragraphs span from edge to edge with no margins, causing immediate eye fatigue.</span>
-                                    </li>
-                                    <li class="flex items-start gap-2.5">
-                                        <span class="text-red-700 font-bold">•</span>
-                                        <span><strong>Overwhelming Clutter:</strong> 12 repetitive blue boxes, broken video players, and 13 counselors stacked in an unfiltered wall.</span>
-                                    </li>
-                                    <li class="flex items-start gap-2.5">
-                                        <span class="text-red-700 font-bold">•</span>
-                                        <span><strong>Perpetual Monthly Rent:</strong> Locked into paying $85–$129+/month forever just to keep an outdated site online.</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="p-6 pt-0">
-                            <span class="w-full py-4 px-6 bg-red-700 hover:bg-red-800 text-white font-semibold text-base rounded-xl transition flex items-center justify-center gap-2 shadow-md">
-                                <span>Click to Open &ldquo;Old Way Counseling&rdquo; Demo</span>
-                                <span aria-hidden="true">↗</span>
-                            </span>
-                        </div>
-                    </a>
-
-                    <!-- RIGHT CARD: NEW WAY COUNSELING -->
-                    <a href="new-way-counseling.html" target="_blank" class="group flex flex-col justify-between rounded-2xl border-2 border-boxgreen-600 bg-boxgreen-50/60 hover:bg-boxgreen-100/70 transition-all duration-300 overflow-hidden shadow-md hover:shadow-xl">
-                        <div>
-                            <!-- Browser Bar -->
-                            <div class="bg-[#222A24] text-white px-5 py-3 flex items-center justify-between text-sm">
-                                <span class="font-semibold">😊 After: Private Practice Designer</span>
-                                <span class="px-2.5 py-0.5 bg-boxgreen-600 text-white font-bold uppercase text-xs rounded">Our Custom Revamp</span>
-                            </div>
-
-                            <!-- Visual Wireframe Preview -->
-                            <div class="p-6 bg-[#EAEFE9] border-b border-boxgreen-200 space-y-3">
-                                <div class="flex justify-between items-center bg-white px-3.5 py-2.5 rounded-lg border border-[#D5DFD7] text-xs">
-                                    <span class="font-serif font-bold text-textdark text-sm">New Way Counseling</span>
-                                    <span class="px-2.5 py-1 bg-rentblue text-white rounded font-semibold">Match With a Therapist &rarr;</span>
-                                </div>
-                                <div class="p-4 bg-white rounded-xl border border-[#D5DFD7] space-y-1.5 text-left">
-                                    <span class="text-xs font-bold uppercase tracking-wider text-rentblue block">30+ Years of Compassionate Care</span>
-                                    <h3 class="font-serif text-lg text-textdark leading-snug">Whatever you’re facing, you don’t have to carry it alone.</h3>
-                                    <p class="text-xs text-textdark/80">Interactive 13-clinician specialty filter &amp; calm 3-pathway care layout.</p>
-                                </div>
-                                <div class="grid grid-cols-4 gap-1.5 text-xs text-center font-semibold text-boxgreen-700">
-                                    <div class="bg-boxgreen-100 border border-boxgreen-200 py-2 rounded">Marriage</div>
-                                    <div class="bg-boxgreen-100 border border-boxgreen-200 py-2 rounded">Anxiety/EMDR</div>
-                                    <div class="bg-boxgreen-100 border border-boxgreen-200 py-2 rounded">Family</div>
-                                    <div class="bg-boxgreen-100 border border-boxgreen-200 py-2 rounded">13 Clinicians</div>
-                                </div>
-                            </div>
-
-                            <!-- Revamp Highlights (16px Base Text) -->
-                            <div class="p-6 space-y-4">
-                                <div>
-                                    <span class="text-sm font-bold uppercase tracking-wider text-boxgreen-700">What Draws Clients In</span>
-                                    <h4 class="font-serif text-2xl sm:text-3xl text-textdark mt-1">New Way Counseling</h4>
-                                </div>
-                                <ul class="space-y-3 text-base text-textdark/90">
-                                    <li class="flex items-start gap-2.5">
-                                        <span class="text-boxgreen-700 font-bold">✓</span>
-                                        <span><strong>Calm, Grounded Readability:</strong> Soothing colors, balanced margins, and warm typography that lowers client anxiety.</span>
-                                    </li>
-                                    <li class="flex items-start gap-2.5">
-                                        <span class="text-boxgreen-700 font-bold">✓</span>
-                                        <span><strong>Interactive Therapist Filter:</strong> Visitors filter all 13 clinicians by Marriage, Anxiety/Trauma, or LPC-S in one click.</span>
-                                    </li>
-                                    <li class="flex items-start gap-2.5">
-                                        <span class="text-boxgreen-700 font-bold">✓</span>
-                                        <span><strong>$0/Month Ownership:</strong> We migrate your existing domain and content so you never pay monthly website rent again.</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="p-6 pt-0">
-                            <span class="w-full py-4 px-6 bg-boxgreen-600 group-hover:bg-boxgreen-700 text-white font-semibold text-base rounded-xl transition flex items-center justify-center gap-2 shadow-lg">
-                                <span>Click to Open &ldquo;New Way Counseling&rdquo; Revamp</span>
-                                <span aria-hidden="true">↗</span>
-                            </span>
-                        </div>
-                    </a>
-
+                <div>
+                    <span>#1 rated counseling practice in Oklahoma | Whatever you're facing, we are here for you Call <strong>(405) 921-7776</strong> Today.</span>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- HOW SEAMLESS REDESIGN MIGRATION WORKS -->
-        <section class="py-16 bg-white/60 border-y border-[#D5DFD7]">
-            <div class="max-w-7xl mx-auto px-6 space-y-10">
-                <div class="text-center max-w-2xl mx-auto space-y-2">
-                    <span class="text-sm font-bold uppercase tracking-widest text-rentblue">Zero Downtime Migration</span>
-                    <h2 class="font-serif text-3xl sm:text-4xl text-textdark">How We Upgrade Your Existing Website</h2>
-                    <p class="text-lg text-textdark/85">
-                        Keep your current web address and clinical bio—we handle the entire transition before you cancel your old subscription.
-                    </p>
+        <!-- Cluttered Brand Bar + Duplicated 18-Link Navigation -->
+        <div class="old-full-bleed py-4 bg-white border-b border-gray-300 flex flex-wrap justify-between items-center">
+            <div>
+                <h1 style="font-size: 28px; font-weight: 900; color: #0d2c54; text-transform: uppercase; margin: 0;">
+                    Old Way Counseling and Consulting
+                </h1>
+                <span style="font-size: 13px; color: #555555;">11209 N May Ave, Oklahoma City, OK 73120 • Accepting New Clients in OKC &amp; Edmond</span>
+            </div>
+            <div>
+                <a href="#old-contact" style="background-color: #d97706; color: white; padding: 12px 24px; font-weight: bold; text-transform: uppercase; display: inline-block;">
+                    Get Started
+                </a>
+            </div>
+        </div>
+
+        <!-- Crowded Multi-Row Menu Bar (Verbatim structure) -->
+        <div class="old-crowded-nav">
+            <strong>MENU:</strong>
+            <a href="#">Home</a>
+            <a href="#old-services">Services:</a>
+            <a href="#old-services">Counseling for Anxiety</a>
+            <a href="#old-services">Marriage Counseling</a>
+            <a href="#old-services">Premarital Counseling</a>
+            <a href="#old-services">Trauma Counseling</a>
+            <a href="#old-services">Depression</a>
+            <a href="#old-services">Business Coaching</a>
+            <a href="#old-services">Family Counseling</a>
+            <a href="#old-services">Conflict Resolution</a>
+            <a href="#old-services">Grief Counseling</a>
+            <a href="#old-services">Anger</a>
+            <a href="#old-services">Stress Management</a>
+            <a href="#old-services">Couples Counseling</a>
+            <a href="#old-counselors"><strong>Counselors</strong></a>
+            <a href="#old-stories"><strong>Success Stories</strong></a>
+            <a href="#old-contact">Employment &amp; Internship</a>
+            <a href="#old-contact">Blog</a>
+            <a href="#old-contact">Podcasts</a>
+            <a href="#old-contact" style="color: #fde047; font-weight: bold; text-decoration: underline;">Get Started</a>
+        </div>
+
+        <!-- Stretched Full-Width Hero Section with Broken Video Player -->
+        <div class="old-hero-banner">
+            <h2 style="font-size: 32px; font-weight: 800; color: #0d2c54; text-transform: uppercase; margin-bottom: 8px;">
+                Marriage &amp; Family Therapy – Christian Counseling Oklahoma City
+            </h2>
+            <p style="font-size: 20px; font-weight: bold; color: #333333; margin-bottom: 16px;">
+                Oklahoma's #1 Rated Counseling services for individuals, marriages, and families.
+            </p>
+
+            <!-- Stretched Broken Video Embed Box (Exact replica of broken tube.rvere.com embed) -->
+            <div class="old-broken-video">
+                ▶ [ Play ] Invalid URL. Correct format: https://tube.rvere.com/embed?v=VIDEOID<br>
+                <span style="font-size: 13px; color: #9ca3af;">Learn more at tube.rvere.com</span>
+            </div>
+
+            <p style="font-size: 18px; font-weight: bold; color: #0d2c54;">
+                Something brought you here today. Counseling and therapy in Oklahoma City and Edmond — for the moments that matter most.
+            </p>
+        </div>
+
+        <!-- 100% Stretched Edge-to-Edge Wall of Text (No Max-Width Container!) -->
+        <div class="old-stretched-text">
+            <p>
+                Maybe you can't name it yet. Just a weight that's gotten heavier. A relationship that feels further away than it should. A version of your life that stopped fitting somewhere along the way and you're not sure when it happened or how to get back. Whatever it is, it matters. And the fact that you're here, looking for something better, says a lot about who you are. We are <strong>Old Way Counseling and Consulting</strong> – Oklahoma's highest-rated counseling practice. For more than 30 years, we've walked with people through some of the hardest seasons a human being can face. And we've watched them come out the other side. Not just surviving. Actually living. <a href="#" style="color: #1d4ed8; text-decoration: underline; font-weight: bold;">Read More ›</a>
+            </p>
+            <p>
+                What you're carrying isn't a character flaw. It's not proof that you're too far gone or that things can't be different. It's a signal – one that brought you here. And that means something. At Old Way Counseling, we don't fit you into someone else's framework or hand you a generic plan. We start by getting to know you – how you think, what you've been through, what you actually want your life to look like. Then we build something around that. No one-size-fits-all. No assumptions about your story before we've heard it. We work with individuals, couples, kids, and families across Oklahoma City and Edmond who are navigating life's toughest challenges. We believe that God has a life of purpose, power, and passion for you. We consider it an honor to partner with God and with you in prayer and faith to reach your goals.
+            </p>
+            <div style="text-align: center; padding-top: 10px;">
+                <a href="#old-contact" style="background-color: #16437e; color: white; padding: 14px 32px; font-weight: bold; text-transform: uppercase; display: inline-block;">
+                    Get Started
+                </a>
+            </div>
+        </div>
+
+        <!-- Repetitive 12 Blue Service Boxes Stretched Across Screen -->
+        <div id="old-services" style="background-color: #f3f4f6; border-top: 2px solid #d1d5db; border-bottom: 2px solid #d1d5db; padding: 32px 0;">
+            <h2 style="font-size: 28px; font-weight: 900; text-align: center; color: #0d2c54; text-transform: uppercase; margin-bottom: 16px;">
+                OUR COUNSELING and THERAPY SERVICES
+            </h2>
+            <div class="old-service-grid">
+                <div class="old-service-tile"><div style="font-size: 18px; font-weight: 800;">Anxiety</div><div style="font-size: 13px; text-decoration: underline; margin-top: 6px;">Anxiety</div></div>
+                <div class="old-service-tile"><div style="font-size: 18px; font-weight: 800;">Marriage</div><div style="font-size: 13px; text-decoration: underline; margin-top: 6px;">Marriage</div></div>
+                <div class="old-service-tile"><div style="font-size: 18px; font-weight: 800;">Pre-marital</div><div style="font-size: 13px; text-decoration: underline; margin-top: 6px;">Pre-marital</div></div>
+                <div class="old-service-tile"><div style="font-size: 18px; font-weight: 800;">Trauma</div><div style="font-size: 13px; text-decoration: underline; margin-top: 6px;">Trauma</div></div>
+                <div class="old-service-tile"><div style="font-size: 18px; font-weight: 800;">Depression</div><div style="font-size: 13px; text-decoration: underline; margin-top: 6px;">Depression</div></div>
+                <div class="old-service-tile"><div style="font-size: 18px; font-weight: 800;">Business</div><div style="font-size: 13px; text-decoration: underline; margin-top: 6px;">Business</div></div>
+                <div class="old-service-tile"><div style="font-size: 18px; font-weight: 800;">Family</div><div style="font-size: 13px; text-decoration: underline; margin-top: 6px;">Family</div></div>
+                <div class="old-service-tile"><div style="font-size: 18px; font-weight: 800;">Conflict</div><div style="font-size: 13px; text-decoration: underline; margin-top: 6px;">Conflict</div></div>
+                <div class="old-service-tile"><div style="font-size: 18px; font-weight: 800;">Grief</div><div style="font-size: 13px; text-decoration: underline; margin-top: 6px;">Grief</div></div>
+                <div class="old-service-tile"><div style="font-size: 18px; font-weight: 800;">Anger</div><div style="font-size: 13px; text-decoration: underline; margin-top: 6px;">Anger</div></div>
+                <div class="old-service-tile"><div style="font-size: 18px; font-weight: 800;">Stress</div><div style="font-size: 13px; text-decoration: underline; margin-top: 6px;">Stress</div></div>
+                <div class="old-service-tile"><div style="font-size: 18px; font-weight: 800;">Couples</div><div style="font-size: 13px; text-decoration: underline; margin-top: 6px;">Couples</div></div>
+            </div>
+        </div>
+
+        <!-- Giant Unfiltered Wall of 13 Counselors (With duplicate headings verbatim) -->
+        <div id="old-counselors" style="padding: 36px 0; background-color: #ffffff;">
+            <h2 style="font-size: 28px; font-weight: 900; text-align: center; color: #0d2c54; text-transform: uppercase; margin-bottom: 16px;">
+                Our Counselors - Therapists
+            </h2>
+            <div class="old-counselor-grid">
+                <div class="old-counselor-tile">
+                    <div class="old-avatar-placeholder">SM</div>
+                    <div style="font-weight: 800; color: #0d2c54;">SHAWN MAGUIRE, LPC</div>
+                    <div style="font-size: 13px; color: #555; margin: 4px 0;">SHAWN MAGUIRE, LPC</div>
+                    <a href="#" style="color: #1d4ed8; font-size: 13px; text-decoration: underline;">Read More</a>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="glass-panel p-8 rounded-2xl bg-white space-y-3">
-                        <span class="inline-block px-3 py-1 bg-rentbluelight text-rentblue text-sm font-bold uppercase rounded-lg">Step 01</span>
-                        <h3 class="font-serif text-2xl text-textdark">We Copy Your Existing Content</h3>
-                        <p class="text-base text-textdark/85 leading-relaxed">
-                            You don't have to rewrite your bios or specialties from scratch. We pull the best parts of your current site and reorganize them cleanly.
-                        </p>
-                    </div>
-
-                    <div class="glass-panel p-8 rounded-2xl bg-white space-y-3">
-                        <span class="inline-block px-3 py-1 bg-boxgreen-100 text-boxgreen-700 text-sm font-bold uppercase rounded-lg">Step 02</span>
-                        <h3 class="font-serif text-2xl text-textdark">Private Preview &amp; Approval</h3>
-                        <p class="text-base text-textdark/85 leading-relaxed">
-                            We build your new custom site on a private preview link while your old site stays live—so your practice never experiences a single minute of downtime.
-                        </p>
-                    </div>
-
-                    <div class="glass-panel p-8 rounded-2xl bg-white space-y-3">
-                        <span class="inline-block px-3 py-1 bg-rentbluelight text-rentblue text-sm font-bold uppercase rounded-lg">Step 03</span>
-                        <h3 class="font-serif text-2xl text-textdark">Point Domain &amp; Cancel Rent</h3>
-                        <p class="text-base text-textdark/85 leading-relaxed">
-                            Once approved, we connect your existing domain name to your new $0/month cloud host, and you can finally cancel your old monthly platform bill.
-                        </p>
-                    </div>
+                <div class="old-counselor-tile">
+                    <div class="old-avatar-placeholder">SG</div>
+                    <div style="font-weight: 800; color: #0d2c54;">Sarah Glover LPC</div>
+                    <div style="font-size: 13px; color: #555; margin: 4px 0;">Sarah Glover, LPC</div>
+                    <a href="#" style="color: #1d4ed8; font-size: 13px; text-decoration: underline;">Read More</a>
                 </div>
-
-                <div class="text-center pt-4">
-                    <a href="get-started.html" class="inline-block px-8 py-4 bg-rentblue hover:bg-[#2C6A90] text-white text-base sm:text-lg font-semibold rounded-xl transition shadow-lg">
-                        Request Your Website Redesign &rarr;
-                    </a>
+                <div class="old-counselor-tile">
+                    <div class="old-avatar-placeholder">EB</div>
+                    <div style="font-weight: 800; color: #0d2c54;">- EMILY BOYERS, LPC</div>
+                    <div style="font-size: 13px; color: #555; margin: 4px 0;">EMILY BOYERS, LPC-S</div>
+                    <a href="#" style="color: #1d4ed8; font-size: 13px; text-decoration: underline;">Read More</a>
+                </div>
+                <div class="old-counselor-tile">
+                    <div class="old-avatar-placeholder">SD</div>
+                    <div style="font-weight: 800; color: #0d2c54;">Sara Dodge, LPC</div>
+                    <div style="font-size: 13px; color: #555; margin: 4px 0;">SARAH DODGE, LPC</div>
+                    <a href="#" style="color: #1d4ed8; font-size: 13px; text-decoration: underline;">Read More</a>
+                </div>
+                <div class="old-counselor-tile">
+                    <div class="old-avatar-placeholder">BT</div>
+                    <div style="font-weight: 800; color: #0d2c54;">BEN THOMPSON</div>
+                    <div style="font-size: 13px; color: #555; margin: 4px 0;">BEN THOMPSON, LMFT</div>
+                    <a href="#" style="color: #1d4ed8; font-size: 13px; text-decoration: underline;">Read More</a>
+                </div>
+                <div class="old-counselor-tile">
+                    <div class="old-avatar-placeholder">SR</div>
+                    <div style="font-weight: 800; color: #0d2c54;">SHAE GILBERT, LP</div>
+                    <div style="font-size: 13px; color: #555; margin: 4px 0;">Shae Romano, LPC-S</div>
+                    <a href="#" style="color: #1d4ed8; font-size: 13px; text-decoration: underline;">Read More</a>
+                </div>
+                <div class="old-counselor-tile">
+                    <div class="old-avatar-placeholder">KC</div>
+                    <div style="font-weight: 800; color: #0d2c54;">Kristal Almquist Cochran, LPC</div>
+                    <div style="font-size: 13px; color: #555; margin: 4px 0;">Kristal Almquist Cochran, LPC</div>
+                    <a href="#" style="color: #1d4ed8; font-size: 13px; text-decoration: underline;">Read More</a>
+                </div>
+                <div class="old-counselor-tile">
+                    <div class="old-avatar-placeholder">CM</div>
+                    <div style="font-weight: 800; color: #0d2c54;">Charly Moreau</div>
+                    <div style="font-size: 13px; color: #555; margin: 4px 0;">Charly Moreau, LPC-C</div>
+                    <a href="#" style="color: #1d4ed8; font-size: 13px; text-decoration: underline;">Read More</a>
+                </div>
+                <div class="old-counselor-tile">
+                    <div class="old-avatar-placeholder">MV</div>
+                    <div style="font-weight: 800; color: #0d2c54;">Mark VonFeldt</div>
+                    <div style="font-size: 13px; color: #555; margin: 4px 0;">Mark VonFeldt, MA LPC-C</div>
+                    <a href="#" style="color: #1d4ed8; font-size: 13px; text-decoration: underline;">Read More</a>
+                </div>
+                <div class="old-counselor-tile">
+                    <div class="old-avatar-placeholder">AM</div>
+                    <div style="font-weight: 800; color: #0d2c54;">Albet May</div>
+                    <div style="font-size: 13px; color: #555; margin: 4px 0;">Albert May, LPC, MS, M.Div, M.Ed</div>
+                    <a href="#" style="color: #1d4ed8; font-size: 13px; text-decoration: underline;">Read More</a>
+                </div>
+                <div class="old-counselor-tile">
+                    <div class="old-avatar-placeholder">CL</div>
+                    <div style="font-weight: 800; color: #0d2c54;">Carlin Lehr, MA (Intern)</div>
+                    <div style="font-size: 13px; color: #555; margin: 4px 0;">Carlin Lehr, MA (Intern)</div>
+                    <a href="#" style="color: #1d4ed8; font-size: 13px; text-decoration: underline;">Read More</a>
+                </div>
+                <div class="old-counselor-tile">
+                    <div class="old-avatar-placeholder">DF</div>
+                    <div style="font-weight: 800; color: #0d2c54;">Debbie Frank, LPC</div>
+                    <div style="font-size: 13px; color: #555; margin: 4px 0;">Debbie Frank, LPC</div>
+                    <a href="#" style="color: #1d4ed8; font-size: 13px; text-decoration: underline;">Read More</a>
+                </div>
+                <div class="old-counselor-tile">
+                    <div class="old-avatar-placeholder">JR</div>
+                    <div style="font-weight: 800; color: #0d2c54;">JOSHUA RHOADES</div>
+                    <div style="font-size: 13px; color: #555; margin: 4px 0;">JOSHUA RHOADES, LPC-S</div>
+                    <a href="#" style="color: #1d4ed8; font-size: 13px; text-decoration: underline;">Read More</a>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
 
-    <!-- CLEAN STATUTORY 17 U.S.C. § 401(b) COPYRIGHT FOOTER -->
+        <!-- Stories of Transformation & Endless Wall of Reviews -->
+        <div id="old-stories" style="background-color: #f3f4f6; border-top: 2px solid #d1d5db; padding: 36px 0;">
+            <div class="old-full-bleed">
+                <h2 style="font-size: 26px; font-weight: 900; text-align: center; color: #0d2c54; text-transform: uppercase; margin-bottom: 12px;">
+                    stories of transformation
+                </h2>
+                <p style="text-align: center; font-weight: bold; color: #1e4d8c; margin-bottom: 20px;">
+                    Saving a Marriage | Helping Individuals Overcome The Past | Helping Families Find Healing and Growth | Getting to the Root of Anger
+                </p>
+            </div>
+
+            <div class="old-review-wall">
+                <div class="old-review-box">
+                    <strong>Steve Rodriguez</strong> (4 years ago)<br>
+                    "Old Way Counseling and Consulting saved my marriage as they helped and are helping me deal with my issues with depression and anxiety. I have been taught new methods of dealing with these issues and they are life saving. I have enjoyed my experience with Shawn Maguire, the best therapist I could ask for, and feel this place is a Godsend."
+                </div>
+                <div class="old-review-box">
+                    <strong>Mark Thompson</strong> (a year ago)<br>
+                    "Tami demonstrated exceptional helpfulness, communicativeness, and the ability to effectively manage scheduling conflicts."
+                </div>
+                <div class="old-review-box">
+                    <strong>Susie Lear</strong> (2 years ago)<br>
+                    "Old Way Counseling and Consulting was the top-ranking provider on my 'best Christian Counseling' Google search. I read every review, watched every video, and then made the call... Josh Rhoades came highly recommended, and he didn't disappoint!"
+                </div>
+                <div class="old-review-box">
+                    <strong>Adrian Johnson</strong> (a year ago)<br>
+                    "I was skeptical about seeing a therapist at first but Mr. McPherson's approach and ability to get my wife and I to stop talking at each other and to each other has us happier than we've been in years."
+                </div>
+                <div class="old-review-box">
+                    <strong>Sarah Buck</strong> (2 years ago)<br>
+                    "Full of incredibly kind and patient counselors who are truly dedicated to helping you. They create such a safe, Christ-centered, and welcoming space where you feel heard and understood."
+                </div>
+                <div class="old-review-box">
+                    <strong>Megan Burleson</strong> (2 years ago)<br>
+                    "From the moment I walked in, I was met with a warm and welcoming environment that immediately put me at ease. The staff are professional, compassionate, and attentive."
+                </div>
+            </div>
+        </div>
+
+        <!-- Old Way Footer -->
+        <div id="old-contact" style="background-color: #0d2c54; color: #ffffff; padding: 40px 18px; text-align: center;">
+            <h3 style="font-size: 24px; font-weight: 800; text-transform: uppercase; margin-bottom: 10px;">
+                Easy to Get Started — Click an Option Below
+            </h3>
+            <p style="font-size: 18px; font-weight: bold; color: #fde047; text-decoration: underline; margin-bottom: 16px;">
+                Email Us OR Call Us
+            </p>
+            <p style="font-size: 15px; margin-bottom: 8px;">
+                <strong>Our Location ADDRESS:</strong> 11209 N May Ave, Oklahoma City, OK 73120 | <strong>Phone:</strong> (405) 921-7776
+            </p>
+            <p style="font-size: 13px; color: #cbd5e1; margin-top: 16px;">
+                Home | Services | Counselors | Success Stories | Blog | Podcasts | Join Our Team
+            </p>
+        </div>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 4. YOUR PRIVATE PRACTICE DESIGNER STATUTORY FOOTER        -->
+    <!-- ========================================================= -->
     <footer class="border-t border-[#D5DFD7] py-8 bg-[#222A24] text-sm text-[#C8D3CA]">
         <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-between items-center gap-4">
             <p class="text-white font-medium">&copy; 2026 Private Practice Designer. All rights reserved.</p>
