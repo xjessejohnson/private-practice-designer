@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private Practice Designer | Custom Web Design for Mental Health Professionals Worldwide</title>
-    <meta name="description" content="Custom-built, subscription-free websites for mental health professionals worldwide. Designed by Jesse — 20-year tech veteran & emerging clinician. Own your site 100% with $0 monthly fees.">
+    <title>Private Practice Designer | Custom Web Design for Mental Health Professionals</title>
+    <meta name="description" content="Custom-crafted, subscription-free websites for Psychologists, Psychiatrists, LPCs, LCSWs, LMFTs, and mental health practices worldwide. Own your site 100% with $0 monthly fees.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,38 +31,53 @@
         </div>
     </div>
 
-    <!-- MAIN NAVIGATION -->
-    <header class="sticky top-0 z-50 bg-[#EAEFE9]/90 backdrop-blur-xl border-b border-[#D5DFD7]">
+    <!-- MAIN NAVIGATION (WITH MOBILE MENU SUPPORT) -->
+    <header class="sticky top-0 z-50 bg-[#EAEFE9]/95 backdrop-blur-xl border-b border-[#D5DFD7]">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="index.html" class="group flex items-baseline">
                 <span class="font-serif text-2xl font-bold tracking-tight text-textdark group-hover:text-rentblue transition">Private Practice</span>
                 <span class="font-sans text-xs font-semibold tracking-widest text-rentblue uppercase ml-1.5">Designer</span>
             </a>
+
+            <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
                 <a href="comparison.html" class="text-textdark hover:text-rentblue transition-colors">Side-by-Side Comparison</a>
                 <a href="portfolio.html" class="text-textdark hover:text-rentblue transition-colors">Example Designs</a>
                 <a href="about.html" class="text-textdark hover:text-rentblue transition-colors">About Us</a>
                 <a href="pricing.html" class="text-textdark hover:text-rentblue transition-colors">Pricing</a>
             </nav>
-            <div class="flex items-center space-x-4">
-                <a href="get-started.html" class="relative group inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold text-white bg-rentblue hover:bg-[#2C6A90] rounded-lg transition-all duration-300 shadow-md">
+
+            <div class="flex items-center gap-3">
+                <a href="get-started.html" class="relative group inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-rentblue hover:bg-[#2C6A90] rounded-lg transition-all duration-300 shadow-md">
                     <span>Get Started</span>
                     <svg class="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                 </a>
+                <!-- Mobile Menu Trigger -->
+                <button type="button" onclick="toggleMobileNav()" class="md:hidden p-2 rounded-lg border border-[#D5DFD7] bg-white text-textdark text-xs font-bold uppercase tracking-wider cursor-pointer">
+                    Menu
+                </button>
             </div>
+        </div>
+
+        <!-- Mobile Dropdown Bar -->
+        <div id="mobileNavDrawer" class="hidden border-t border-[#D5DFD7] bg-white px-6 py-4 space-y-3 text-sm font-medium">
+            <a href="comparison.html" class="block text-textdark hover:text-rentblue">Side-by-Side Comparison</a>
+            <a href="portfolio.html" class="block text-textdark hover:text-rentblue">Example Designs</a>
+            <a href="about.html" class="block text-textdark hover:text-rentblue">About Us</a>
+            <a href="pricing.html" class="block text-textdark hover:text-rentblue">Pricing</a>
         </div>
     </header>
 
     <main>
-        <!-- CALM, FOCUSED HERO SECTION -->
+        <!-- HERO SECTION: CLEAR, INTUITIVE & MAGNETIC -->
         <section class="relative pt-12 pb-20 lg:pt-16 lg:pb-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                     
-                    <!-- Left Column: Psychological Hook & Clear Value (7 cols) -->
+                    <!-- Left Column (7 cols) -->
                     <div class="lg:col-span-7 space-y-6">
                         <span class="inline-block px-3 py-1 bg-rentbluelight text-rentblue text-xs font-semibold uppercase tracking-wider rounded-full border border-rentblue/20">
-                            100% Custom-Built • Serving Clinicians Worldwide
+                            100% Custom-Built • For Mental Health Professionals Worldwide
                         </span>
 
                         <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal leading-[1.12] text-textdark">
@@ -72,7 +87,7 @@
                         <div class="editorial-line my-4"></div>
 
                         <p class="text-lg text-textdark/80 font-light leading-relaxed max-w-2xl">
-                            Most website companies lock therapists and counsellors into endless monthly subscriptions. I custom-design calm, welcoming websites tailored to your unique practice that you <strong class="text-textdark font-medium">own 100% outright</strong>—with <strong class="text-rentblue font-medium">$0 monthly platform fees</strong>.
+                            Most website companies lock mental health professionals into endless monthly subscriptions. I custom-design calm, welcoming websites tailored to your clinical practice that you <strong class="text-textdark font-medium">own 100% outright</strong>—with <strong class="text-rentblue font-medium">$0 monthly platform fees</strong>.
                         </p>
 
                         <div class="pt-2 flex flex-wrap items-center gap-4">
@@ -83,47 +98,49 @@
                             <a href="comparison.html" class="px-6 py-4 bg-white hover:bg-[#F0F5F1] text-textdark font-medium rounded-xl transition border border-[#D5DFD7] shadow-sm">
                                 See Before &amp; After Comparison
                             </a>
+                            <a href="portfolio.html" class="px-6 py-4 bg-white hover:bg-[#F0F5F1] text-textdark font-medium rounded-xl transition border border-[#D5DFD7] shadow-sm">
+                                Example Designs
+                            </a>
                         </div>
 
-                        <!-- Simple, Reassuring Highlights -->
                         <div class="pt-6 border-t border-[#D5DFD7] grid grid-cols-2 gap-6 text-left">
                             <div>
-                                <span class="block text-xs uppercase tracking-wider text-rentblue font-semibold mb-1">Global Practice Fit</span>
-                                <span class="text-sm text-textdark/85">Connects smoothly to the booking or client portal you already use</span>
+                                <span class="block text-xs uppercase tracking-wider text-rentblue font-semibold mb-1">Seamless Portal Link</span>
+                                <span class="text-sm text-textdark/85">Connects directly to the scheduling or client portal you already use</span>
                             </div>
                             <div>
-                                <span class="block text-xs uppercase tracking-wider text-rentblue font-semibold mb-1">100% Custom Design</span>
-                                <span class="text-sm text-textdark/85">Crafted around your clinical voice—never a cookie-cutter layout</span>
+                                <span class="block text-xs uppercase tracking-wider text-rentblue font-semibold mb-1">100% Custom Crafted</span>
+                                <span class="text-sm text-textdark/85">Built from scratch around your specialty—never a locked-in layout</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Right Column: Clean Price Comparison Card (5 cols) -->
+                    <!-- Right Column: Price Comparison Card (5 cols) -->
                     <div class="lg:col-span-5 relative">
                         <div class="glass-panel p-8 rounded-3xl glow-custom relative overflow-hidden space-y-6">
                             
                             <h2 class="font-serif text-2xl text-textdark border-b border-[#D5DFD7] pb-4">
-                                Ongoing Website Cost Comparison
+                                Ongoing Website Cost Breakdown
                             </h2>
 
-                            <!-- THEIR WAY -->
+                            <!-- SUBSCRIPTION PLATFORMS -->
                             <div class="space-y-3 bg-red-50/70 p-4 rounded-xl border border-red-200">
                                 <span class="text-xs font-semibold text-red-700 uppercase tracking-wider block">Subscription Platforms ✕</span>
                                 <div class="flex justify-between items-center text-sm">
-                                    <span class="text-textdark">Brighter Vision</span>
-                                    <span class="text-red-700 font-semibold">$99–$349/mo</span>
+                                    <a href="https://www.brightervision.com/pricing/" target="_blank" rel="noopener" class="text-textdark hover:text-rentblue underline underline-offset-2">Brighter Vision ↗</a>
+                                    <span class="text-red-700 font-semibold">$99–$349/mo <span class="text-xs font-normal">(+$100 setup)</span></span>
                                 </div>
                                 <div class="flex justify-between items-center text-sm">
-                                    <span class="text-textdark">TherapySites</span>
-                                    <span class="text-red-700 font-semibold">$69–$99/mo</span>
+                                    <a href="https://www.therapysites.com/pricing" target="_blank" rel="noopener" class="text-textdark hover:text-rentblue underline underline-offset-2">TherapySites ↗</a>
+                                    <span class="text-red-700 font-semibold">$69–$99/mo <span class="text-xs font-normal">(+$199 setup)</span></span>
                                 </div>
                                 <div class="flex justify-between items-center text-sm">
-                                    <span class="text-textdark">Wix / Squarespace</span>
-                                    <span class="text-red-700 font-semibold">$25–$39/mo</span>
+                                    <a href="https://www.squarespace.com/pricing" target="_blank" rel="noopener" class="text-textdark hover:text-rentblue underline underline-offset-2">Wix / Squarespace ↗</a>
+                                    <span class="text-red-700 font-semibold">$25–$39/mo <span class="text-xs font-normal">($300–$468/yr)</span></span>
                                 </div>
                             </div>
 
-                            <!-- PRIVATE PRACTICE DESIGNER'S WAY -->
+                            <!-- PRIVATE PRACTICE DESIGNER -->
                             <div class="p-6 bg-boxgreen-100 rounded-xl border-2 border-boxgreen-600 text-center space-y-2 shadow-sm relative overflow-hidden">
                                 <div class="absolute top-0 right-0 bg-boxgreen-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-lg">
                                     Full Ownership
@@ -138,7 +155,7 @@
                             </div>
 
                             <p class="text-[11px] text-textdark/65 text-center italic">
-                                *Simple <a href="pricing.html" class="underline text-rentblue">one-time design fee</a>. No recurring agency retainers.
+                                *Requires a transparent <a href="pricing.html" class="underline text-rentblue">one-time setup fee</a>. No recurring agency retainers.
                             </p>
                         </div>
                     </div>
@@ -147,32 +164,73 @@
             </div>
         </section>
 
-        <!-- SIMPLE, GLOBAL PRIVACY & BOUNDARIES SECTION -->
-        <section class="py-14 bg-white/60 border-y border-[#D5DFD7]">
-            <div class="max-w-4xl mx-auto px-6 text-center space-y-3">
-                <span class="inline-block px-3 py-1 bg-rentbluelight text-rentblue text-xs font-semibold rounded-full border border-rentblue/20">
-                    ✓ Built for Clinicians Everywhere
-                </span>
-                <h2 class="font-serif text-2xl sm:text-3xl text-textdark">A Welcoming Front Door With Clean Boundaries</h2>
-                <p class="text-sm text-textdark/80 font-light leading-relaxed max-w-2xl mx-auto">
-                    Whether you practice in North America, the UK, Europe, Australia, or anywhere in the world, your website acts as a calm, inviting front door. Clinical scheduling and client records stay safely inside your own practice management software—so sensitive client health data is never stored on your website, keeping your compliance simple and your independent cloud hosting at $0/month.
-                </p>
+        <!-- NEW SECTION: WHO CAN BENEFIT FROM OUR DESIGNS? -->
+        <section class="py-16 bg-white/60 border-y border-[#D5DFD7]">
+            <div class="max-w-7xl mx-auto px-6 space-y-10">
+                <div class="text-center max-w-3xl mx-auto space-y-3">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-rentblue">Tailored to Your Credential &amp; Specialty</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl text-textdark">Who Can Benefit From Our Custom Designs?</h2>
+                    <p class="text-sm text-textdark/80 font-light leading-relaxed">
+                        Every website is custom-crafted around your specific licensure, therapeutic modality, and local or international clientele.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Card 1: Counselors & Therapists -->
+                    <div class="glass-panel p-6 rounded-2xl bg-white space-y-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-boxgreen-700 block">Counselors &amp; Therapists</span>
+                        <h3 class="font-serif text-xl text-textdark">LPC, LMHC, LCPC &amp; NCC</h3>
+                        <p class="text-xs text-textdark/80 font-light leading-relaxed">
+                            Solo and associate counselors specializing in anxiety, trauma, EMDR, grief, depression, or life transitions.
+                        </p>
+                    </div>
+
+                    <!-- Card 2: Psychologists & Neuro -->
+                    <div class="glass-panel p-6 rounded-2xl bg-white space-y-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-rentblue block">Psychologists</span>
+                        <h3 class="font-serif text-xl text-textdark">PsyD, PhD &amp; Assessment</h3>
+                        <p class="text-xs text-textdark/80 font-light leading-relaxed">
+                            Clinical, counseling, and neuropsychologists offering therapy, ADHD/autism testing, or forensic evaluations.
+                        </p>
+                    </div>
+
+                    <!-- Card 3: Marriage, Family & Social Work -->
+                    <div class="glass-panel p-6 rounded-2xl bg-white space-y-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-boxgreen-700 block">Couples &amp; Clinical Social Work</span>
+                        <h3 class="font-serif text-xl text-textdark">LMFT, LCSW &amp; LICSW</h3>
+                        <p class="text-xs text-textdark/80 font-light leading-relaxed">
+                            Marriage and family therapists, Gottman/EFT specialists, and clinical social workers serving individuals and families.
+                        </p>
+                    </div>
+
+                    <!-- Card 4: Psychiatry & Group Clinics -->
+                    <div class="glass-panel p-6 rounded-2xl bg-white space-y-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-rentblue block">Medical &amp; Multi-Provider</span>
+                        <h3 class="font-serif text-xl text-textdark">Psychiatrists, PMHNP &amp; Groups</h3>
+                        <p class="text-xs text-textdark/80 font-light leading-relaxed">
+                            Integrative psychiatrists, psychiatric nurse practitioners (PMHNP), and multi-clinician group practices worldwide.
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- STREAMLINED CALL TO ACTION -->
-        <section class="py-20 max-w-5xl mx-auto px-6">
-            <div class="glass-panel p-10 sm:p-12 rounded-3xl text-center space-y-5 bg-white border-[#D5DFD7] shadow-xl">
-                <h2 class="font-serif text-3xl sm:text-4xl text-textdark">Ready for a Custom Website You Truly Own?</h2>
-                <p class="text-textdark/80 max-w-xl mx-auto font-light text-base">
-                    See our live Before &amp; After transformation, explore custom design examples, or start with a quick 2-minute form.
+        <!-- SIMPLE GLOBAL PRIVACY & BOUNDARIES NOTE -->
+        <section class="py-16 max-w-5xl mx-auto px-6">
+            <div class="glass-panel p-8 sm:p-10 rounded-3xl bg-white text-center space-y-4">
+                <span class="inline-block px-3 py-1 bg-rentbluelight text-rentblue text-xs font-semibold rounded-full border border-rentblue/20">
+                    ✓ Simple, Worry-Free Architecture for Practices Worldwide
+                </span>
+                <h2 class="font-serif text-2xl sm:text-3xl text-textdark">Your Welcoming Front Door — With Clean Privacy Boundaries</h2>
+                <p class="text-sm text-textdark/80 font-light leading-relaxed max-w-2xl mx-auto">
+                    Your website is designed to introduce your practice and build immediate trust with prospective clients, while routing all clinical intake forms, medical records, and scheduling directly into your own practice management portal. Because no sensitive patient health data is stored on the website itself, your compliance stays simple and your independent cloud hosting remains $0/month.
                 </p>
-                <div class="pt-2 flex flex-wrap justify-center gap-4">
+                <div class="pt-4 flex flex-wrap justify-center gap-4">
                     <a href="get-started.html" class="px-8 py-4 bg-rentblue hover:bg-[#2C6A90] text-white font-semibold rounded-xl transition duration-300 shadow-md">
-                        Get Started &rarr;
+                        Start Your Custom Website &rarr;
                     </a>
-                    <a href="portfolio.html" class="px-6 py-4 bg-[#EAEFE9] hover:bg-[#D5DFD7] text-textdark font-medium rounded-xl transition">
-                        View Custom Examples
+                    <a href="comparison.html" class="px-6 py-4 bg-[#EAEFE9] hover:bg-[#D5DFD7] text-textdark font-medium rounded-xl transition">
+                        View Side-by-Side Comparison
                     </a>
                 </div>
             </div>
@@ -184,10 +242,10 @@
         <div class="glass-panel p-8 rounded-2xl max-w-md w-11/12 text-left space-y-4 shadow-2xl bg-white border-[#D5DFD7]">
             <h4 class="font-serif text-xl text-textdark">How $0/Month Hosting &amp; Ownership Works</h4>
             <p class="text-xs text-textdark/85 leading-relaxed">
-                Your custom website is launched directly onto leading independent cloud hosting providers whose free tiers generously cover the monthly visitor traffic of solo and group therapy practices worldwide.
+                Your custom website is launched directly onto leading global cloud hosting providers whose free tiers generously cover the monthly visitor traffic of solo and group practices worldwide.
             </p>
             <p class="text-xs text-textdark/85 leading-relaxed">
-                You own your domain name and website files 100% outright. We do not act as a middleman host, store client records, or charge monthly maintenance fees—your ongoing hosting relationship is directly with your independent provider at $0/month.
+                You hold 100% ownership of your domain name, design, and hosting account. We never hold your site hostage, store patient records, or charge monthly middleman fees.
             </p>
             <div class="pt-2 flex justify-end">
                 <button onclick="toggleModal()" class="px-4 py-2 bg-rentblue text-white font-semibold text-xs rounded-lg hover:bg-[#2C6A90] transition cursor-pointer">
@@ -216,6 +274,10 @@
         function toggleModal() {
             const modal = document.getElementById('hostingModal');
             modal.classList.toggle('active');
+        }
+        function toggleMobileNav() {
+            const drawer = document.getElementById('mobileNavDrawer');
+            drawer.classList.toggle('hidden');
         }
     </script>
 </body>
