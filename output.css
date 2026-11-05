@@ -1,0 +1,29 @@
+/* Pre-Compiled Tailwind Core CSS & Custom Editorial Utilities */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css');
+
+.editorial-line {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(58, 107, 71, 0.25) 0%, rgba(58, 107, 71, 0) 100%);
+}
+.glass-panel {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(195, 223, 202, 0.7);
+  box-shadow: 0 14px 40px -10px rgba(43, 48, 44, 0.06);
+}
+.glow-custom {
+  box-shadow: 0 0 50px -10px rgba(58, 107, 71, 0.12);
+}
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(43, 48, 44, 0.55);
+  backdrop-filter: blur(6px);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay.active {
+  display: flex;
+}
