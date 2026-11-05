@@ -1,7 +1,11 @@
 {
   "name": "private-practice-designer",
   "version": "1.0.0",
+  "description": "Bespoke, subscription-free professional web design for clinicians.",
   "scripts": {
-    "build": "echo 'No compiling needed'"
+    "build": "npx tailwindcss -i ./input.css -o ./output.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
   }
 }
