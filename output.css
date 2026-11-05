@@ -1,6 +1,7 @@
-/* Pre-Compiled Tailwind Core CSS & Custom Editorial Utilities */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css');
+/* Pre-Compiled Tailwind Core Engine & Custom Editorial Utilities */
+@import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
 
+/* Custom Editorial Classes */
 .editorial-line {
   height: 1px;
   background: linear-gradient(90deg, rgba(58, 107, 71, 0.25) 0%, rgba(58, 107, 71, 0) 100%);
@@ -26,4 +27,32 @@
 }
 .modal-overlay.active {
   display: flex;
+}
+
+/* Dynamic Option Highlights */
+.option-card-active {
+  border-color: #3A86B2 !important;
+  box-shadow: 0 20px 50px -12px rgba(58, 134, 178, 0.22) !important;
+  transform: translateY(-2px);
+}
+.call-card-active {
+  border-color: #3A6B47 !important;
+  box-shadow: 0 20px 50px -12px rgba(58, 107, 71, 0.22) !important;
+  transform: translateY(-2px);
+}
+.pill-radio:checked + div {
+  background-color: #3A86B2;
+  color: #ffffff;
+  border-color: #3A86B2;
+  box-shadow: 0 4px 14px rgba(58, 134, 178, 0.25);
+}
+select option:disabled {
+  color: #9CA3AF;
+  background-color: #F3F4F6;
+  font-style: italic;
+}
+.tier-toggle-active {
+  background-color: #3A86B2 !important;
+  color: #ffffff !important;
+  border-color: #3A86B2 !important;
 }
