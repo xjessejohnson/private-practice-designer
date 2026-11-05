@@ -1,281 +1,785 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Example Designs | Private Practice Designer</title>
-    <meta name="description" content="Explore premium, subscription-free web designs for therapists, counselors, and group mental health practices. Own your design 100% outright.">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example Designs | 6 Interactive Solo &amp; Group Practice Showcases | Private Practice Designer</title>
+    <meta name="description" content="Toggle live between 6 distinct custom website designs (Solo 1, 2, 3 & Multi-Provider 1, 2, 3) with unique color palettes, typography, and layouts." />
+
+    <!-- Google Fonts: Distinct Font Pairings for All 6 Custom Designs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Outfit:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+
     <!-- Compiled Production CSS -->
-    <link href="/output.css" rel="stylesheet">
+    <link href="/output.css" rel="stylesheet" />
 
     <style>
-        .filter-btn-active {
-            background-color: #3A86B2 !important;
-            color: #ffffff !important;
-            border-color: #3A86B2 !important;
+        /* ========================================================= */
+        /* 1. FLOATING CENTERED 6-DESIGN SWITCHER DOCK               */
+        /* ========================================================= */
+        .portfolio-switch-dock {
+            position: sticky;
+            top: 86px;
+            z-index: 8500;
+            display: flex;
+            justify-content: center;
+            padding: 8px 12px;
+            pointer-events: none;
         }
+        .portfolio-switch-pill {
+            pointer-events: auto;
+            background: rgba(24, 30, 26, 0.96);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 2px solid #D5DFD7;
+            border-radius: 9999px;
+            padding: 6px 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 100%;
+        }
+        .dock-group-label {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #9CA3AF;
+            padding: 0 8px;
+        }
+        .dock-divider {
+            width: 1px;
+            height: 24px;
+            background-color: #3A423C;
+            margin: 0 6px;
+        }
+        .design-tab-btn {
+            padding: 9px 16px;
+            border-radius: 9999px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid transparent;
+            color: #E5E7EB;
+            background: transparent;
+            white-space: nowrap;
+        }
+        .design-tab-btn:hover:not(.active-design) {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+        }
+        .design-tab-btn.active-design {
+            background: linear-gradient(135deg, #3A86B2 0%, #3A6B47 100%);
+            color: #ffffff;
+            border-color: rgba(255,255,255,0.4);
+            box-shadow: 0 4px 16px rgba(58, 134, 178, 0.5);
+            transform: scale(1.04);
+        }
+        @media (max-width: 640px) {
+            .portfolio-switch-dock { top: 82px; padding: 4px 6px; }
+            .portfolio-switch-pill { border-radius: 20px; padding: 6px; gap: 4px; }
+            .dock-group-label, .dock-divider { display: none; }
+            .design-tab-btn { padding: 8px 11px; font-size: 12px; }
+        }
+
+        /* Smooth Transition Animation When Switching Between Designs */
+        .showcase-morph {
+            animation: smoothCanvasTransition 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes smoothCanvasTransition {
+            0% { opacity: 0; transform: translateY(20px) scale(0.985); filter: blur(4px); }
+            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        }
+
+        /* ========================================================= */
+        /* SOLO 1: WARM TERRACOTTA & LINEN SANCTUARY                 */
+        /* ========================================================= */
+        .solo1-canvas {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FAF6F0;
+            color: #2C221E;
+            border-top: 5px solid #C86D51;
+        }
+        .solo1-serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+        .solo1-card {
+            background: #FFFFFF;
+            border: 1px solid #E6DCD2;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 12px 30px rgba(44, 34, 30, 0.04);
+        }
+
+        /* ========================================================= */
+        /* SOLO 2: MIDNIGHT EXECUTIVE & BRASS GOLD                   */
+        /* ========================================================= */
+        .solo2-canvas {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0B132B;
+            color: #F8FAFC;
+            border-top: 5px solid #D4AF37;
+        }
+        .solo2-display { font-family: 'Syne', sans-serif; }
+        .solo2-card {
+            background: rgba(28, 37, 65, 0.75);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            padding: 32px;
+        }
+
+        /* ========================================================= */
+        /* SOLO 3: BOTANICAL SAGE & ORGANIC MOSS                     */
+        /* ========================================================= */
+        .solo3-canvas {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #EEF2EB;
+            color: #1E2D24;
+            border-top: 5px solid #3B5249;
+        }
+        .solo3-serif { font-family: 'Lora', Georgia, serif; }
+        .solo3-pill-box {
+            background: #FFFFFF;
+            border: 1px solid #CBD5C0;
+            border-radius: 36px;
+            padding: 36px;
+        }
+
+        /* ========================================================= */
+        /* MULTI 1: EDITORIAL IVORY & PLUM ROSE CLINIC               */
+        /* ========================================================= */
+        .multi1-canvas {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FBF9F7;
+            color: #1F2421;
+            border-top: 5px solid #7C3F58;
+        }
+        .multi1-serif { font-family: 'Playfair Display', Georgia, serif; }
+
+        /* ========================================================= */
+        /* MULTI 2: NORDIC COASTAL SLATE & DEEP TEAL                 */
+        /* ========================================================= */
+        .multi2-canvas {
+            font-family: 'Outfit', sans-serif;
+            background-color: #F0F4F8;
+            color: #102A43;
+            border-top: 5px solid #0F4C5C;
+        }
+
+        /* ========================================================= */
+        /* MULTI 3: MODERN SUNLIT ATRIUM (EMERALD & OCHRE)           */
+        /* ========================================================= */
+        .multi3-canvas {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FFFDF9;
+            color: #1B4332;
+            border-top: 5px solid #D97706;
+        }
+        .multi3-serif { font-family: 'Fraunces', Georgia, serif; }
+
+        /* Pop-up Modal & Consent Bar */
+        .example-popup-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 999999;
+            background: rgba(20, 25, 21, 0.75);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .example-popup-overlay.active { display: flex !important; }
+
+        .consent-floating-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background-color: #222A24;
+            color: #EAEFE9;
+            border-top: 2px solid #3A86B2;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.25);
+            padding: 16px 24px;
+            display: none;
+        }
+        .consent-floating-bar.show-banner { display: block !important; }
+        .consent-btn-equal {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            min-width: 150px;
+        }
+        .consent-btn-decline { background-color: #2B302C; color: #ffffff; border: 2px solid #C8D3CA; }
+        .consent-btn-accept { background-color: #3A86B2; color: #ffffff; border: 2px solid #3A86B2; }
     </style>
 </head>
 <body class="antialiased selection:bg-rentblue selection:text-white bg-[#EAEFE9] text-[#2B302C] font-sans overflow-x-hidden">
-    <!-- TOP ANNOUNCEMENT / CREDIBILITY BAR -->
-    <div class="border-b border-[#D5DFD7] bg-[#222A24] px-6 py-2.5 text-xs text-[#EAEFE9]">
-        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+
+    <!-- ========================================================= -->
+    <!-- 1. YOUR PRIVATE PRACTICE DESIGNER HEADER                  -->
+    <!-- ========================================================= -->
+    <header class="sticky top-0 z-50 bg-[#EAEFE9]/95 backdrop-blur-xl border-b border-[#D5DFD7]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-2">
+            <a href="index.html" class="group flex flex-col sm:flex-row sm:items-baseline leading-none">
+                <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-textdark group-hover:text-rentblue transition">Private Practice</span>
+                <span class="font-sans text-xs font-bold tracking-wider text-rentblue uppercase sm:ml-1.5 mt-0.5 sm:mt-0">Designer</span>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8 text-base font-medium">
+                <a href="redesign.html" class="text-textdark hover:text-rentblue transition">Redesign Existing Site</a>
+                <a href="portfolio.html" class="text-rentblue font-semibold transition" aria-current="page">Example Designs</a>
+                <a href="about.html" class="text-textdark hover:text-rentblue transition">About Us</a>
+                <a href="pricing.html" class="text-textdark hover:text-rentblue transition">Pricing</a>
+            </nav>
+
             <div class="flex items-center gap-2">
-                <span class="inline-block w-2 h-2 rounded-full bg-rentblue animate-pulse"></span>
-                <span class="font-medium tracking-wide text-white">Subscription-free mental health professional web designs</span>
+                <a href="get-started.html" class="inline-flex items-center justify-center px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-white bg-rentblue hover:bg-[#2C6A90] rounded-xl transition shadow-md">
+                    <span>Get Started</span>
+                </a>
+                <button type="button" onclick="toggleMobileNav()" class="md:hidden px-3 py-2.5 rounded-xl border border-[#D5DFD7] bg-white text-textdark text-sm font-bold uppercase cursor-pointer">
+                    Menu ☰
+                </button>
             </div>
-            <div class="text-[#C8D3CA] hidden md:block">
-                Designed by <strong class="text-white font-semibold">Jesse</strong> — 20+ Yrs Tech Veteran & Emerging Mental Health Clinician
+        </div>
+
+        <div id="mobileNavDrawer" class="hidden border-t border-[#D5DFD7] bg-white px-6 py-4 space-y-3 text-base font-medium shadow-lg">
+            <a href="redesign.html" class="block py-1 text-textdark hover:text-rentblue">Redesign Existing Site</a>
+            <a href="portfolio.html" class="block py-1 text-rentblue font-semibold">Example Designs</a>
+            <a href="about.html" class="block py-1 text-textdark hover:text-rentblue">About Us</a>
+            <a href="pricing.html" class="block py-1 text-textdark hover:text-rentblue">Pricing</a>
+            <a href="legal.html" class="block py-1 text-textdark hover:text-rentblue">Privacy &amp; Terms</a>
+        </div>
+    </header>
+
+    <!-- ========================================================= -->
+    <!-- 2. INTRO HEADER & FLOATING 6-DESIGN SWITCHER DOCK         -->
+    <!-- ========================================================= -->
+    <section class="pt-10 pb-6 max-w-4xl mx-auto px-6 text-center space-y-3">
+        <span id="activeDesignBadge" class="inline-block px-4 py-1.5 bg-rentbluelight text-rentblue text-sm font-bold uppercase tracking-wider rounded-full border border-rentblue/20">
+            Viewing Solo 01: Warm Terracotta &amp; Linen Sanctuary
+        </span>
+        <h1 class="font-serif text-3xl sm:text-5xl text-textdark leading-tight">
+            One Practice. <span class="italic text-rentblue font-light">Endless Custom Possibilities.</span>
+        </h1>
+        <p class="text-base sm:text-lg text-textdark/85 max-w-2xl mx-auto">
+            Click between <strong>Solo 1, 2, 3</strong> and <strong>Multi 1, 2, 3</strong> below to watch the same practice data transform across 6 completely different custom color palettes, font pairings, and architectural layouts.
+        </p>
+    </section>
+
+    <!-- CENTERED HOVERING 6-OPTION SWITCHER DOCK -->
+    <div class="portfolio-switch-dock">
+        <div class="portfolio-switch-pill" role="tablist" aria-label="Choose a Solo or Multi-Clinician Design">
+            <span class="dock-group-label">Solo:</span>
+            <button type="button" id="tab-solo1" onclick="selectPortfolioDesign('solo1')" class="design-tab-btn active-design">Solo 1</button>
+            <button type="button" id="tab-solo2" onclick="selectPortfolioDesign('solo2')" class="design-tab-btn">Solo 2</button>
+            <button type="button" id="tab-solo3" onclick="selectPortfolioDesign('solo3')" class="design-tab-btn">Solo 3</button>
+            <div class="dock-divider"></div>
+            <span class="dock-group-label">Group:</span>
+            <button type="button" id="tab-multi1" onclick="selectPortfolioDesign('multi1')" class="design-tab-btn">Multi 1</button>
+            <button type="button" id="tab-multi2" onclick="selectPortfolioDesign('multi2')" class="design-tab-btn">Multi 2</button>
+            <button type="button" id="tab-multi3" onclick="selectPortfolioDesign('multi3')" class="design-tab-btn">Multi 3</button>
+        </div>
+    </div>
+
+    <div class="h-8"></div>
+
+    <!-- ========================================================= -->
+    <!-- DESIGN 1: SOLO 1 — WARM TERRACOTTA & LINEN SANCTUARY      -->
+    <!-- (Split Left-Portrait Hero + Horizontal Specialty Ribbons) -->
+    <!-- ========================================================= -->
+    <div id="design-solo1" class="portfolio-view solo1-canvas showcase-morph">
+        <!-- Nav -->
+        <div style="background: #F4ECE1; border-bottom: 1px solid #E2D5C5; padding: 20px 24px;">
+            <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-4">
+                <div>
+                    <span class="solo1-serif" style="font-size: 28px; font-weight: 700; color: #2C221E;">John Example, LPC</span>
+                    <span style="display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: #C86D51; font-weight: 700;">Private Counseling &amp; EMDR Sanctuary</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span style="font-size: 14px; font-weight: 600; color: #5C4940;">(555) 019-2834</span>
+                    <a href="#" onclick="openExamplePopup(event)" style="background: #C86D51; color: #fff; padding: 12px 24px; border-radius: 9999px; font-size: 14px; font-weight: 700; text-decoration: none;">Book Free 15-Min Consult</a>
+                </div>
             </div>
-            <div>
-                <a href="portfolio.html" class="underline underline-offset-4 decoration-rentblue hover:decoration-white text-white transition" aria-current="page">View Live Demos &rarr;</a>
+        </div>
+
+        <!-- Split Left-Portrait Hero -->
+        <div class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5">
+                <div style="position: relative; border-radius: 180px 180px 24px 24px; overflow: hidden; border: 6px solid #FFFFFF; box-shadow: 0 25px 50px rgba(44,34,30,0.12); height: 480px;">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=700&q=80" alt="John Example, LPC" style="width: 100%; height: 100%; object-fit: cover;" />
+                </div>
+            </div>
+            <div class="lg:col-span-7 space-y-6">
+                <span style="background: #EFE4D8; color: #9C4A30; padding: 6px 16px; border-radius: 9999px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">1234 Legacy Pkwy, Suite 100 • In-Person &amp; Online</span>
+                <h2 class="solo1-serif" style="font-size: clamp(38px, 5vw, 56px); line-height: 1.08; color: #2C221E; margin: 0;">
+                    A quiet, grounded space to <span style="font-style: italic; color: #C86D51;">lay down the weight</span> you’ve been carrying.
+                </h2>
+                <p style="font-size: 17px; line-height: 1.75; color: #5C4940;">
+                    Hi, I’m <strong>John Example, LPC</strong>. For over 15 years, I have walked alongside individuals and couples navigating anxiety, marriage distance, and unresolved trauma. Here, you are never rushed or handed a generic worksheet—we move at the pace of your nervous system.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#" onclick="openExamplePopup(event)" style="background: #2C221E; color: #fff; padding: 16px 32px; border-radius: 9999px; font-weight: 700; text-decoration: none;">Schedule With John &rarr;</a>
+                    <a href="#" onclick="openExamplePopup(event)" style="background: #FFFFFF; border: 1px solid #D5C5B5; color: #2C221E; padding: 16px 28px; border-radius: 9999px; font-weight: 600; text-decoration: none;">Explore My 12 Focus Areas</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Horizontal Specialty Ribbons -->
+        <div style="background: #F4ECE1; padding: 64px 24px; border-top: 1px solid #E2D5C5;">
+            <div class="max-w-6xl mx-auto space-y-8">
+                <h3 class="solo1-serif text-center" style="font-size: 38px; color: #2C221E;">12 Areas of Clinical Focus</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="solo1-card" onclick="openExamplePopup(event)" style="cursor: pointer;">
+                        <span style="color: #C86D51; font-weight: 700; font-size: 13px; text-transform: uppercase;">01 • Relationships</span>
+                        <h4 class="solo1-serif" style="font-size: 28px; margin: 6px 0 12px 0;">Marriage &amp; Couples</h4>
+                        <p style="font-size: 15px; color: #5C4940; line-height: 1.6;">Marriage Counseling • Couples Therapy • Pre-marital Counseling • Family Conflict Resolution.</p>
+                    </div>
+                    <div class="solo1-card" onclick="openExamplePopup(event)" style="cursor: pointer;">
+                        <span style="color: #C86D51; font-weight: 700; font-size: 13px; text-transform: uppercase;">02 • Inner Healing</span>
+                        <h4 class="solo1-serif" style="font-size: 28px; margin: 6px 0 12px 0;">Trauma, Anxiety &amp; Grief</h4>
+                        <p style="font-size: 15px; color: #5C4940; line-height: 1.6;">EMDR Trauma Recovery • Anxiety Relief • Depression Care • Compassionate Grief Support.</p>
+                    </div>
+                    <div class="solo1-card" onclick="openExamplePopup(event)" style="cursor: pointer;">
+                        <span style="color: #C86D51; font-weight: 700; font-size: 13px; text-transform: uppercase;">03 • Resilience</span>
+                        <h4 class="solo1-serif" style="font-size: 28px; margin: 6px 0 12px 0;">Stress, Anger &amp; Purpose</h4>
+                        <p style="font-size: 15px; color: #5C4940; line-height: 1.6;">Stress Management • Anger Resolution • Executive Business Coaching • Optional Faith Integration.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- MAIN NAVIGATION -->
-    <header class="sticky top-0 z-50 bg-[#EAEFE9]/90 backdrop-blur-xl border-b border-[#D5DFD7]">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="index.html" class="group flex items-baseline">
-                <span class="font-serif text-2xl font-bold tracking-tight text-textdark group-hover:text-rentblue transition">Private Practice</span>
-                <span class="font-sans text-xs font-semibold tracking-widest text-rentblue uppercase ml-1.5">Designer</span>
-            </a>
-            <nav class="hidden md:flex items-center space-x-10 text-sm font-medium tracking-wide">
-                <a href="portfolio.html" class="text-rentblue font-semibold transition-colors" aria-current="page">Example Designs</a>
-                <a href="about.html" class="text-textdark hover:text-rentblue transition-colors">About Us</a>
-                <a href="pricing.html" class="text-textdark hover:text-rentblue transition-colors">Pricing</a>
-            </nav>
-            <div class="flex items-center space-x-4">
-                <a href="get-started.html" class="relative group inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold text-white bg-rentblue hover:bg-[#2C6A90] rounded-lg transition-all duration-300 shadow-md">
-                    <span>Get Started</span>
-                    <svg class="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                </a>
+    <!-- ========================================================= -->
+    <!-- DESIGN 2: SOLO 2 — MIDNIGHT EXECUTIVE & BRASS GOLD        -->
+    <!-- (Centered Bold Architectural Layout + 4-Quadrant Grid)    -->
+    <!-- ========================================================= -->
+    <div id="design-solo2" class="portfolio-view solo2-canvas hidden">
+        <div style="border-bottom: 1px solid rgba(212,175,55,0.2); padding: 22px 24px;">
+            <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-4">
+                <div class="flex items-center gap-3">
+                    <div style="width: 40px; height: 40px; border: 2px solid #D4AF37; color: #D4AF37; display: flex; align-items: center; justify-content: center; font-weight: 800;">JE</div>
+                    <span class="solo2-display" style="font-size: 20px; font-weight: 800; letter-spacing: 0.05em; color: #fff;">JOHN EXAMPLE, LPC</span>
+                </div>
+                <a href="#" onclick="openExamplePopup(event)" style="background: #D4AF37; color: #0B132B; padding: 11px 24px; border-radius: 8px; font-weight: 800; font-size: 13px; text-transform: uppercase; text-decoration: none;">Private Consultation &rarr;</a>
             </div>
         </div>
-    </header>
 
-    <main>
-        <!-- HERO HEADER -->
-        <section class="relative pt-12 pb-12 lg:pt-16 lg:pb-16 overflow-hidden">
-            <!-- Ambient Background Glows -->
-            <div class="absolute top-1/4 left-[-10%] w-[500px] h-[500px] bg-rentbluelight/60 rounded-full blur-[140px] pointer-events-none"></div>
-            <div class="absolute bottom-10 right-[-5%] w-[450px] h-[450px] bg-boxgreen-200/40 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="max-w-5xl mx-auto px-6 py-20 text-center space-y-6">
+            <span style="color: #D4AF37; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.16em;">High-Discretion Psychotherapy &amp; Executive Performance</span>
+            <h2 class="solo2-display" style="font-size: clamp(34px, 5vw, 54px); font-weight: 800; line-height: 1.1; color: #ffffff;">
+                Evidence-Based Clarity for High-Stakes Lives &amp; Marriages.
+            </h2>
+            <p style="font-size: 18px; color: #94A3B8; max-width: 680px; margin: 0 auto; line-height: 1.7;">
+                Serving professionals, couples, and leaders at 1234 Legacy Pkwy. Direct, results-oriented therapy for anxiety, burnout, marriage restoration, and trauma.
+            </p>
+        </div>
 
-            <div class="max-w-4xl mx-auto px-6 text-center space-y-4">
-                <span class="inline-block px-3 py-1 bg-rentbluelight text-rentblue text-xs font-semibold uppercase tracking-wider rounded-full border border-rentblue/20">
-                    Trauma-Informed • High-Converting Aesthetics
-                </span>
-                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal leading-tight text-textdark">
-                    Bespoke web designs built for <span class="italic text-rentblue font-light">therapeutic safety</span>.
-                </h1>
-                <p class="text-base sm:text-lg text-textdark/80 font-light leading-relaxed max-w-2xl mx-auto">
-                    We replace cookie-cutter medical directories with soothing, high-end editorial aesthetics. Explore our live concept directions optimized for immediate clinical credibility and zero monthly subscription fees.
+        <div class="max-w-6xl mx-auto px-6 pb-20 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            <div class="lg:col-span-4 solo2-card flex flex-col justify-between text-center" onclick="openExamplePopup(event)" style="cursor: pointer;">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=80" alt="John Example, LPC" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px auto; border: 3px solid #D4AF37;" />
+                    <h3 class="solo2-display" style="font-size: 22px; color: #fff;">John Example, LPC</h3>
+                    <span style="color: #D4AF37; font-size: 12px; font-weight: 700; text-transform: uppercase;">Licensed Professional Counselor</span>
+                    <p style="font-size: 14px; color: #CBD5E1; margin-top: 12px; line-height: 1.6;">"I help clients cut through noise, resolve deep-seated relationship patterns, and reclaim command of their mental health."</p>
+                </div>
+                <span style="display: block; margin-top: 20px; padding: 12px; background: rgba(212,175,55,0.15); color: #D4AF37; font-weight: 700; border-radius: 8px; font-size: 13px;">Direct Line: (555) 019-2834</span>
+            </div>
+
+            <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="solo2-card" onclick="openExamplePopup(event)" style="cursor: pointer;">
+                    <h4 class="solo2-display" style="color: #D4AF37; font-size: 19px; margin-bottom: 8px;">Marriage &amp; Couples Strategy</h4>
+                    <p style="font-size: 14px; color: #CBD5E1; line-height: 1.6;">High-impact Marriage Counseling, Couples Therapy, Premarital Alignment &amp; Conflict Resolution.</p>
+                </div>
+                <div class="solo2-card" onclick="openExamplePopup(event)" style="cursor: pointer;">
+                    <h4 class="solo2-display" style="color: #D4AF37; font-size: 19px; margin-bottom: 8px;">Trauma &amp; Neuroscience</h4>
+                    <p style="font-size: 14px; color: #CBD5E1; line-height: 1.6;">Targeted EMDR &amp; Trauma Processing, Anxiety Regulation, Depression &amp; Grief Recovery.</p>
+                </div>
+                <div class="solo2-card" onclick="openExamplePopup(event)" style="cursor: pointer;">
+                    <h4 class="solo2-display" style="color: #D4AF37; font-size: 19px; margin-bottom: 8px;">Executive &amp; Anger Mastery</h4>
+                    <p style="font-size: 14px; color: #CBD5E1; line-height: 1.6;">Executive Business Coaching, High-Pressure Stress Management &amp; Root-Cause Anger Resolution.</p>
+                </div>
+                <div class="solo2-card" onclick="openExamplePopup(event)" style="cursor: pointer;">
+                    <h4 class="solo2-display" style="color: #D4AF37; font-size: 19px; margin-bottom: 8px;">Client Transformation</h4>
+                    <p style="font-size: 14px; color: #CBD5E1; line-height: 1.6;">"Working with John Example, LPC saved our marriage and gave me life-changing tools for anxiety." — Verified Client</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- DESIGN 3: SOLO 3 — BOTANICAL SAGE & ORGANIC MOSS          -->
+    <!-- (Soft Pill Cards + Oval Center Portrait + 3-Step Flow)    -->
+    <!-- ========================================================= -->
+    <div id="design-solo3" class="portfolio-view solo3-canvas hidden">
+        <div style="padding: 24px; border-bottom: 1px solid #CBD5C0;">
+            <div class="max-w-5xl mx-auto flex flex-wrap justify-between items-center gap-4">
+                <span class="solo3-serif" style="font-size: 24px; font-weight: 600; color: #1E2D24;">🌿 John Example, LPC • Mindful Therapy</span>
+                <a href="#" onclick="openExamplePopup(event)" style="background: #3B5249; color: #fff; padding: 12px 26px; border-radius: 9999px; font-size: 14px; font-weight: 600; text-decoration: none;">Begin Your Journey</a>
+            </div>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-6 py-16 space-y-12">
+            <div class="solo3-pill-box grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-8 space-y-4">
+                    <span style="color: #3B5249; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;"> Holistic &amp; Clinical Counseling • 1234 Legacy Pkwy</span>
+                    <h2 class="solo3-serif" style="font-size: clamp(32px, 4.5vw, 48px); line-height: 1.15; color: #1E2D24;">
+                        Healing happens when you finally feel <span style="font-style: italic; color: #3B5249;">heard and understood</span>.
+                    </h2>
+                    <p style="font-size: 16px; color: #3B5249; line-height: 1.75;">
+                        Whether you are navigating anxiety, grief, relationship tension, or life transitions, my practice offers a calm, judgment-free space to reconnect with your strengths.
+                    </p>
+                </div>
+                <div class="md:col-span-4 text-center">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=80" alt="John Example, LPC" style="width: 200px; height: 240px; border-radius: 120px; object-fit: cover; margin: 0 auto; border: 4px solid #A4B494;" />
+                </div>
+            </div>
+
+            <!-- 12 Specialties Tag Cloud -->
+            <div class="text-center space-y-4">
+                <h3 class="solo3-serif" style="font-size: 28px; color: #1E2D24;">12 Specialties Tailored to Your Story</h3>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <span onclick="openExamplePopup(event)" style="background: #fff; border: 1px solid #A4B494; padding: 10px 20px; border-radius: 9999px; font-size: 14px; font-weight: 600; cursor: pointer;">Anxiety Relief</span>
+                    <span onclick="openExamplePopup(event)" style="background: #fff; border: 1px solid #A4B494; padding: 10px 20px; border-radius: 9999px; font-size: 14px; font-weight: 600; cursor: pointer;">Marriage Counseling</span>
+                    <span onclick="openExamplePopup(event)" style="background: #fff; border: 1px solid #A4B494; padding: 10px 20px; border-radius: 9999px; font-size: 14px; font-weight: 600; cursor: pointer;">Premarital</span>
+                    <span onclick="openExamplePopup(event)" style="background: #fff; border: 1px solid #A4B494; padding: 10px 20px; border-radius: 9999px; font-size: 14px; font-weight: 600; cursor: pointer;">Trauma &amp; EMDR</span>
+                    <span onclick="openExamplePopup(event)" style="background: #fff; border: 1px solid #A4B494; padding: 10px 20px; border-radius: 9999px; font-size: 14px; font-weight: 600; cursor: pointer;">Depression</span>
+                    <span onclick="openExamplePopup(event)" style="background: #fff; border: 1px solid #A4B494; padding: 10px 20px; border-radius: 9999px; font-size: 14px; font-weight: 600; cursor: pointer;">Family &amp; Couples</span>
+                    <span onclick="openExamplePopup(event)" style="background: #fff; border: 1px solid #A4B494; padding: 10px 20px; border-radius: 9999px; font-size: 14px; font-weight: 600; cursor: pointer;">Grief &amp; Stress</span>
+                    <span onclick="openExamplePopup(event)" style="background: #fff; border: 1px solid #A4B494; padding: 10px 20px; border-radius: 9999px; font-size: 14px; font-weight: 600; cursor: pointer;">Anger &amp; Conflict</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- DESIGN 4: MULTI 1 — EDITORIAL IVORY & PLUM ROSE CLINIC    -->
+    <!-- (Magazine Asymmetric Grid + Circular Avatar Team Roster)  -->
+    <!-- ========================================================= -->
+    <div id="design-multi1" class="portfolio-view multi1-canvas hidden">
+        <div style="background: #ffffff; border-bottom: 1px solid #E5E0DC; padding: 20px 24px;">
+            <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-4">
+                <div>
+                    <span class="multi1-serif" style="font-size: 26px; font-weight: 700; color: #7C3F58;">The Legacy Collective</span>
+                    <span style="display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #6B7280;">12-Clinician Marriage, Family &amp; Trauma Practice</span>
+                </div>
+                <a href="#" onclick="openExamplePopup(event)" style="background: #7C3F58; color: #fff; padding: 12px 26px; border-radius: 12px; font-size: 14px; font-weight: 700; text-decoration: none;">Match With Our Team &rarr;</a>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 py-16 space-y-16">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-5">
+                    <span style="color: #7C3F58; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em;">30+ Years of Collective Care • 1234 Legacy Pkwy</span>
+                    <h2 class="multi1-serif" style="font-size: clamp(36px, 4.5vw, 52px); line-height: 1.1; color: #1F2421;">
+                        Compassionate, multi-specialty care for <span style="font-style: italic; color: #7C3F58;">every chapter of life</span>.
+                    </h2>
+                    <p style="font-size: 17px; color: #4B5563; line-height: 1.7;">
+                        With 12 licensed counselors and therapists under one roof, we pair you with the exact specialist who understands your marriage, family, or individual goals.
+                    </p>
+                </div>
+                <div class="lg:col-span-6 grid grid-cols-3 gap-4">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="Clinician" style="width: 100%; height: 220px; object-fit: cover; border-radius: 16px;" />
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Clinician" style="width: 100%; height: 220px; object-fit: cover; border-radius: 16px; margin-top: 24px;" />
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80" alt="Clinician" style="width: 100%; height: 220px; object-fit: cover; border-radius: 16px;" />
+                </div>
+            </div>
+
+            <!-- Circular Portrait Roster of the Same Clinicians -->
+            <div class="space-y-8">
+                <h3 class="multi1-serif text-center" style="font-size: 34px; color: #1F2421;">Meet Our Clinical Team</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
+                    <div onclick="openExamplePopup(event)" style="cursor: pointer;">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80" alt="John Example" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 10px auto; border: 3px solid #7C3F58;" />
+                        <strong style="display: block; font-size: 15px;">John Example, LPC</strong>
+                        <span style="font-size: 12px; color: #7C3F58;">Clinical Director</span>
+                    </div>
+                    <div onclick="openExamplePopup(event)" style="cursor: pointer;">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="Lauren Sample" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 10px auto; border: 3px solid #7C3F58;" />
+                        <strong style="display: block; font-size: 15px;">Lauren Sample, MA</strong>
+                        <span style="font-size: 12px; color: #7C3F58;">Anxiety &amp; Youth</span>
+                    </div>
+                    <div onclick="openExamplePopup(event)" style="cursor: pointer;">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80" alt="Emily Demo" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 10px auto; border: 3px solid #7C3F58;" />
+                        <strong style="display: block; font-size: 15px;">Emily Demo, LPC-S</strong>
+                        <span style="font-size: 12px; color: #7C3F58;">Trauma &amp; Grief</span>
+                    </div>
+                    <div onclick="openExamplePopup(event)" style="cursor: pointer;">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80" alt="Sarah Placeholder" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 10px auto; border: 3px solid #7C3F58;" />
+                        <strong style="display: block; font-size: 15px;">Sarah Placeholder, LPC</strong>
+                        <span style="font-size: 12px; color: #7C3F58;">Couples &amp; Stress</span>
+                    </div>
+                    <div onclick="openExamplePopup(event)" style="cursor: pointer;">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80" alt="Ben Standard" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 10px auto; border: 3px solid #7C3F58;" />
+                        <strong style="display: block; font-size: 15px;">Ben Standard, LMFT</strong>
+                        <span style="font-size: 12px; color: #7C3F58;">Marriage &amp; Family</span>
+                    </div>
+                    <div onclick="openExamplePopup(event)" style="cursor: pointer;">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=300&q=80" alt="Deborah Model" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 10px auto; border: 3px solid #7C3F58;" />
+                        <strong style="display: block; font-size: 15px;">Deborah Model, LPC</strong>
+                        <span style="font-size: 12px; color: #7C3F58;">Depression &amp; Care</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- DESIGN 5: MULTI 2 — NORDIC COASTAL SLATE & DEEP TEAL      -->
+    <!-- (Horizontal Split Clinician Cards + Amber Accent Bar)     -->
+    <!-- ========================================================= -->
+    <div id="design-multi2" class="portfolio-view multi2-canvas hidden">
+        <div style="background: #0F4C5C; color: #ffffff; padding: 24px;">
+            <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-4">
+                <span style="font-size: 24px; font-weight: 700; letter-spacing: -0.02em;">HARBORLINE COUNSELING GROUP</span>
+                <span style="background: #E36414; color: #fff; padding: 10px 22px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer;" onclick="openExamplePopup(event)">Call Intake: (555) 019-2834</span>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-12 gap-10">
+            <!-- Left Sticky Mission Column -->
+            <div class="lg:col-span-4 space-y-5">
+                <div style="background: #0F4C5C; color: #fff; padding: 36px; border-radius: 24px;">
+                    <span style="color: #FDBA74; font-size: 12px; font-weight: 700; text-transform: uppercase;">12 Specialties • 12 Clinicians</span>
+                    <h2 style="font-size: 34px; font-weight: 700; line-height: 1.15; margin: 12px 0;">Modern Group Therapy Built Around You.</h2>
+                    <p style="font-size: 15px; color: #E2E8F0; line-height: 1.65;">
+                        Located at 1234 Legacy Pkwy. Evidence-based counseling for Anxiety, Marriage, Trauma, Depression, Grief, Anger, and Family Systems.
+                    </p>
+                    <a href="#" onclick="openExamplePopup(event)" style="display: block; text-align: center; margin-top: 20px; background: #E36414; color: #fff; padding: 14px; border-radius: 12px; font-weight: 700; text-decoration: none;">Get Matched Today &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Right Horizontal Split Team Cards -->
+            <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div onclick="openExamplePopup(event)" style="background: #fff; border-radius: 18px; padding: 18px; display: flex; gap: 16px; align-items: center; border: 1px solid #CBD5E1; cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80" alt="John Example" style="width: 84px; height: 84px; border-radius: 14px; object-fit: cover;" />
+                    <div>
+                        <strong style="font-size: 17px; color: #0F4C5C; display: block;">John Example, LPC</strong>
+                        <span style="font-size: 13px; color: #475569;">Marriage, Trauma &amp; Executive Coaching</span>
+                    </div>
+                </div>
+                <div onclick="openExamplePopup(event)" style="background: #fff; border-radius: 18px; padding: 18px; display: flex; gap: 16px; align-items: center; border: 1px solid #CBD5E1; cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80" alt="Emily Demo" style="width: 84px; height: 84px; border-radius: 14px; object-fit: cover;" />
+                    <div>
+                        <strong style="font-size: 17px; color: #0F4C5C; display: block;">Emily Demo, LPC-S</strong>
+                        <span style="font-size: 13px; color: #475569;">Trauma Recovery, Anxiety &amp; Supervision</span>
+                    </div>
+                </div>
+                <div onclick="openExamplePopup(event)" style="background: #fff; border-radius: 18px; padding: 18px; display: flex; gap: 16px; align-items: center; border: 1px solid #CBD5E1; cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80" alt="Ben Standard" style="width: 84px; height: 84px; border-radius: 14px; object-fit: cover;" />
+                    <div>
+                        <strong style="font-size: 17px; color: #0F4C5C; display: block;">Ben Standard, LMFT</strong>
+                        <span style="font-size: 13px; color: #475569;">Couples, Premarital &amp; Family Conflict</span>
+                    </div>
+                </div>
+                <div onclick="openExamplePopup(event)" style="background: #fff; border-radius: 18px; padding: 18px; display: flex; gap: 16px; align-items: center; border: 1px solid #CBD5E1; cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=300&q=80" alt="Kristen Practice" style="width: 84px; height: 84px; border-radius: 14px; object-fit: cover;" />
+                    <div>
+                        <strong style="font-size: 17px; color: #0F4C5C; display: block;">Kristen Practice, LPC</strong>
+                        <span style="font-size: 13px; color: #475569;">Anxiety, Relationships &amp; Faith Integration</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- DESIGN 6: MULTI 3 — MODERN SUNLIT ATRIUM (EMERALD & GOLD) -->
+    <!-- (Warm Sunlit Banner + 4-Column Interactive Cards)         -->
+    <!-- ========================================================= -->
+    <div id="design-multi3" class="portfolio-view multi3-canvas hidden">
+        <div style="background: #1B4332; color: #ffffff; padding: 22px 24px;">
+            <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-4">
+                <span class="multi3-serif" style="font-size: 24px; font-weight: 700; color: #FEF3C7;">Sunlit Grove Counseling &amp; Consulting</span>
+                <a href="#" onclick="openExamplePopup(event)" style="background: #D97706; color: #fff; padding: 10px 24px; border-radius: 9999px; font-size: 14px; font-weight: 700; text-decoration: none;">Schedule Intake • (555) 019-2834</a>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 py-16 space-y-12">
+            <div style="background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%); color: #fff; border-radius: 32px; padding: 56px 36px; text-align: center;" class="space-y-4">
+                <span style="background: rgba(254,243,199,0.2); color: #FEF3C7; padding: 6px 16px; border-radius: 9999px; font-size: 12px; font-weight: 700; text-transform: uppercase;">1234 Legacy Pkwy • 12 Specialists • 5.0 ★ Client Rating</span>
+                <h2 class="multi3-serif" style="font-size: clamp(34px, 5vw, 52px); color: #ffffff; max-width: 800px; margin: 0 auto; line-height: 1.12;">
+                    Not just surviving. <span style="font-style: italic; color: #FDE68A;">Actually living.</span>
+                </h2>
+                <p style="font-size: 18px; color: #D8F3DC; max-width: 640px; margin: 0 auto;">
+                    For more than 30 years, our multi-specialty clinical team has helped individuals, marriages, and families find lasting healing and practical tools.
                 </p>
             </div>
-        </section>
 
-        <!-- INTERACTIVE LIVE FILTER BUTTONS -->
-        <section class="pb-10 max-w-7xl mx-auto px-6">
-            <div class="flex flex-wrap justify-center gap-3">
-                <button type="button" onclick="filterPortfolio('all')" id="btnFilter-all" class="py-2.5 px-5 rounded-full border border-[#D5DFD7] text-xs font-bold uppercase tracking-wider transition cursor-pointer filter-btn-active">
-                    Show All Designs
-                </button>
-                <button type="button" onclick="filterPortfolio('solo')" id="btnFilter-solo" class="py-2.5 px-5 rounded-full border border-[#D5DFD7] bg-white text-textdark text-xs font-bold uppercase tracking-wider transition cursor-pointer hover:border-rentblue">
-                    Solo Practices
-                </button>
-                <button type="button" onclick="filterPortfolio('group')" id="btnFilter-group" class="py-2.5 px-5 rounded-full border border-[#D5DFD7] bg-white text-textdark text-xs font-bold uppercase tracking-wider transition cursor-pointer hover:border-rentblue">
-                    Group practices
-                </button>
-                <button type="button" onclick="filterPortfolio('specialty')" id="btnFilter-specialty" class="py-2.5 px-5 rounded-full border border-[#D5DFD7] bg-white text-textdark text-xs font-bold uppercase tracking-wider transition cursor-pointer hover:border-rentblue">
-                    Specialized Modalities
-                </button>
-            </div>
-        </section>
-
-        <!-- PORTFOLIO GRID -->
-        <section class="pb-24 max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-                
-                <!-- DIRECTION 1: THE SOLACE SUITE (SOLO/SPECIALTY) -->
-                <div class="portfolio-item-card glass-panel flex flex-col justify-between overflow-hidden bg-white rounded-3xl border border-[#D5DFD7] transition duration-300 hover:-translate-y-1 hover:shadow-xl" data-category="solo specialty">
-                    <div>
-                        <!-- Mockup Cover Block with Calming Colors -->
-                        <div class="h-52 bg-gradient-to-tr from-boxgreen-100 to-bglight border-b border-[#D5DFD7] relative flex items-center justify-center p-6 text-center">
-                            <span class="absolute top-3 left-3 px-2 py-1 bg-[#222A24] text-[#EAEFE9] text-[9px] font-bold uppercase tracking-wider rounded">
-                                Trauma & EMDR Niche
-                            </span>
-                            <div>
-                                <h3 class="font-serif text-3xl font-semibold text-textdark italic leading-none">The Solace Suite</h3>
-                                <p class="text-[10px] uppercase tracking-widest text-[#4A7C59] mt-2 font-bold">Concept Direction 01</p>
-                            </div>
-                        </div>
-                        
-                        <div class="p-6 space-y-4">
-                            <h4 class="font-serif text-xl text-textdark">Warm, Trauma-Informed Layout</h4>
-                            <p class="text-xs text-textdark/80 font-light leading-relaxed">
-                                Specifically designed to reduce sensory overload. Uses soft sage greens, abundant breathing space, and high-contrast typography to support clients seeking help for trauma or anxiety.
-                            </p>
-                            <div class="flex flex-wrap gap-2 pt-2">
-                                <span class="px-2.5 py-1 bg-[#EAEFE9] text-textdark text-[10px] font-medium rounded-md border border-[#D5DFD7]">Solo Practice</span>
-                                <span class="px-2.5 py-1 bg-rentbluelight text-rentblue text-[10px] font-medium rounded-md border border-rentblue/10">EMDR Focused</span>
-                                <span class="px-2.5 py-1 bg-boxgreen-50 text-boxgreen-700 text-[10px] font-medium rounded-md border border-boxgreen-100">SimplePractice Link</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6 pt-0">
-                        <a href="get-started.html" class="block w-full py-3 px-4 bg-[#EAEFE9] hover:bg-rentblue hover:text-white text-textdark font-semibold text-xs text-center uppercase tracking-wider rounded-xl transition">
-                            Request This Layout Concept &rarr;
-                        </a>
-                    </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div onclick="openExamplePopup(event)" style="background: #fff; border: 1px solid #E5E7EB; border-radius: 20px; padding: 20px; cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="John Example" style="width: 100%; height: 200px; object-fit: cover; border-radius: 14px; margin-bottom: 12px;" />
+                    <h4 class="multi3-serif" style="font-size: 20px; color: #1B4332;">John Example, LPC</h4>
+                    <p style="font-size: 14px; color: #4B5563;">Marriage, Trauma &amp; Leadership</p>
                 </div>
-
-                <!-- DIRECTION 2: THE ANCHOR GROUP (GROUP) -->
-                <div class="portfolio-item-card glass-panel flex flex-col justify-between overflow-hidden bg-white rounded-3xl border border-[#D5DFD7] transition duration-300 hover:-translate-y-1 hover:shadow-xl" data-category="group">
-                    <div>
-                        <div class="h-52 bg-gradient-to-tr from-[#C3DFCA] to-rentbluelight border-b border-[#D5DFD7] relative flex items-center justify-center p-6 text-center">
-                            <span class="absolute top-3 left-3 px-2 py-1 bg-[#222A24] text-[#EAEFE9] text-[9px] font-bold uppercase tracking-wider rounded">
-                                Multi-Provider Directory
-                            </span>
-                            <div>
-                                <h3 class="font-serif text-3xl font-semibold text-[#2B302C] leading-none">The Anchor Group</h3>
-                                <p class="text-[10px] uppercase tracking-widest text-[#3A86B2] mt-2 font-bold">Concept Direction 02</p>
-                            </div>
-                        </div>
-                        
-                        <div class="p-6 space-y-4">
-                            <h4 class="font-serif text-xl text-textdark">Group Practice & Clinic Directory</h4>
-                            <p class="text-xs text-textdark/80 font-light leading-relaxed">
-                                A clean, multi-clinician structure featuring a filterable "Meet the Team" directory. Connects individual team bio cards directly to their distinct EHR booking calendars.
-                            </p>
-                            <div class="flex flex-wrap gap-2 pt-2">
-                                <span class="px-2.5 py-1 bg-[#EAEFE9] text-textdark text-[10px] font-medium rounded-md border border-[#D5DFD7]">Group Practice</span>
-                                <span class="px-2.5 py-1 bg-rentbluelight text-rentblue text-[10px] font-medium rounded-md border border-rentblue/10">Filtered Bio Cards</span>
-                                <span class="px-2.5 py-1 bg-boxgreen-50 text-boxgreen-700 text-[10px] font-medium rounded-md border border-boxgreen-100">Multi-EHR Sync</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6 pt-0">
-                        <a href="get-started.html" class="block w-full py-3 px-4 bg-[#EAEFE9] hover:bg-rentblue hover:text-white text-textdark font-semibold text-xs text-center uppercase tracking-wider rounded-xl transition">
-                            Request This Layout Concept &rarr;
-                        </a>
-                    </div>
+                <div onclick="openExamplePopup(event)" style="background: #fff; border: 1px solid #E5E7EB; border-radius: 20px; padding: 20px; cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Lauren Sample" style="width: 100%; height: 200px; object-fit: cover; border-radius: 14px; margin-bottom: 12px;" />
+                    <h4 class="multi3-serif" style="font-size: 20px; color: #1B4332;">Lauren Sample, MA</h4>
+                    <p style="font-size: 14px; color: #4B5563;">Anxiety &amp; Young Adults</p>
                 </div>
-
-                <!-- DIRECTION 3: THE MIND-BODY COOPERATIVE (SPECIALTY/SOLO) -->
-                <div class="portfolio-item-card glass-panel flex flex-col justify-between overflow-hidden bg-white rounded-3xl border border-[#D5DFD7] transition duration-300 hover:-translate-y-1 hover:shadow-xl" data-category="solo specialty">
-                    <div>
-                        <div class="h-52 bg-gradient-to-tr from-rentbluelight to-bglight border-b border-[#D5DFD7] relative flex items-center justify-center p-6 text-center">
-                            <span class="absolute top-3 left-3 px-2 py-1 bg-[#222A24] text-[#EAEFE9] text-[9px] font-bold uppercase tracking-wider rounded">
-                                Somatic & Holistic Modalities
-                            </span>
-                            <div>
-                                <h3 class="font-serif text-3xl font-light text-textdark leading-none">Mind-Body Coop</h3>
-                                <p class="text-[10px] uppercase tracking-widest text-[#4A7C59] mt-2 font-bold">Concept Direction 03</p>
-                            </div>
-                        </div>
-                        
-                        <div class="p-6 space-y-4">
-                            <h4 class="font-serif text-xl text-textdark">Holistic & Integrative Modality Approach</h4>
-                            <p class="text-xs text-textdark/80 font-light leading-relaxed">
-                                Ideal for somatic, art, play, or integrative bodywork therapists. Employs soft earth tones, organic borders, and a highly intuitive client FAQ drawer to increase conversion rates.
-                            </p>
-                            <div class="flex flex-wrap gap-2 pt-2">
-                                <span class="px-2.5 py-1 bg-[#EAEFE9] text-textdark text-[10px] font-medium rounded-md border border-[#D5DFD7]">Solo Practice</span>
-                                <span class="px-2.5 py-1 bg-rentbluelight text-rentblue text-[10px] font-medium rounded-md border border-rentblue/10">Integrative Modal</span>
-                                <span class="px-2.5 py-1 bg-boxgreen-50 text-boxgreen-700 text-[10px] font-medium rounded-md border border-boxgreen-100">TherapyNotes Sync</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6 pt-0">
-                        <a href="get-started.html" class="block w-full py-3 px-4 bg-[#EAEFE9] hover:bg-rentblue hover:text-white text-textdark font-semibold text-xs text-center uppercase tracking-wider rounded-xl transition">
-                            Request This Layout Concept &rarr;
-                        </a>
-                    </div>
+                <div onclick="openExamplePopup(event)" style="background: #fff; border: 1px solid #E5E7EB; border-radius: 20px; padding: 20px; cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80" alt="Emily Demo" style="width: 100%; height: 200px; object-fit: cover; border-radius: 14px; margin-bottom: 12px;" />
+                    <h4 class="multi3-serif" style="font-size: 20px; color: #1B4332;">Emily Demo, LPC-S</h4>
+                    <p style="font-size: 14px; color: #4B5563;">Trauma Recovery &amp; Grief</p>
                 </div>
-
-            </div>
-        </section>
-
-        <!-- PORTFOLIO PROMISE BAR -->
-        <section class="py-16 bg-white/60 border-y border-[#D5DFD7]">
-            <div class="max-w-4xl mx-auto px-6 text-center space-y-4">
-                <span class="inline-block px-3 py-1 bg-boxgreen-100 text-boxgreen-700 text-xs font-semibold rounded-full border border-boxgreen-200">
-                    Hand-Engineered Performance Standards
-                </span>
-                <h3 class="font-serif text-2xl sm:text-3xl text-textdark">What Makes Your Site Load Blazing Fast</h3>
-                <p class="text-sm text-textdark/80 font-light leading-relaxed">
-                    By bypassing bloated platforms like WordPress and Squarespace, every line of your code is compiled down into tiny, static assets served from cloud edge servers. This ensures your clients never face frustrating loading delays or vulnerable databases when trying to access your schedule.
-                </p>
-            </div>
-        </section>
-
-        <!-- CALL TO ACTION BANNER -->
-        <section class="py-20 max-w-7xl mx-auto px-6">
-            <div class="glass-panel p-12 rounded-3xl text-center space-y-6 bg-white border-[#D5DFD7] shadow-xl">
-                <h2 class="font-serif text-3xl sm:text-4xl text-textdark">Ready to Build Your Custom Practice Site?</h2>
-                <p class="text-textdark/80 max-w-xl mx-auto font-light text-base">
-                    Select one of our starting visual pathways or describe your own unique practice goals in our quick, 2-minute intake proposal.
-                </p>
-                <div class="pt-2">
-                    <a href="get-started.html" class="inline-block px-8 py-4 bg-rentblue hover:bg-[#2C6A90] text-white font-semibold rounded-xl transition duration-300 shadow-md">
-                        Request Your Free Proposal &rarr;
-                    </a>
+                <div onclick="openExamplePopup(event)" style="background: #fff; border: 1px solid #E5E7EB; border-radius: 20px; padding: 20px; cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" alt="Ben Standard" style="width: 100%; height: 200px; object-fit: cover; border-radius: 14px; margin-bottom: 12px;" />
+                    <h4 class="multi3-serif" style="font-size: 20px; color: #1B4332;">Ben Standard, LMFT</h4>
+                    <p style="font-size: 14px; color: #4B5563;">Couples &amp; Family Systems</p>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
 
-    <!-- FOOTER -->
-    <footer class="border-t border-[#D5DFD7] py-8 bg-[#222A24] text-xs text-[#C8D3CA]">
+    <!-- ========================================================= -->
+    <!-- 4. STOCK PHOTOGRAPHY & FICTIONAL PERSONA DISCLOSURE       -->
+    <!-- ========================================================= -->
+    <div class="bg-[#EAEFE9] border-t border-[#D5DFD7] py-6 px-6 text-center">
+        <p class="text-sm text-textdark/80 max-w-4xl mx-auto leading-relaxed">
+            <strong>Custom Design &amp; Stock Photography Disclosure:</strong> Every Private Practice Designer website is 100% custom-engineered around your preferences—the 6 interactive views above (<em>Solo 1–3</em> and <em>Multi 1–3</em>) illustrate how the exact same practice details can be styled into completely different aesthetics. All clinician names (e.g., <em>John Example, LPC</em>; <em>Emily Demo, LPC-S</em>) are fictionalized personas. Portrait photography is licensed royalty-free via <a href="https://unsplash.com/license" target="_blank" rel="noopener" class="underline text-rentblue font-semibold">Unsplash</a>; depicted models are stock photography subjects and not actual licensed mental health clinicians.
+        </p>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 5. POP-UP MODAL WHEN ANY DEMO LINK IS CLICKED             -->
+    <!-- ========================================================= -->
+    <div id="exampleSitePopup" class="example-popup-overlay" onclick="if(event.target === this) closeExamplePopup()">
+        <div class="glass-panel p-8 sm:p-10 rounded-3xl max-w-lg w-11/12 text-center space-y-5 bg-white border-2 border-rentblue shadow-2xl">
+            <span class="inline-block px-3.5 py-1 bg-rentbluelight text-rentblue text-xs font-bold uppercase tracking-wider rounded-full">
+                Interactive Custom Showcase
+            </span>
+            <h3 class="font-serif text-3xl text-textdark">
+                This Site Is Only an Example.
+            </h3>
+            <p class="text-base text-textdark/90 leading-relaxed">
+                Use the floating switcher bar at the top of the screen to test-drive all 6 custom aesthetics (<strong>Solo 1, 2, 3</strong> &amp; <strong>Multi 1, 2, 3</strong>)—or click below to start your own 100% custom practice website!
+            </p>
+            <div class="pt-3 flex flex-col sm:flex-row justify-center gap-3">
+                <a href="get-started.html" class="px-6 py-4 bg-rentblue hover:bg-[#2C6A90] text-white text-base font-semibold rounded-xl transition shadow-lg">
+                    Build My Custom Website &rarr;
+                </a>
+                <button type="button" onclick="closeExamplePopup()" class="px-6 py-4 bg-[#EAEFE9] hover:bg-[#D5DFD7] text-textdark text-base font-semibold rounded-xl transition cursor-pointer">
+                    Keep Exploring Designs
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 6. YOUR PRIVATE PRACTICE DESIGNER STATUTORY FOOTER        -->
+    <!-- ========================================================= -->
+    <footer class="border-t border-[#D5DFD7] py-8 bg-[#222A24] text-sm text-[#C8D3CA]">
         <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-between items-center gap-4">
-            <p class="text-white">&copy; 2026 Private Practice Designer. All rights reserved.</p>
-            <div class="flex gap-6">
+            <p class="text-white font-medium">&copy; 2026 Private Practice Designer. All rights reserved.</p>
+            <div class="flex flex-wrap gap-6">
                 <a href="index.html" class="hover:text-white">Home</a>
+                <a href="redesign.html" class="hover:text-white">Redesign Existing Site</a>
                 <a href="portfolio.html" class="text-white font-semibold">Example Designs</a>
                 <a href="about.html" class="hover:text-white">About Us</a>
                 <a href="pricing.html" class="hover:text-white">Pricing</a>
                 <a href="get-started.html" class="hover:text-white">Get Started</a>
+                <a href="legal.html" class="text-white underline font-semibold">Privacy &amp; Terms</a>
+                <button type="button" onclick="reopenConsentBanner()" class="text-[#C8D3CA] hover:text-white underline cursor-pointer">Privacy Preferences</button>
             </div>
         </div>
     </footer>
 
-    <!-- INTERACTIVE FILTER LOGIC -->
+    <!-- COMPLIANT FLOATING BOTTOM CONSENT BAR -->
+    <div id="cookieConsentBanner" class="consent-floating-bar" role="dialog" aria-live="polite" aria-label="Privacy and Terms Consent Banner">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+            <div class="space-y-1 max-w-4xl">
+                <p class="text-base font-semibold text-white">
+                    🌍 Global Privacy, Cookie &amp; Terms Notice
+                </p>
+                <p class="text-sm text-[#EAEFE9] leading-relaxed">
+                    We do not use invasive advertising or cross-site tracking cookies. We only process business contact details you voluntarily submit via our forms and use local storage solely if you click &ldquo;Accept&rdquo; to remember your banner preference. Review our <a href="legal.html" class="underline text-white font-bold">Privacy Policy, Terms of Service &amp; Non-PHI Disclaimer</a>.
+                </p>
+            </div>
+            <div class="flex flex-wrap items-center gap-3 shrink-0">
+                <button type="button" onclick="declineOptionalStorage()" class="consent-btn-equal consent-btn-decline">
+                    Essential Only / Decline
+                </button>
+                <button type="button" onclick="acceptConsentBanner()" class="consent-btn-equal consent-btn-accept">
+                    Accept &amp; Continue
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        function filterPortfolio(category) {
-            // Get all portfolio item cards
-            const cards = document.querySelectorAll('.portfolio-item-card');
-            
-            // Get all filter buttons
-            const buttons = document.querySelectorAll('[id^="btnFilter-"]');
-            
-            // Set active class on clicked button and remove from others
-            buttons.forEach(btn => {
-                if (btn.id === `btnFilter-${category}`) {
-                    btn.classList.add('filter-btn-active');
-                    btn.classList.remove('bg-white', 'text-textdark');
-                } else {
-                    btn.classList.remove('filter-btn-active');
-                    btn.classList.add('bg-white', 'text-textdark');
-                }
+        const designTitles = {
+            solo1: 'Viewing Solo 01: Warm Terracotta & Linen Sanctuary',
+            solo2: 'Viewing Solo 02: Midnight Executive & Brass Gold',
+            solo3: 'Viewing Solo 03: Botanical Sage & Organic Moss',
+            multi1: 'Viewing Multi 01: Editorial Ivory & Plum Rose Clinic',
+            multi2: 'Viewing Multi 02: Nordic Coastal Slate & Deep Teal',
+            multi3: 'Viewing Multi 03: Modern Sunlit Atrium (Emerald & Gold)'
+        };
+
+        function selectPortfolioDesign(designId) {
+            const views = document.querySelectorAll('.portfolio-view');
+            const tabs = document.querySelectorAll('.design-tab-btn');
+            const badge = document.getElementById('activeDesignBadge');
+
+            tabs.forEach(t => t.classList.remove('active-design'));
+            document.getElementById('tab-' + designId).classList.add('active-design');
+
+            views.forEach(v => {
+                v.classList.add('hidden');
+                v.classList.remove('showcase-morph');
             });
 
-            // Display or Hide cards based on matching metadata tag
-            cards.forEach(card => {
-                const itemCategories = card.getAttribute('data-category').split(' ');
-                
-                if (category === 'all' || itemCategories.includes(category)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+            const target = document.getElementById('design-' + designId);
+            target.classList.remove('hidden');
+            void target.offsetWidth; // trigger smooth morph animation
+            target.classList.add('showcase-morph');
+
+            badge.textContent = designTitles[designId];
+            window.scrollTo({ top: 150, behavior: 'smooth' });
         }
+
+        function openExamplePopup(event) {
+            if (event) event.preventDefault();
+            document.getElementById('exampleSitePopup').classList.add('active');
+        }
+        function closeExamplePopup() {
+            document.getElementById('exampleSitePopup').classList.remove('active');
+        }
+        function toggleMobileNav() {
+            document.getElementById('mobileNavDrawer').classList.toggle('hidden');
+        }
+        function acceptConsentBanner() {
+            try {
+                localStorage.setItem('ppd_consent_status', 'accepted');
+                localStorage.setItem('ppd_consent_timestamp', new Date().toISOString());
+            } catch (e) {}
+            document.getElementById('cookieConsentBanner').classList.remove('show-banner');
+        }
+        function declineOptionalStorage() {
+            try {
+                localStorage.removeItem('ppd_consent_status');
+                localStorage.removeItem('ppd_consent_timestamp');
+                sessionStorage.setItem('ppd_session_dismissed', 'true');
+            } catch (e) {}
+            document.getElementById('cookieConsentBanner').classList.remove('show-banner');
+        }
+        function reopenConsentBanner() {
+            document.getElementById('cookieConsentBanner').classList.add('show-banner');
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const accepted = localStorage.getItem('ppd_consent_status') === 'accepted';
+            const dismissedThisSession = sessionStorage.getItem('ppd_session_dismissed') === 'true';
+            if (!accepted && !dismissedThisSession) {
+                document.getElementById('cookieConsentBanner').classList.add('show-banner');
+            }
+        });
     </script>
 </body>
 </html>
