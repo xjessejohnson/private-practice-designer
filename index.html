@@ -13,10 +13,56 @@
     
     <!-- Compiled Production CSS -->
     <link href="/output.css" rel="stylesheet">
+
+    <style>
+        /* Bulletproof Floating Consent Bar Styling */
+        .consent-floating-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background-color: #222A24;
+            color: #EAEFE9;
+            border-top: 2px solid #3A86B2;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.25);
+            padding: 16px 24px;
+            display: none;
+        }
+        .consent-floating-bar.show-banner {
+            display: block !important;
+        }
+        .consent-btn-equal {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            min-width: 150px;
+        }
+        .consent-btn-decline {
+            background-color: #2B302C;
+            color: #ffffff;
+            border: 2px solid #C8D3CA;
+        }
+        .consent-btn-decline:hover {
+            background-color: #3A423C;
+        }
+        .consent-btn-accept {
+            background-color: #3A86B2;
+            color: #ffffff;
+            border: 2px solid #3A86B2;
+        }
+        .consent-btn-accept:hover {
+            background-color: #2C6A90;
+        }
+    </style>
 </head>
 <body class="antialiased selection:bg-rentblue selection:text-white bg-[#EAEFE9] text-[#2B302C] font-sans overflow-x-hidden">
 
-    <!-- MAIN NAVIGATION -->
+    <!-- MAIN NAVIGATION (MOBILE-OPTIMIZED, NO OVERLAP) -->
     <header class="sticky top-0 z-50 bg-[#EAEFE9]/95 backdrop-blur-xl border-b border-[#D5DFD7]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-2">
             
@@ -55,7 +101,7 @@
     </header>
 
     <main>
-        <!-- HERO SECTION -->
+        <!-- HERO SECTION: LARGE, COMFORTABLE READABILITY -->
         <section class="relative pt-10 pb-16 lg:pt-16 lg:pb-24">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
@@ -87,7 +133,7 @@
                             </a>
                         </div>
 
-                        <!-- Quick Scannable Perks -->
+                        <!-- Quick Scannable Perks (16px Base Font) -->
                         <div class="pt-6 border-t border-[#D5DFD7] grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
                             <div>
                                 <span class="block text-sm uppercase tracking-wider text-rentblue font-bold mb-1">✓ Links to Your Portal</span>
@@ -276,21 +322,6 @@
         </div>
     </div>
 
-    <!-- GLOBAL PRIVACY / GDPR / CCPA CONSENT BANNER -->
-    <div id="cookieConsentBanner" class="fixed bottom-0 inset-x-0 z-50 bg-[#222A24] border-t border-[#D5DFD7] p-4 text-white shadow-2xl hidden">
-        <div class="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-between gap-4">
-            <p class="text-sm text-[#EAEFE9] max-w-4xl leading-relaxed">
-                <strong>Privacy &amp; Terms Notice:</strong> This website uses zero third-party ad-tracking cookies. By using this website or submitting an inquiry, you agree to our <a href="legal.html" class="underline text-white font-semibold">Privacy Policy, Terms of Service, &amp; Non-PHI Disclaimer</a>.
-            </p>
-            <div class="flex items-center gap-3">
-                <a href="legal.html" class="text-sm underline text-[#C8D3CA] hover:text-white">View Printable Terms</a>
-                <button type="button" onclick="acceptPrivacyBanner()" class="px-5 py-2 bg-rentblue hover:bg-[#2C6A90] text-white text-sm font-semibold rounded-lg transition cursor-pointer">
-                    Accept &amp; Close
-                </button>
-            </div>
-        </div>
-    </div>
-
     <!-- STATUTORY 17 U.S.C. § 401(b) COPYRIGHT FOOTER -->
     <footer class="border-t border-[#D5DFD7] py-10 bg-[#222A24] text-sm text-[#C8D3CA]">
         <div class="max-w-7xl mx-auto px-6 space-y-6">
@@ -304,13 +335,37 @@
                     <a href="pricing.html" class="hover:text-white">Pricing</a>
                     <a href="get-started.html" class="hover:text-white">Get Started</a>
                     <a href="legal.html" class="text-white underline font-semibold">Privacy &amp; Terms (Printable)</a>
+                    <button type="button" onclick="reopenConsentBanner()" class="text-[#C8D3CA] hover:text-white underline cursor-pointer">Privacy Preferences</button>
                 </div>
             </div>
             <p class="text-xs text-[#C8D3CA]/80 leading-relaxed border-t border-white/10 pt-4">
-                <strong>Regulatory &amp; Liability Notice:</strong> Private Practice Designer provides custom static web design services only and is not a healthcare provider, Covered Entity, or Business Associate under 45 C.F.R. &sect; 160.103 (HIPAA), nor a processor of patient health records under EU/UK GDPR, Canadian PIPEDA, or the Australian Privacy Act. Each clinician is solely responsible for their own clinical regulatory compliance, domain renewals, and third-party EHR software agreements.
+                <strong>Regulatory &amp; Liability Notice:</strong> Private Practice Designer (operated by Jesse Johnson) provides custom static web design services only and is not a healthcare provider, Covered Entity, or Business Associate under 45 C.F.R. &sect; 160.103 (HIPAA), nor a processor of patient health records under EU/UK GDPR, Canadian PIPEDA, or the Australian Privacy Act. Each clinician is solely responsible for their own clinical regulatory compliance, domain renewals, and third-party EHR software agreements.
             </p>
         </div>
     </footer>
+
+    <!-- COMPLIANT FLOATING BOTTOM CONSENT BAR (EU ePRIVACY / GDPR / UK PECR / CCPA) -->
+    <div id="cookieConsentBanner" class="consent-floating-bar" role="dialog" aria-live="polite" aria-label="Privacy and Terms Consent Banner">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+            <div class="space-y-1 max-w-4xl">
+                <p class="text-base font-semibold text-white">
+                    🌍 Global Privacy, Cookie &amp; Terms Notice
+                </p>
+                <p class="text-sm text-[#EAEFE9] leading-relaxed">
+                    We do not use invasive advertising or cross-site tracking cookies. We only process business contact details you voluntarily submit via our forms and use local storage solely if you click &ldquo;Accept&rdquo; to remember your banner preference. Review our <a href="legal.html" class="underline text-white font-bold">Privacy Policy, Terms of Service &amp; Non-PHI Disclaimer</a>.
+                </p>
+            </div>
+            <!-- Equal-Prominence Buttons as Required by EU/UK GDPR & PECR -->
+            <div class="flex flex-wrap items-center gap-3 shrink-0">
+                <button type="button" onclick="declineOptionalStorage()" class="consent-btn-equal consent-btn-decline">
+                    Essential Only / Decline
+                </button>
+                <button type="button" onclick="acceptConsentBanner()" class="consent-btn-equal consent-btn-accept">
+                    Accept &amp; Continue
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script>
         function toggleModal() {
@@ -321,13 +376,32 @@
             const drawer = document.getElementById('mobileNavDrawer');
             drawer.classList.toggle('hidden');
         }
-        function acceptPrivacyBanner() {
-            localStorage.setItem('ppd_privacy_accepted', 'true');
-            document.getElementById('cookieConsentBanner').classList.add('hidden');
+        // GDPR / PECR Compliant Accept: Saves preference for 6 months
+        function acceptConsentBanner() {
+            try {
+                localStorage.setItem('ppd_consent_status', 'accepted');
+                localStorage.setItem('ppd_consent_timestamp', new Date().toISOString());
+            } catch (e) {}
+            document.getElementById('cookieConsentBanner').classList.remove('show-banner');
+        }
+        // GDPR / PECR Compliant Decline: Stores zero persistent tracking in localStorage, dismisses for current session only
+        function declineOptionalStorage() {
+            try {
+                localStorage.removeItem('ppd_consent_status');
+                localStorage.removeItem('ppd_consent_timestamp');
+                sessionStorage.setItem('ppd_session_dismissed', 'true');
+            } catch (e) {}
+            document.getElementById('cookieConsentBanner').classList.remove('show-banner');
+        }
+        // GDPR Art. 7(3) Right to Withdraw / Revisit Consent Anytime
+        function reopenConsentBanner() {
+            document.getElementById('cookieConsentBanner').classList.add('show-banner');
         }
         document.addEventListener('DOMContentLoaded', function() {
-            if (!localStorage.getItem('ppd_privacy_accepted')) {
-                document.getElementById('cookieConsentBanner').classList.remove('hidden');
+            const accepted = localStorage.getItem('ppd_consent_status') === 'accepted';
+            const dismissedThisSession = sessionStorage.getItem('ppd_session_dismissed') === 'true';
+            if (!accepted && !dismissedThisSession) {
+                document.getElementById('cookieConsentBanner').classList.add('show-banner');
             }
         });
     </script>
