@@ -1,13 +1,40 @@
-/* Pre-Compiled Tailwind Core Engine & Custom Editorial Utilities */
+/* Pre-Compiled Tailwind Core Engine */
 @import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
 
-/* Custom Editorial Classes */
+/* Custom Brand Palette Mappings */
+.bg-bglight { background-color: #EAEFE9 !important; }
+.text-textdark { color: #2B302C !important; }
+
+/* Rent Blue Classes */
+.bg-rentblue { background-color: #3A86B2 !important; }
+.bg-rentbluelight { background-color: #E6F0F7 !important; }
+.text-rentblue { color: #3A86B2 !important; }
+.border-rentblue { border-color: #3A86B2 !important; }
+
+/* Box Green Classes */
+.bg-boxgreen-50 { background-color: #F0F5F1 !important; }
+.bg-boxgreen-100 { background-color: #E1EFE3 !important; }
+.bg-boxgreen-200 { background-color: #C3DFCA !important; }
+.bg-boxgreen-600 { background-color: #3A6B47 !important; }
+.bg-boxgreen-700 { background-color: #2C5236 !important; }
+
+.text-boxgreen-600 { color: #3A6B47 !important; }
+.text-boxgreen-700 { color: #2C5236 !important; }
+
+.border-boxgreen-200 { border-color: #C3DFCA !important; }
+.border-boxgreen-600 { border-color: #3A6B47 !important; }
+
+/* Fonts */
+.font-serif { font-family: 'Playfair Display', Georgia, serif !important; }
+.font-sans { font-family: 'Plus Jakarta Sans', sans-serif !important; }
+
+/* Custom Editorial Layouts */
 .editorial-line {
   height: 1px;
   background: linear-gradient(90deg, rgba(58, 107, 71, 0.25) 0%, rgba(58, 107, 71, 0) 100%);
 }
 .glass-panel {
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(195, 223, 202, 0.7);
   box-shadow: 0 14px 40px -10px rgba(43, 48, 44, 0.06);
@@ -29,7 +56,7 @@
   display: flex;
 }
 
-/* Dynamic Option Highlights */
+/* Interactive Component States */
 .option-card-active {
   border-color: #3A86B2 !important;
   box-shadow: 0 20px 50px -12px rgba(58, 134, 178, 0.22) !important;
@@ -41,18 +68,18 @@
   transform: translateY(-2px);
 }
 .pill-radio:checked + div {
-  background-color: #3A86B2;
-  color: #ffffff;
-  border-color: #3A86B2;
+  background-color: #3A86B2 !important;
+  color: #ffffff !important;
+  border-color: #3A86B2 !important;
   box-shadow: 0 4px 14px rgba(58, 134, 178, 0.25);
-}
-select option:disabled {
-  color: #9CA3AF;
-  background-color: #F3F4F6;
-  font-style: italic;
 }
 .tier-toggle-active {
   background-color: #3A86B2 !important;
   color: #ffffff !important;
   border-color: #3A86B2 !important;
+}
+.spec-btn-active {
+  background-color: #3A6B47 !important;
+  color: #ffffff !important;
+  border-color: #3A6B47 !important;
 }
