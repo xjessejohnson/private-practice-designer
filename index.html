@@ -238,7 +238,7 @@
             </div>
         </section>
 
-        <!-- WHO CAN BENEFIT FROM OUR CUSTOM DESIGNS -->
+        <!-- WHO CAN BENEFIT FROM OUR CUSTOM DESIGNS (FULL 16PX BASE FONT) -->
         <section class="py-20 max-w-7xl mx-auto px-6 space-y-10">
             <div class="text-center max-w-2xl mx-auto space-y-2">
                 <span class="text-sm font-bold uppercase tracking-widest text-rentblue">Global Clinical Reach</span>
@@ -322,25 +322,20 @@
         </div>
     </div>
 
-    <!-- STATUTORY 17 U.S.C. § 401(b) COPYRIGHT FOOTER -->
-    <footer class="border-t border-[#D5DFD7] py-10 bg-[#222A24] text-sm text-[#C8D3CA]">
-        <div class="max-w-7xl mx-auto px-6 space-y-6">
-            <div class="flex flex-wrap justify-between items-center gap-4">
-                <p class="text-white font-medium">&copy; 2026 Private Practice Designer. All rights reserved.</p>
-                <div class="flex flex-wrap gap-6">
-                    <a href="index.html" class="text-white font-semibold">Home</a>
-                    <a href="redesign.html" class="hover:text-white">Redesign Existing Site</a>
-                    <a href="portfolio.html" class="hover:text-white">Example Designs</a>
-                    <a href="about.html" class="hover:text-white">About Us</a>
-                    <a href="pricing.html" class="hover:text-white">Pricing</a>
-                    <a href="get-started.html" class="hover:text-white">Get Started</a>
-                    <a href="legal.html" class="text-white underline font-semibold">Privacy &amp; Terms (Printable)</a>
-                    <button type="button" onclick="reopenConsentBanner()" class="text-[#C8D3CA] hover:text-white underline cursor-pointer">Privacy Preferences</button>
-                </div>
+    <!-- CLEAN STATUTORY 17 U.S.C. § 401(b) COPYRIGHT FOOTER (NO EXTRA DISCLAIMER PARAGRAPH) -->
+    <footer class="border-t border-[#D5DFD7] py-8 bg-[#222A24] text-sm text-[#C8D3CA]">
+        <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-between items-center gap-4">
+            <p class="text-white font-medium">&copy; 2026 Private Practice Designer. All rights reserved.</p>
+            <div class="flex flex-wrap gap-6">
+                <a href="index.html" class="text-white font-semibold">Home</a>
+                <a href="redesign.html" class="hover:text-white">Redesign Existing Site</a>
+                <a href="portfolio.html" class="hover:text-white">Example Designs</a>
+                <a href="about.html" class="hover:text-white">About Us</a>
+                <a href="pricing.html" class="hover:text-white">Pricing</a>
+                <a href="get-started.html" class="hover:text-white">Get Started</a>
+                <a href="legal.html" class="text-white underline font-semibold">Privacy &amp; Terms</a>
+                <button type="button" onclick="reopenConsentBanner()" class="text-[#C8D3CA] hover:text-white underline cursor-pointer">Privacy Preferences</button>
             </div>
-            <p class="text-xs text-[#C8D3CA]/80 leading-relaxed border-t border-white/10 pt-4">
-                <strong>Regulatory &amp; Liability Notice:</strong> Private Practice Designer (operated by Jesse Johnson) provides custom static web design services only and is not a healthcare provider, Covered Entity, or Business Associate under 45 C.F.R. &sect; 160.103 (HIPAA), nor a processor of patient health records under EU/UK GDPR, Canadian PIPEDA, or the Australian Privacy Act. Each clinician is solely responsible for their own clinical regulatory compliance, domain renewals, and third-party EHR software agreements.
-            </p>
         </div>
     </footer>
 
@@ -355,7 +350,6 @@
                     We do not use invasive advertising or cross-site tracking cookies. We only process business contact details you voluntarily submit via our forms and use local storage solely if you click &ldquo;Accept&rdquo; to remember your banner preference. Review our <a href="legal.html" class="underline text-white font-bold">Privacy Policy, Terms of Service &amp; Non-PHI Disclaimer</a>.
                 </p>
             </div>
-            <!-- Equal-Prominence Buttons as Required by EU/UK GDPR & PECR -->
             <div class="flex flex-wrap items-center gap-3 shrink-0">
                 <button type="button" onclick="declineOptionalStorage()" class="consent-btn-equal consent-btn-decline">
                     Essential Only / Decline
@@ -376,7 +370,6 @@
             const drawer = document.getElementById('mobileNavDrawer');
             drawer.classList.toggle('hidden');
         }
-        // GDPR / PECR Compliant Accept: Saves preference for 6 months
         function acceptConsentBanner() {
             try {
                 localStorage.setItem('ppd_consent_status', 'accepted');
@@ -384,7 +377,6 @@
             } catch (e) {}
             document.getElementById('cookieConsentBanner').classList.remove('show-banner');
         }
-        // GDPR / PECR Compliant Decline: Stores zero persistent tracking in localStorage, dismisses for current session only
         function declineOptionalStorage() {
             try {
                 localStorage.removeItem('ppd_consent_status');
@@ -393,7 +385,6 @@
             } catch (e) {}
             document.getElementById('cookieConsentBanner').classList.remove('show-banner');
         }
-        // GDPR Art. 7(3) Right to Withdraw / Revisit Consent Anytime
         function reopenConsentBanner() {
             document.getElementById('cookieConsentBanner').classList.add('show-banner');
         }
