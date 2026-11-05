@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Redesign Existing Site | Live Interactive Before &amp; After | Private Practice Designer</title>
-    <meta name="description" content="Click the centered toggle switch to transform a clunky, stretched counseling website into a modern, high-converting Private Practice Designer layout—using the exact same colors, therapists, and content." />
+    <meta name="description" content="Click the centered toggle switch to transform a clunky, stretched counseling website into a breathtaking, high-converting Private Practice Designer layout." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,20 +16,20 @@
 
     <style>
         /* ========================================================= */
-        /* 1. CENTERED HOVERING SWITCHER PILL                        */
+        /* 1. CENTERED HOVERING SWITCHER (CRISP & MOBILE-OPTIMIZED)  */
         /* ========================================================= */
-        .floating-switch-Dock {
+        .floating-switch-dock {
             position: sticky;
-            top: 94px;
+            top: 86px;
             z-index: 8500;
             display: flex;
             justify-content: center;
-            padding: 10px 16px;
+            padding: 8px 12px;
             pointer-events: none;
         }
         .floating-switch-pill {
             pointer-events: auto;
-            background: rgba(34, 42, 36, 0.94);
+            background: rgba(24, 30, 26, 0.96);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 2px solid #D5DFD7;
@@ -38,440 +38,440 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
-            flex-wrap: wrap;
-            justify-content: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+            max-width: 100%;
         }
         .switch-tab-btn {
-            padding: 11px 22px;
+            padding: 11px 20px;
             border-radius: 9999px;
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 14px;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             border: none;
             color: #C8D3CA;
             background: transparent;
+            white-space: nowrap;
         }
         .switch-tab-btn.active-old {
             background-color: #b91c1c;
             color: #ffffff;
-            box-shadow: 0 4px 14px rgba(185, 28, 28, 0.45);
+            box-shadow: 0 4px 16px rgba(185, 28, 28, 0.5);
+            transform: scale(1.02);
         }
         .switch-tab-btn.active-new {
-            background-color: #2ea3f2;
+            background: linear-gradient(135deg, #2ea3f2 0%, #16437e 100%);
             color: #ffffff;
-            box-shadow: 0 4px 14px rgba(46, 163, 242, 0.45);
+            box-shadow: 0 6px 20px rgba(46, 163, 242, 0.55);
+            transform: scale(1.03);
         }
-        .switch-tab-btn:hover:not(.active-old):not(.active-new) {
+        .switch-tab-btn.pulse-invite {
+            background-color: rgba(58, 107, 71, 0.35);
             color: #ffffff;
-            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #4ade80;
+            animation: gentlePulse 2.2s infinite;
+        }
+        @keyframes gentlePulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
+            50% { box-shadow: 0 0 0 8px rgba(74, 222, 128, 0); }
+        }
+        @media (max-width: 640px) {
+            .floating-switch-dock { top: 82px; padding: 6px 8px; }
+            .switch-tab-btn { padding: 9px 13px; font-size: 12px; }
+        }
+
+        /* Crisp Transition Morph Animation Between Old & New */
+        .view-morph-enter {
+            animation: morphIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes morphIn {
+            0% { opacity: 0; transform: translateY(18px) scale(0.985); filter: blur(4px); }
+            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
         }
 
         /* ========================================================= */
-        /* 2. VIEW A: CLUNKY STRETCHED "OLD WAY" STYLES              */
+        /* 2. VIEW A: AUTHENTICALLY CLUNKY, STRETCHED, DISORGANIZED  */
+        /*    OLD SITE (UNPOLISHED 2012 WORDPRESS TABLE LAYOUT)      */
         /* ========================================================= */
-        .legacy-wp-canvas {
+        .old-clunky-canvas {
             font-family: 'Open Sans', Arial, sans-serif;
             background-color: #ffffff;
-            color: #333333;
+            color: #222222;
             width: 100%;
-            border-top: 4px solid #b91c1c;
-            box-shadow: 0 -5px 25px rgba(0,0,0,0.06);
+            border-top: 5px solid #b91c1c;
         }
-        .legacy-mast {
+        /* Cluttered awkward masthead */
+        .old-mast-bar {
             background-color: #ffffff;
-            border-bottom: 1px solid #e0e0e0;
-            padding: 16px 2%;
+            border-bottom: 2px solid #cccccc;
+            padding: 8px 10px;
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
             justify-content: space-between;
-        }
-        .legacy-logo-box {
-            display: flex;
             align-items: center;
-            gap: 12px;
-            text-decoration: none !important;
         }
-        .legacy-logo-emblem {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #16437e 0%, #0d2c54 100%);
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 800;
-            font-size: 20px;
-            border: 3px solid #2ea3f2;
-        }
-        .legacy-menu-list {
+        .old-ugly-nav {
             display: flex;
             flex-wrap: wrap;
             list-style: none;
             margin: 0;
             padding: 0;
-            gap: 20px;
-            align-items: center;
+            gap: 10px;
         }
-        .legacy-menu-list > li { position: relative; }
-        .legacy-menu-list > li > a {
-            font-family: 'Poppins', sans-serif;
-            font-size: 15px;
-            font-weight: 600;
+        .old-ugly-nav > li { position: relative; }
+        .old-ugly-nav > li > a {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
             color: #000000 !important;
             text-decoration: none !important;
-            padding: 8px 4px;
+            padding: 6px 8px;
+            border-right: 1px solid #dddddd;
         }
-        .legacy-menu-list > li > a:hover { color: #2ea3f2 !important; }
-        .legacy-dropdown {
+        .old-ugly-nav > li > a:hover { color: #2ea3f2 !important; }
+        .old-flyout-sub {
             display: none;
             position: absolute;
             top: 100%;
             left: 0;
-            background-color: #111111;
-            min-width: 230px;
-            list-style: none;
-            padding: 8px 0;
-            margin: 0;
-            z-index: 100;
-        }
-        .legacy-menu-list > li:hover .legacy-dropdown { display: block; }
-        .legacy-dropdown li a {
-            display: block;
-            padding: 9px 18px;
-            color: #ffffff !important;
-            font-size: 13px;
-            text-decoration: none !important;
-            border-bottom: 1px solid #222222;
-        }
-        .legacy-dropdown li a:hover { color: #2ea3f2 !important; }
-
-        .legacy-hpwrap {
-            width: 100%;
-            height: 400px;
-            background-image: linear-gradient(rgba(13, 44, 84, 0.38), rgba(13, 44, 84, 0.48)), url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1800&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 0 4%;
-            color: #ffffff;
-        }
-        .legacy-hpwrap h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 42px;
-            font-weight: 700;
-            color: #ffffff;
-            text-shadow: 0 3px 12px rgba(0,0,0,0.55);
-            margin: 4px 0;
-        }
-        .legacy-hereya {
-            background: linear-gradient(90deg, #16437e 0%, #2ea3f2 100%);
-            color: #ffffff;
-            padding: 34px 3%;
-            text-align: center;
-        }
-        .legacy-hereya-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 36px;
-        }
-        .legacy-gold-seal {
-            width: 145px;
-            height: 145px;
-            border-radius: 50%;
-            background: radial-gradient(circle, #fde047 0%, #ca8a04 100%);
-            border: 5px solid #ffffff;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #0d2c54;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 800;
-            text-align: center;
-            padding: 12px;
-            line-height: 1.15;
-        }
-        .legacy-hereya h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 30px;
-            font-weight: 700;
-            color: #ffffff;
-            line-height: 1.3;
-            margin: 0;
-        }
-        /* Stretched 96% Width Content */
-        .legacy-gwrap {
-            width: 96%;
-            margin: 0 auto;
-            padding: 30px 0;
-        }
-        .legacy-gwrap h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 34px;
-            font-weight: 700;
-            color: #16437e;
-            text-align: center;
-            margin-bottom: 24px;
-        }
-        .legacy-gwrap h2.center {
-            font-family: 'Poppins', sans-serif;
-            font-size: 25px;
-            font-weight: 600;
-            color: #2ea3f2;
-            text-align: center;
-            margin: 28px 0 20px 0;
-        }
-        .legacy-gwrap p {
-            font-size: 17px;
-            line-height: 1.75;
-            color: #333333;
-            margin-bottom: 18px;
-            max-width: none !important;
-        }
-        .legacy-blue-btn {
-            display: inline-block;
-            background-color: #2ea3f2;
-            color: #ffffff !important;
-            font-family: 'Poppins', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            padding: 14px 42px;
-            border-radius: 4px;
-            text-decoration: none !important;
-            text-transform: uppercase;
-            margin: 18px 0;
-            cursor: pointer;
-        }
-        .legacy-service-heading {
-            font-family: 'Poppins', sans-serif;
-            font-size: 30px;
-            font-weight: 700;
-            color: #16437e;
-            text-align: center;
-            margin: 40px 0 24px 0;
-            text-transform: uppercase;
-        }
-        .legacy-serviceblock {
+            background: #111111;
+            min-width: 210px;
             list-style: none;
             padding: 0;
             margin: 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 16px;
+            z-index: 100;
         }
-        .legacy-service-card {
-            position: relative;
-            height: 195px;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: flex-end;
-            cursor: pointer;
-            border: 1px solid #cccccc;
-        }
-        .legacy-service-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(13, 44, 84, 0.85) 100%);
-        }
-        .legacy-service-label {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            padding: 14px;
-            text-align: center;
-            color: #ffffff;
-            font-family: 'Poppins', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-        .legacy-fprod {
-            background-color: #f4f6f9;
-            padding: 50px 2%;
-            border-top: 1px solid #dddddd;
-            border-bottom: 1px solid #dddddd;
-            text-align: center;
-        }
-        .legacy-fprod h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 32px;
-            font-weight: 700;
-            color: #16437e;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-        }
-        .legacy-counselor-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-            gap: 20px;
-            width: 96%;
-            margin: 0 auto 30px auto;
-        }
-        .legacy-counselor-card {
-            background-color: #ffffff;
-            border: 1px solid #e2e8f0;
-            padding-bottom: 16px;
+        .old-ugly-nav > li:hover .old-flyout-sub { display: block; }
+        .old-flyout-sub li a {
+            display: block;
+            padding: 8px 12px;
+            color: #ffffff !important;
+            font-size: 12px;
+            border-bottom: 1px solid #333;
             text-decoration: none !important;
-            color: #16437e !important;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: 15px;
-            cursor: pointer;
         }
-        .legacy-counselor-card img {
+        /* Awkward empty hgap + oversized stretched photo */
+        .old-hgap { height: 18px; background-color: #eeeeee; border-bottom: 1px solid #ccc; }
+        .old-hpwrap {
             width: 100%;
-            height: 225px;
-            object-fit: cover;
-            margin-bottom: 12px;
+            height: 290px;
+            background-image: url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1600&q=70');
+            background-size: 100% 100%; /* Intentionally stretched aspect ratio! */
+            background-position: center;
         }
-        .legacy-counselor-card span {
-            display: inline-block;
-            margin-top: 6px;
-            font-size: 13px;
-            color: #2ea3f2;
-            font-weight: 600;
-        }
-        .legacy-stories {
+        /* Clunky Blue Bar (#hereya) */
+        .old-hereya {
             background-color: #16437e;
             color: #ffffff;
-            padding: 50px 4%;
+            padding: 20px 10px;
+            text-align: center;
+            border-top: 4px solid #2ea3f2;
+            border-bottom: 4px solid #2ea3f2;
+        }
+        /* Stretched 99% Table Layout (table.ctble) */
+        .old-ctble {
+            width: 99%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        .old-ctble td.mcol {
+            padding: 15px 12px;
+            vertical-align: top;
+        }
+        .old-ctble h1 {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #16437e;
+            text-align: left;
+            margin: 10px 0 18px 0;
+        }
+        .old-ctble h2.center {
+            font-family: Arial, sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #2ea3f2;
+            text-align: center;
+            margin: 22px 0;
+        }
+        .old-ctble p {
+            font-family: 'Open Sans', Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.5;
+            color: #333333;
+            margin-bottom: 14px;
+            width: 100% !important;
+            max-width: none !important; /* Stretches awkwardly across entire monitor */
+        }
+        .old-broken-iframe {
+            background-color: #000000;
+            color: #ef4444;
+            border: 3px inset #666666;
+            padding: 75px 15px;
+            text-align: center;
+            font-family: "Courier New", monospace;
+            font-size: 14px;
+            margin: 14px auto;
+            max-width: 840px;
+            cursor: pointer;
+        }
+        .old-ugly-btn {
+            display: inline-block;
+            background-color: #2ea3f2;
+            color: #ffffff !important;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 26px;
+            text-decoration: underline !important;
+            border: 2px outset #16437e;
+            cursor: pointer;
+        }
+        /* Cramped 12 Service Blocks */
+        .old-service-ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 8px;
+        }
+        .old-service-li {
+            background-color: #16437e;
+            border: 2px solid #000000;
+            height: 150px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .old-service-li img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.55;
+        }
+        .old-service-li span {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 2px #000;
+        }
+        /* Disorganized Counselor Grid with Mismatched Caps & Punctuation */
+        .old-counselor-wrap {
+            background-color: #e5e7eb;
+            padding: 25px 10px;
+            border-top: 2px solid #9ca3af;
             text-align: center;
         }
-        .legacy-stories h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 32px;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: #ffffff;
-            margin-bottom: 24px;
-        }
-        .legacy-stories h4 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 20px;
-            font-weight: 600;
-            color: #fde047;
-            margin: 26px 0 10px 0;
-        }
-        .legacy-vidbox {
-            max-width: 760px;
+        .old-counselor-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+            gap: 10px;
+            width: 99%;
             margin: 0 auto;
-            background-color: #000000;
-            border: 3px solid #2ea3f2;
-            padding: 65px 20px;
-            color: #ffffff;
-            font-family: monospace;
+        }
+        .old-counselor-item {
+            background: #ffffff;
+            border: 1px solid #999999;
+            padding: 8px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            color: #0000ee !important;
+            text-decoration: underline !important;
             cursor: pointer;
+        }
+        .old-counselor-item img {
+            width: 100%;
+            height: 175px;
+            object-fit: cover;
+            border: 1px solid #ccc;
+            margin-bottom: 6px;
+        }
+        /* Giant Stacked Video Wall (#stories) */
+        .old-stories-wall {
+            background-color: #cccccc;
+            padding: 25px 10px;
+            text-align: center;
+            border-top: 3px solid #666666;
+        }
+        .old-stories-wall h4 {
+            font-family: Arial, sans-serif;
+            font-size: 19px;
+            font-weight: bold;
+            color: #16437e;
+            margin: 22px 0 6px 0;
+        }
+        /* Cluttered Multi-Column Old Footer (#colophon) */
+        .old-colophon {
+            background-color: #111111;
+            color: #bbbbbb;
+            padding: 30px 15px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.8;
         }
 
         /* ========================================================= */
-        /* 3. VIEW B: MODERN REDESIGN (SAME COLORS, SAME NAMES,      */
-        /*    RE-ENGINEERED LAYOUT)                                  */
+        /* 3. VIEW B: ULTRA-FANCY, EYE-CATCHING MODERN REDESIGN      */
+        /*    (SAME #0d2c54, #16437e & #2ea3f2 BRAND COLORS!)        */
         /* ========================================================= */
-        .modern-revamp-canvas {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #f8fafc;
-            color: #0f172a;
+        .fancy-modern-canvas {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #F4F7FB;
+            color: #0F172A;
             width: 100%;
-            border-top: 4px solid #2ea3f2;
-            box-shadow: 0 -5px 25px rgba(0,0,0,0.06);
+            border-top: 5px solid #2ea3f2;
         }
-        .modern-nav {
-            background-color: #ffffff;
-            border-bottom: 1px solid #e2e8f0;
-            padding: 18px 24px;
+        .fancy-glass-nav {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(22, 67, 126, 0.1);
+            padding: 20px 24px;
         }
-        .modern-container {
-            max-width: 1200px;
+        .fancy-container {
+            max-width: 1240px;
             margin: 0 auto;
             padding: 0 24px;
         }
-        .modern-hero {
-            background: linear-gradient(135deg, #0d2c54 0%, #16437e 100%);
+        .fancy-hero {
+            position: relative;
+            background: radial-gradient(circle at 85% 20%, rgba(46, 163, 242, 0.28) 0%, rgba(13, 44, 84, 0) 55%),
+                        linear-gradient(135deg, #091e3a 0%, #0d2c54 55%, #16437e 100%);
             color: #ffffff;
-            padding: 72px 0;
-        }
-        .modern-pill-badge {
-            display: inline-block;
-            background: rgba(46, 163, 242, 0.2);
-            border: 1px solid #2ea3f2;
-            color: #fde047;
-            font-family: 'Poppins', sans-serif;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            padding: 6px 14px;
-            border-radius: 9999px;
-            margin-bottom: 16px;
-        }
-        .modern-pathway-card {
-            background-color: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-top: 4px solid #2ea3f2;
-            border-radius: 16px;
-            padding: 32px;
-            box-shadow: 0 10px 30px rgba(13, 44, 84, 0.05);
-        }
-        .modern-filter-btn {
-            padding: 10px 20px;
-            border-radius: 9999px;
-            border: 1px solid #cbd5e1;
-            background-color: #ffffff;
-            color: #16437e;
-            font-family: 'Poppins', sans-serif;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .modern-filter-btn.active {
-            background-color: #16437e;
-            color: #ffffff;
-            border-color: #16437e;
-        }
-        .modern-clinician-card {
-            background-color: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
+            padding: 84px 0 96px 0;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(13, 44, 84, 0.04);
-            transition: transform 0.2s ease;
+        }
+        .fancy-hero-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 28px;
+            padding: 28px;
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.45);
+        }
+        .fancy-stat-bar {
+            margin-top: -48px;
+            position: relative;
+            z-index: 10;
+        }
+        .fancy-stat-grid {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 28px 36px;
+            box-shadow: 0 20px 50px rgba(13, 44, 84, 0.08);
+            border: 1px solid rgba(46, 163, 242, 0.18);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+        .fancy-bento-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 36px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 12px 35px -8px rgba(13, 44, 84, 0.06);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
             cursor: pointer;
         }
-        .modern-clinician-card:hover {
-            transform: translateY(-4px);
+        .fancy-bento-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 48px -12px rgba(46, 163, 242, 0.2);
             border-color: #2ea3f2;
         }
-        .modern-clinician-card img {
+        .fancy-specialty-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: #F0F7FF;
+            color: #16437e;
+            border: 1px solid #BAE6FD;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 4px;
+        }
+        .fancy-filter-pill {
+            padding: 12px 24px;
+            border-radius: 9999px;
+            border: 1px solid #cbd5e1;
+            background: #ffffff;
+            color: #16437e;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .fancy-filter-pill.active {
+            background: linear-gradient(135deg, #16437e 0%, #2ea3f2 100%);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 8px 20px rgba(46, 163, 242, 0.35);
+        }
+        .fancy-therapist-card {
+            background: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px rgba(13, 44, 84, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+        .fancy-therapist-card:hover {
+            transform: translateY(-6px);
+            border-color: #2ea3f2;
+            box-shadow: 0 20px 40px rgba(46, 163, 242, 0.18);
+        }
+        .fancy-therapist-img-wrap {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+        .fancy-therapist-img-wrap img {
             width: 100%;
-            height: 220px;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .fancy-therapist-card:hover .fancy-therapist-img-wrap img {
+            transform: scale(1.06);
+        }
+        .fancy-avail-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: rgba(13, 44, 84, 0.88);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 9999px;
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
-        /* ========================================================= */
-        /* 4. POP-UP MODAL & CONSENT BAR                             */
-        /* ========================================================= */
+        /* Pop-up Modal & Consent Bar */
         .example-popup-overlay {
             display: none;
             position: fixed;
             inset: 0;
             z-index: 999999;
-            background: rgba(20, 25, 21, 0.72);
+            background: rgba(20, 25, 21, 0.75);
             backdrop-filter: blur(8px);
             align-items: center;
             justify-content: center;
@@ -544,56 +544,52 @@
     </header>
 
     <!-- ========================================================= -->
-    <!-- 2. BREATHING SPACE INTRO & CENTERED HOVERING SWITCHER     -->
-    <!--    (Keeps the example site pushed down below your header) -->
+    <!-- 2. SPACIOUS INTRO & FLOATING CENTERED TOGGLE SWITCH       -->
     <!-- ========================================================= -->
     <section class="pt-10 pb-6 max-w-4xl mx-auto px-6 text-center space-y-3">
-        <span class="inline-block px-4 py-1.5 bg-rentbluelight text-rentblue text-sm font-bold uppercase tracking-wider rounded-full border border-rentblue/20">
-            Interactive Redesign Preview
+        <span id="liveModeBadge" class="inline-block px-4 py-1.5 bg-red-50/70 text-red-700 text-sm font-bold uppercase tracking-wider rounded-full border border-red-200">
+            Currently Viewing: Outdated Stretched Website
         </span>
         <h1 class="font-serif text-3xl sm:text-5xl text-textdark leading-tight">
-            Same Colors. Same Clinicians. <span class="italic text-rentblue font-light">Completely Reimagined.</span>
+            Same Brand Colors. Same Therapists. <span class="italic text-rentblue font-light">Night &amp; Day Difference.</span>
         </h1>
         <p class="text-base sm:text-lg text-textdark/85 max-w-2xl mx-auto">
-            Scroll the live example site below and click the hovering switch in the center to see how we transform a stretched, cluttered counseling site while keeping your exact brand colors and team intact.
+            Scroll the clunky, stretched counseling site below—then click the hovering switch in the center to watch it transform into a high-converting Private Practice Designer website.
         </p>
     </section>
 
     <!-- CENTERED HOVERING SWITCH PILL -->
-    <div class="floating-switch-Dock">
-        <div class="floating-switch-pill" role="tablist" aria-label="Switch between Old Website and Modern Redesign">
+    <div class="floating-switch-dock">
+        <div class="floating-switch-pill" role="tablist" aria-label="Toggle between Old Website and Modern Redesign">
             <button type="button" id="btnShowOld" onclick="switchSiteMode('old')" class="switch-tab-btn active-old">
-                😞 Typical Wix / Old Site Type
+                😞 Typical Old Site (Viewing)
             </button>
-            <button type="button" id="btnShowNew" onclick="switchSiteMode('new')" class="switch-tab-btn">
-                ✨ Click for Modern Redesign &rarr;
+            <button type="button" id="btnShowNew" onclick="switchSiteMode('new')" class="switch-tab-btn pulse-invite">
+                ✨ Click to Transform to Modern Design &rarr;
             </button>
         </div>
     </div>
 
-    <!-- SPACER BEFORE EXAMPLE CANVAS -->
-    <div class="h-6"></div>
+    <!-- GENEROUS BREATHING SPACE BEFORE THE DEMO CANVAS STARTS -->
+    <div class="h-8"></div>
 
     <!-- ========================================================= -->
-    <!-- 3A. VIEW 1: THE CLUNKY, STRETCHED "OLD WAY" WEBSITE       -->
+    <!-- 3A. VIEW 1: THE UNPOLISHED, STRETCHED, DISORGANIZED       -->
+    <!--     "OLD WAY COUNSELING" SITE (LEFT AUTHENTICALLY CLUNKY) -->
     <!-- ========================================================= -->
-    <div id="oldSiteContainer" class="legacy-wp-canvas">
+    <div id="oldSiteContainer" class="old-clunky-canvas view-morph-enter">
 
-        <!-- Old Masthead -->
-        <div class="legacy-mast">
-            <a href="#" onclick="openExamplePopup(event)" class="legacy-logo-box">
-                <div class="legacy-logo-emblem">OW</div>
-                <div>
-                    <div style="font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 22px; color: #16437e; line-height: 1;">OLD WAY COUNSELING</div>
-                    <div style="font-size: 12px; font-weight: 600; color: #666666; letter-spacing: 0.08em;">AND CONSULTING CLINIC</div>
-                </div>
+        <!-- Old Masthead with Cluttered Hover Flyout -->
+        <div class="old-mast-bar">
+            <a href="#" onclick="openExamplePopup(event)" style="text-decoration: none; color: #16437e; font-family: Arial, sans-serif; font-weight: 900; font-size: 22px;">
+                OLD WAY COUNSELING and CONSULTING
             </a>
 
-            <ul class="legacy-menu-list">
+            <ul class="old-ugly-nav">
                 <li><a href="#" onclick="openExamplePopup(event)">Home</a></li>
                 <li>
                     <a href="#" onclick="openExamplePopup(event)">Services ▾</a>
-                    <ul class="legacy-dropdown">
+                    <ul class="old-flyout-sub">
                         <li><a href="#" onclick="openExamplePopup(event)">Counseling for Anxiety</a></li>
                         <li><a href="#" onclick="openExamplePopup(event)">Marriage Counseling</a></li>
                         <li><a href="#" onclick="openExamplePopup(event)">Premarital Counseling</a></li>
@@ -616,381 +612,648 @@
             </ul>
         </div>
 
-        <!-- Stretched Hero Banner -->
-        <div class="legacy-hpwrap">
-            <h3>Find Connection.</h3>
-            <h3>Rediscover Hope.</h3>
-        </div>
+        <div class="old-hgap"></div>
+        <div class="old-hpwrap" onclick="openExamplePopup(event)" title="Stretched Hero Image"></div>
 
-        <!-- Blue Seal & Callout Banner -->
-        <div class="legacy-hereya">
-            <div class="legacy-hereya-inner">
-                <div class="legacy-gold-seal">
-                    <span style="font-size: 11px;">VOTED #1</span>
-                    <span style="font-size: 18px; margin: 2px 0;">TOP RATED</span>
-                    <span style="font-size: 10px;">COUNSELING PRACTICE</span>
-                </div>
-                <h2>
-                    No matter what you are facing,<br />
-                    <span style="font-weight: 400;">our team is here to help.<br /><br />
-                    Call <a href="#" onclick="openExamplePopup(event)" style="color: #ffffff; text-decoration: underline;">(555) 019-2834</a> Today.</span>
-                </h2>
+        <!-- Clunky Blue Banner (#hereya) -->
+        <div class="old-hereya">
+            <div style="display: inline-block; border: 3px solid #fde047; background: #0d2c54; color: #fde047; padding: 8px 16px; font-weight: bold; font-size: 13px; margin-bottom: 10px;">
+                #1 RATED COUNSELING PRACTICE SEAL
             </div>
-        </div>
-
-        <!-- Stretched Full-Width Main Content -->
-        <div class="legacy-gwrap">
-            <h1>Marriage &amp; Family Therapy – Christian &amp; Clinical Counseling Center</h1>
-
-            <div onclick="openExamplePopup(event)" style="max-width: 840px; margin: 0 auto; background-color: #000; border: 4px solid #16437e; padding: 85px 20px; text-align: center; color: #fff; cursor: pointer;">
-                <div style="font-size: 46px; color: #2ea3f2; margin-bottom: 10px;">▶</div>
-                <div style="font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 600;">Welcome to Old Way Counseling &amp; Consulting (Click to Play)</div>
-                <div style="font-size: 13px; color: #9ca3af; margin-top: 6px;">[ Outdated Stretched Video Player Box ]</div>
-            </div>
-
-            <h2 class="center">
-                Top-Rated Counseling services for individuals, marriages, and families.
+            <h2 style="font-family: Arial, sans-serif; font-size: 26px; margin: 0; color: #ffffff;">
+                Whatever you're facing,<br />
+                we are here for you<br /><br />
+                Call <a href="#" onclick="openExamplePopup(event)" style="color: #ffffff; text-decoration: underline;">(555) 019-2834</a> Today.
             </h2>
-
-            <p>
-                Sometimes the stress builds up so gradually that you barely notice until it feels overwhelming. A marriage that feels more like two roommates passing in the hallway. A constant sense of worry or exhaustion that follows you into every room, leaving you unsure of how to get back to the person you used to be.
-            </p>
-            <p>
-                What you are experiencing is important, and taking the first step to look for support says a great deal about your resilience.
-            </p>
-            <p>
-                Welcome to Old Way Counseling and Consulting – our region’s longest-standing private counseling group. For over three decades, our clinicians have guided individuals, couples, and families through life’s most difficult transitions so they can move past survival mode and build a fulfilling life.
-            </p>
-            <p>
-                <strong>More than just coping. Truly thriving.</strong>
-            </p>
-
-            <div style="text-align: center;">
-                <a href="#" onclick="openExamplePopup(event)" class="legacy-blue-btn">Get Started</a>
-            </div>
-
-            <!-- 12 Photo Service Tiles -->
-            <h3 class="legacy-service-heading">OUR COUNSELING and THERAPY SERVICES</h3>
-            <ul class="legacy-serviceblock">
-                <li class="legacy-service-card" onclick="openExamplePopup(event)" style="background-image: url('https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=500&q=80');"><div class="legacy-service-label">Anxiety</div></li>
-                <li class="legacy-service-card" onclick="openExamplePopup(event)" style="background-image: url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=500&q=80');"><div class="legacy-service-label">Marriage</div></li>
-                <li class="legacy-service-card" onclick="openExamplePopup(event)" style="background-image: url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=500&q=80');"><div class="legacy-service-label">Pre-marital</div></li>
-                <li class="legacy-service-card" onclick="openExamplePopup(event)" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=500&q=80');"><div class="legacy-service-label">Trauma</div></li>
-                <li class="legacy-service-card" onclick="openExamplePopup(event)" style="background-image: url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=500&q=80');"><div class="legacy-service-label">Depression</div></li>
-                <li class="legacy-service-card" onclick="openExamplePopup(event)" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=500&q=80');"><div class="legacy-service-label">Business</div></li>
-                <li class="legacy-service-card" onclick="openExamplePopup(event)" style="background-image: url('https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=500&q=80');"><div class="legacy-service-label">Family</div></li>
-                <li class="legacy-service-card" onclick="openExamplePopup(event)" style="background-image: url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=500&q=80');"><div class="legacy-service-label">Conflict</div></li>
-                <li class="legacy-service-card" onclick="openExamplePopup(event)" style="background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=500&q=80');"><div class="legacy-service-label">Grief</div></li>
-                <li class="legacy-service-card" onclick="openExamplePopup(event)" style="background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=500&q=80');"><div class="legacy-service-label">Anger</div></li>
-                <li class="legacy-service-card" onclick="openExamplePopup(event)" style="background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=500&q=80');"><div class="legacy-service-label">Stress</div></li>
-                <li class="legacy-service-card" onclick="openExamplePopup(event)" style="background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=500&q=80');"><div class="legacy-service-label">Couples</div></li>
-            </ul>
         </div>
 
-        <!-- 12 Fictionalized Counselors -->
-        <div class="legacy-fprod">
-            <h3>Our Counselors - Therapists</h3>
-            <div class="legacy-counselor-grid">
-                <a href="#" onclick="openExamplePopup(event)" class="legacy-counselor-card"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="John Example, LPC" /><div>JOHN EXAMPLE, LPC</div><span>Read More</span></a>
-                <a href="#" onclick="openExamplePopup(event)" class="legacy-counselor-card"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Lauren Sample, MA" /><div>Lauren Sample, MA</div><span>Read More</span></a>
-                <a href="#" onclick="openExamplePopup(event)" class="legacy-counselor-card"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80" alt="Emily Demo, LPC-S" /><div>EMILY DEMO, LPC-S</div><span>Read More</span></a>
-                <a href="#" onclick="openExamplePopup(event)" class="legacy-counselor-card"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80" alt="Sarah Placeholder, LPC" /><div>SARAH PLACEHOLDER, LPC</div><span>Read More</span></a>
-                <a href="#" onclick="openExamplePopup(event)" class="legacy-counselor-card"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" alt="Ben Standard, LMFT" /><div>BEN STANDARD, LMFT</div><span>Read More</span></a>
-                <a href="#" onclick="openExamplePopup(event)" class="legacy-counselor-card"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80" alt="Deborah Model, LPC" /><div>Deborah Model, LPC</div><span>Read More</span></a>
-                <a href="#" onclick="openExamplePopup(event)" class="legacy-counselor-card"><img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=400&q=80" alt="Kristen Practice, LPC" /><div>Kristen Practice, LPC</div><span>Read More</span></a>
-                <a href="#" onclick="openExamplePopup(event)" class="legacy-counselor-card"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Hannah Counselor, LPC" /><div>Hannah Counselor, LPC</div><span>Read More</span></a>
-                <a href="#" onclick="openExamplePopup(event)" class="legacy-counselor-card"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Charlie Test, LPC-C" /><div>Charlie Test, LPC-C</div><span>Read More</span></a>
-                <a href="#" onclick="openExamplePopup(event)" class="legacy-counselor-card"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Marcus Vance, MA, LPC-C" /><div>Marcus Vance, MA, LPC-C</div><span>Read More</span></a>
-                <a href="#" onclick="openExamplePopup(event)" class="legacy-counselor-card"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80" alt="Arthur Mason, LPC" /><div>Arthur Mason, LPC, M.Div</div><span>Read More</span></a>
-                <a href="#" onclick="openExamplePopup(event)" class="legacy-counselor-card"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Carter Lane, MA (Intern)" /><div>Carter Lane, MA (Intern)</div><span>Read More</span></a>
+        <!-- 99% Stretched Table Layout (table.ctble) -->
+        <table class="old-ctble">
+            <tbody>
+                <tr>
+                    <td class="mcol">
+                        <br />
+                        <h1>Marriage &amp; Family Therapy – Christian Counseling Center</h1>
+
+                        <!-- Broken Video Embed Box -->
+                        <div class="old-broken-iframe" onclick="openExamplePopup(event)">
+                            [ Play ] Invalid URL. Correct format: https://tube.rvere.com/embed?v=VIDEOID<br />
+                            <span style="color: #9ca3af; font-size: 12px;">Learn more at tube.rvere.com</span>
+                        </div>
+
+                        <h2 class="center">
+                            Top-Rated Counseling services for individuals, marriages, and families.
+                        </h2>
+
+                        <!-- Unbroken Edge-to-Edge Stretched Paragraphs -->
+                        <p>
+                            Sometimes the stress builds up so gradually that you barely notice until it feels overwhelming. A marriage that feels more like two roommates passing in the hallway. A constant sense of worry or exhaustion that follows you into every room, leaving you unsure of how to get back to the person you used to be. Whatever it is, it matters. And the fact that you’re here, looking for something better, says a lot about who you are.
+                        </p>
+                        <p>
+                            Welcome to Old Way Counseling and Consulting – our region’s longest-standing private counseling group. For over three decades, our clinicians have guided individuals, couples, and families through life’s most difficult transitions so they can move past survival mode and build a fulfilling life.
+                        </p>
+                        <p>
+                            <strong>More than just coping. Truly thriving</strong> .
+                        </p>
+
+                        <p onclick="toggleLegacyReadMore()" id="legacyFlipBtn" style="color: #2ea3f2; font-weight: bold; cursor: pointer; text-decoration: underline;">
+                            Read More ›
+                        </p>
+
+                        <div id="legacyMoreText" style="display: none;">
+                            <div align="center">
+                                <h2 style="font-family: Arial, sans-serif; font-size: 22px; color: #16437e;">Struggling does not mean you have failed.</h2>
+                            </div>
+                            <p>
+                                At Old Way Counseling, we never force you into a rigid checklist. We begin by listening to your story, understanding your background, and learning what a healthy future looks like to you. Reach out to us by calling <a href="#" onclick="openExamplePopup(event)">(555) 019-2834</a> today!
+                            </p>
+                        </div>
+
+                        <p style="text-align: center;">
+                            <a href="#" onclick="openExamplePopup(event)" class="old-ugly-btn">Get Started</a>
+                        </p>
+
+                        <h3 style="font-family: Arial, sans-serif; font-size: 24px; color: #16437e; text-align: center; text-transform: uppercase; margin-top: 30px;">
+                            OUR COUNSELING and THERAPY SERVICES
+                        </h3>
+
+                        <!-- 12 Repetitive Box Tiles -->
+                        <ul class="old-service-ul">
+                            <li class="old-service-li" onclick="openExamplePopup(event)"><img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=400&q=60" alt="Anxiety" /><span>Anxiety<br><u style="font-size:12px;">Anxiety</u></span></li>
+                            <li class="old-service-li" onclick="openExamplePopup(event)"><img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=400&q=60" alt="Marriage" /><span>Marriage<br><u style="font-size:12px;">Marriage</u></span></li>
+                            <li class="old-service-li" onclick="openExamplePopup(event)"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=400&q=60" alt="Pre-marital" /><span>Pre-marital<br><u style="font-size:12px;">Pre-marital</u></span></li>
+                            <li class="old-service-li" onclick="openExamplePopup(event)"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=60" alt="Trauma" /><span>Trauma<br><u style="font-size:12px;">Trauma</u></span></li>
+                            <li class="old-service-li" onclick="openExamplePopup(event)"><img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=400&q=60" alt="Depression" /><span>Depression<br><u style="font-size:12px;">Depression</u></span></li>
+                            <li class="old-service-li" onclick="openExamplePopup(event)"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=60" alt="Business" /><span>Business<br><u style="font-size:12px;">Business</u></span></li>
+                            <li class="old-service-li" onclick="openExamplePopup(event)"><img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=400&q=60" alt="Family" /><span>Family<br><u style="font-size:12px;">Family</u></span></li>
+                            <li class="old-service-li" onclick="openExamplePopup(event)"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=60" alt="Conflict" /><span>Conflict<br><u style="font-size:12px;">Conflict</u></span></li>
+                            <li class="old-service-li" onclick="openExamplePopup(event)"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=400&q=60" alt="Grief" /><span>Grief<br><u style="font-size:12px;">Grief</u></span></li>
+                            <li class="old-service-li" onclick="openExamplePopup(event)"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=400&q=60" alt="Anger" /><span>Anger<br><u style="font-size:12px;">Anger</u></span></li>
+                            <li class="old-service-li" onclick="openExamplePopup(event)"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=400&q=60" alt="Stress" /><span>Stress<br><u style="font-size:12px;">Stress</u></span></li>
+                            <li class="old-service-li" onclick="openExamplePopup(event)"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=400&q=60" alt="Couples" /><span>Couples<br><u style="font-size:12px;">Couples</u></span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Disorganized Counselor Wall (With Inconsistent ALL-CAPS, Typos & Duplicate Titles) -->
+        <div class="old-counselor-wrap">
+            <h3 style="font-family: Arial, sans-serif; font-size: 26px; font-weight: bold; color: #16437e; margin-bottom: 16px;">
+                Our Counselors - Therapists
+            </h3>
+            <div class="old-counselor-list">
+                <a href="#" onclick="openExamplePopup(event)" class="old-counselor-item">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="John Example" />
+                    <strong>JOHN EXAMPLE, LPC</strong><br />JOHN EXAMPLE, LPC<br /><span>Read More</span>
+                </a>
+                <a href="#" onclick="openExamplePopup(event)" class="old-counselor-item">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Lauren Sample" />
+                    <strong>Lauren Sample, MA</strong><br />Lauren Sample, MA<br /><span>Read More</span>
+                </a>
+                <a href="#" onclick="openExamplePopup(event)" class="old-counselor-item">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80" alt="Emily Demo" />
+                    <strong>- EMILY DEMO, LPC</strong><br />EMILY DEMO, LPC-S<br /><span>Read More</span>
+                </a>
+                <a href="#" onclick="openExamplePopup(event)" class="old-counselor-item">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80" alt="Sarah Placeholder" />
+                    <strong>Sara Placeholder, LPC</strong><br />SARAH PLACEHOLDER, LPC<br /><span>Read More</span>
+                </a>
+                <a href="#" onclick="openExamplePopup(event)" class="old-counselor-item">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" alt="Ben Standard" />
+                    <strong>BEN STANDARD</strong><br />BEN STANDARD, LMFT<br /><span>Read More</span>
+                </a>
+                <a href="#" onclick="openExamplePopup(event)" class="old-counselor-item">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80" alt="Deborah Model" />
+                    <strong>Debbie Model, LPC</strong><br />Deborah Model, LPC<br /><span>Read More</span>
+                </a>
+                <a href="#" onclick="openExamplePopup(event)" class="old-counselor-item">
+                    <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=400&q=80" alt="Kristen Practice" />
+                    <strong>Kristen Practice, LPC</strong><br />Kristen Practice, LPC<br /><span>Read More</span>
+                </a>
+                <a href="#" onclick="openExamplePopup(event)" class="old-counselor-item">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Hannah Counselor" />
+                    <strong>Hannah Counselor LPC</strong><br />Hannah Counselor, LPC<br /><span>Read More</span>
+                </a>
+                <a href="#" onclick="openExamplePopup(event)" class="old-counselor-item">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Charlie Test" />
+                    <strong>Charlie Test</strong><br />Charlie Test, LPC-C<br /><span>Read More</span>
+                </a>
+                <a href="#" onclick="openExamplePopup(event)" class="old-counselor-item">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Marcus Vance" />
+                    <strong>Marcus Vance</strong><br />Marcus Vance, MA LPC-C<br /><span>Read More</span>
+                </a>
+                <a href="#" onclick="openExamplePopup(event)" class="old-counselor-item">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80" alt="Arthur Mason" />
+                    <strong>Albet Mason</strong><br />Arthur Mason, LPC, MS, M.Div<br /><span>Read More</span>
+                </a>
+                <a href="#" onclick="openExamplePopup(event)" class="old-counselor-item">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Carter Lane" />
+                    <strong>Carter Lane, MA (Intern)</strong><br />Carter Lane, MA (Intern)<br /><span>Read More</span>
+                </a>
             </div>
+            <p style="margin-top: 20px;">
+                <a href="#" onclick="openExamplePopup(event)" class="old-ugly-btn">Get Started</a>
+            </p>
         </div>
 
-        <!-- Stacked Video Stories -->
-        <div class="legacy-stories">
-            <h2>stories of transformation</h2>
+        <!-- 4 Giant Stacked Broken Video Boxes (#stories) -->
+        <div class="old-stories-wall">
+            <h2 style="font-family: Arial, sans-serif; font-size: 26px; font-weight: bold; text-transform: lowercase; color: #16437e;">
+                stories of transformation
+            </h2>
             <h4>Saving a Marriage</h4>
-            <div class="legacy-vidbox" onclick="openExamplePopup(event)">▶ [ Outdated Stacked Video Box 01 ]</div>
+            <div class="old-broken-iframe" onclick="openExamplePopup(event)">[ Play ] Invalid URL. Correct format: https://tube.rvere.com/embed?v=VIDEO_01</div>
             <h4>Helping Individuals Overcome The Past</h4>
-            <div class="legacy-vidbox" onclick="openExamplePopup(event)">▶ [ Outdated Stacked Video Box 02 ]</div>
+            <div class="old-broken-iframe" onclick="openExamplePopup(event)">[ Play ] Invalid URL. Correct format: https://tube.rvere.com/embed?v=VIDEO_02</div>
+            <h4>Helping Families Find Healing and Growth</h4>
+            <div class="old-broken-iframe" onclick="openExamplePopup(event)">[ Play ] Invalid URL. Correct format: https://tube.rvere.com/embed?v=VIDEO_03</div>
+            <h4>Getting to the Root of Anger</h4>
+            <div class="old-broken-iframe" onclick="openExamplePopup(event)">[ Play ] Invalid URL. Correct format: https://tube.rvere.com/embed?v=VIDEO_04</div>
+            <p><a href="#" onclick="openExamplePopup(event)" class="old-ugly-btn">SEE MORE VIDEOS</a></p>
         </div>
 
-        <!-- Old Footer -->
-        <div style="background-color: #0d2c54; color: #ffffff; padding: 40px 4%; text-align: center;">
-            <h2 style="font-family: 'Poppins', sans-serif; font-size: 26px; font-weight: 700; text-transform: uppercase;">Easy to Get Started — Email Us OR Call (555) 019-2834</h2>
-            <p style="font-size: 14px; color: #cbd5e1; margin-top: 10px;">1234 Legacy Parkway, Suite 100 • Old Way Counseling &amp; Consulting</p>
+        <!-- Clunky Email Us OR Call Us + Map + Extra Disorganized Footer Categories -->
+        <div style="background-color: #ffffff; padding: 25px 12px; text-align: center; border-top: 2px solid #999;">
+            <h2 style="font-family: Arial, sans-serif; font-size: 24px; color: #16437e;">
+                Easy to Get Started<br /><span style="font-size: 16px; color: #555;">Click an Option Below</span>
+            </h2>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin: 15px 0;">
+                <a href="#" onclick="openExamplePopup(event)" style="border: 2px solid #16437e; padding: 15px 25px; background: #eee; font-weight: bold; color: #16437e;">[ EMAIL US GRAPHIC ]</a>
+                <strong>OR</strong>
+                <a href="#" onclick="openExamplePopup(event)" style="border: 2px solid #16437e; padding: 15px 25px; background: #eee; font-weight: bold; color: #16437e;">[ CALL US GRAPHIC ]</a>
+            </div>
+            <h3 style="font-family: Arial, sans-serif; font-size: 18px; color: #333;">
+                ADDRESS<br />1234 Legacy Parkway, Suite 100<br />Phone: (555) 019-2834
+            </h3>
+        </div>
+
+        <!-- Extra Disorganized Bottom Categories (#colophon) -->
+        <div class="old-colophon">
+            <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px;">
+                <div>
+                    <a href="#" onclick="openExamplePopup(event)" style="color: #2ea3f2;">Home</a><br />
+                    <a href="#" onclick="openExamplePopup(event)" style="color: #2ea3f2;">Services</a><br />
+                    <a href="#" onclick="openExamplePopup(event)" style="color: #2ea3f2;">Counselors</a><br />
+                    <a href="#" onclick="openExamplePopup(event)" style="color: #2ea3f2;">Success Stories</a><br />
+                    <a href="#" onclick="openExamplePopup(event)" style="color: #2ea3f2;">Blog</a><br />
+                    <a href="#" onclick="openExamplePopup(event)" style="color: #2ea3f2;">Podcasts</a><br />
+                    <a href="#" onclick="openExamplePopup(event)" style="color: #2ea3f2;">Join Our Team</a>
+                </div>
+                <div>
+                    <p>Copyright &copy; 2025 Old Way Counseling - <a href="#" onclick="openExamplePopup(event)">Privacy Policy</a> - <a href="#" onclick="openExamplePopup(event)">Terms &amp; Conditions</a></p>
+                </div>
+            </div>
         </div>
 
     </div>
 
     <!-- ========================================================= -->
-    <!-- 3B. VIEW 2: THE MODERN REDESIGN (SAME COLORS, SAME NAMES, -->
-    <!--     SAME CONTENT — MODERN HIGH-CONVERTING ARCHITECTURE)   -->
+    <!-- 3B. VIEW 2: THE JAW-DROPPING MODERN REDESIGN              -->
+    <!--     (SAME BRAND COLORS, SAME 12 SERVICES & 12 THERAPISTS) -->
     <!-- ========================================================= -->
-    <div id="newSiteContainer" class="modern-revamp-canvas hidden">
+    <div id="newSiteContainer" class="fancy-modern-canvas hidden">
 
-        <!-- Modern Clean Practice Header (Same #16437e & #2ea3f2 Brand Colors!) -->
-        <div class="modern-nav">
-            <div class="modern-container flex flex-wrap items-center justify-between gap-4">
-                <a href="#" onclick="openExamplePopup(event)" class="legacy-logo-box">
-                    <div class="legacy-logo-emblem" style="width: 46px; height: 46px; font-size: 16px;">NW</div>
+        <!-- Sleek Glassmorphism Practice Header -->
+        <div class="fancy-glass-nav">
+            <div class="fancy-container flex flex-wrap items-center justify-between gap-4">
+                <a href="#" onclick="openExamplePopup(event)" style="text-decoration: none; display: flex; align-items: center; gap: 14px;">
+                    <div style="width: 48px; height: 48px; border-radius: 14px; background: linear-gradient(135deg, #0d2c54 0%, #2ea3f2 100%); color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px; box-shadow: 0 8px 20px rgba(46, 163, 242, 0.3);">
+                        NW
+                    </div>
                     <div>
-                        <div style="font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 20px; color: #16437e; line-height: 1;">NEW WAY COUNSELING</div>
-                        <div style="font-size: 11px; font-weight: 600; color: #2ea3f2; letter-spacing: 0.08em;">AND CONSULTING CLINIC</div>
+                        <span style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #0d2c54; display: block; line-height: 1.05;">New Way Counseling</span>
+                        <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #2ea3f2;">Marriage, Family &amp; Trauma Specialists</span>
                     </div>
                 </a>
 
-                <div class="hidden md:flex items-center gap-8" style="font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600;">
-                    <a href="#mod-specialties" style="color: #16437e; text-decoration: none;">12 Specialties</a>
-                    <a href="#mod-team" style="color: #16437e; text-decoration: none;">Meet Our 12 Counselors</a>
-                    <a href="#mod-stories" style="color: #16437e; text-decoration: none;">Client Stories</a>
+                <div class="hidden lg:flex items-center gap-8 text-sm font-semibold" style="color: #1e293b;">
+                    <a href="#fancy-pathways" style="color: #0d2c54; text-decoration: none;">12 Clinical Specialties</a>
+                    <a href="#fancy-directory" style="color: #0d2c54; text-decoration: none;">Interactive Therapist Matcher</a>
+                    <a href="#fancy-stories" style="color: #0d2c54; text-decoration: none;">Client Transformations</a>
                 </div>
 
-                <div class="flex items-center gap-3">
-                    <a href="#" onclick="openExamplePopup(event)" style="font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 700; color: #16437e; text-decoration: none;">(555) 019-2834</a>
-                    <a href="#" onclick="openExamplePopup(event)" style="background-color: #2ea3f2; color: #ffffff; font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 700; padding: 11px 22px; border-radius: 10px; text-decoration: none;">
-                        Match With a Counselor &rarr;
+                <div class="flex items-center gap-4">
+                    <span class="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full" style="background: #e0f2fe; color: #0d2c54;">
+                        <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
+                        Accepting New Clients
+                    </span>
+                    <a href="#" onclick="openExamplePopup(event)" style="background: linear-gradient(135deg, #16437e 0%, #2ea3f2 100%); color: #ffffff; font-size: 14px; font-weight: 700; padding: 12px 24px; border-radius: 14px; text-decoration: none; box-shadow: 0 10px 25px rgba(46, 163, 242, 0.35);">
+                        Match With a Therapist &rarr;
                     </a>
                 </div>
             </div>
         </div>
 
-        <!-- Balanced Two-Column Hero (Replaces the Stretched Banner & Giant Video Box) -->
-        <div class="modern-hero">
-            <div class="modern-container grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-7 space-y-5">
-                    <span class="modern-pill-badge">★ Voted #1 Top-Rated Counseling Practice • 30+ Years of Care</span>
-                    <h2 style="font-family: 'Poppins', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.15; color: #ffffff; margin: 0;">
-                        Find connection. Rediscover hope. <span style="color: #63aaed;">Truly thrive.</span>
+        <!-- Luxury Architectural Hero (Same Navy & Sky Palette!) -->
+        <div class="fancy-hero">
+            <div class="fancy-container grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full" style="background: rgba(46, 163, 242, 0.18); border: 1px solid rgba(99, 170, 237, 0.45); color: #fde047; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">
+                        <span>★ Voted #1 Top-Rated Counseling Practice • 30+ Years of Care</span>
+                    </div>
+
+                    <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(36px, 5vw, 58px); font-weight: 400; line-height: 1.1; color: #ffffff; margin: 0;">
+                        Move past survival mode. <span style="font-style: italic; color: #63aaed;">Truly live again.</span>
                     </h2>
-                    <p style="font-size: 18px; line-height: 1.7; color: #e2e8f0; max-width: 600px;">
-                        Whether you are navigating anxiety, rebuilding trust in your marriage, or healing from past trauma, we listen to your story first and craft a custom plan around your life—blending proven clinical therapy with optional Christian faith integration.
+
+                    <p style="font-size: 18px; line-height: 1.75; color: #cbd5e1; max-width: 600px;">
+                        What you’re carrying isn’t a character flaw—it’s a signal. Whether you are fighting for your marriage, untangling past trauma, or quieting relentless anxiety, we build a personalized care plan around your story, blending evidence-based therapy with optional Christian faith integration.
                     </p>
-                    <div class="pt-2 flex flex-wrap gap-4">
-                        <a href="#" onclick="openExamplePopup(event)" style="background-color: #2ea3f2; color: #ffffff; font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; padding: 16px 32px; border-radius: 12px; text-decoration: none; box-shadow: 0 10px 25px rgba(46, 163, 242, 0.35);">
-                            Schedule Your First Session &rarr;
+
+                    <div class="pt-3 flex flex-wrap items-center gap-4">
+                        <a href="#" onclick="openExamplePopup(event)" style="background: #2ea3f2; color: #ffffff; font-size: 16px; font-weight: 700; padding: 18px 34px; border-radius: 16px; text-decoration: none; box-shadow: 0 15px 35px rgba(46, 163, 242, 0.4);">
+                            Book Your First Session &rarr;
                         </a>
-                        <a href="#mod-team" style="background-color: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3); color: #ffffff; font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 600; padding: 16px 28px; border-radius: 12px; text-decoration: none;">
-                            Filter Our 12 Therapists
+                        <a href="#fancy-directory" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.28); color: #ffffff; font-size: 16px; font-weight: 600; padding: 18px 28px; border-radius: 16px; text-decoration: none;">
+                            Meet Our 12 Specialists
                         </a>
                     </div>
                 </div>
 
-                <!-- Clean Video & Quick-Facts Card -->
+                <!-- Right Column: Interactive Welcome Card (Replaces Broken Video Box) -->
                 <div class="lg:col-span-5">
-                    <div style="background-color: #ffffff; color: #0f172a; border-radius: 20px; padding: 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.25);">
-                        <div onclick="openExamplePopup(event)" style="height: 200px; border-radius: 12px; background-image: linear-gradient(rgba(13,44,84,0.45), rgba(13,44,84,0.65)), url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; cursor: pointer; margin-bottom: 20px;">
-                            <div style="width: 56px; height: 56px; border-radius: 50%; background-color: #2ea3f2; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 8px;">▶</div>
-                            <span style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 14px;">Watch Our 90-Second Welcome Video</span>
+                    <div class="fancy-hero-card space-y-5">
+                        <div onclick="openExamplePopup(event)" style="position: relative; height: 230px; border-radius: 20px; overflow: hidden; cursor: pointer; border: 1px solid rgba(255,255,255,0.2);">
+                            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=80" alt="Couples & Individual Therapy" style="width: 100%; height: 100%; object-fit: cover;" />
+                            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(9,30,58,0.2) 0%, rgba(9,30,58,0.8) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center;">
+                                <div style="width: 64px; height: 64px; border-radius: 50%; background: #2ea3f2; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 0 30px rgba(46,163,242,0.8); margin-bottom: 10px;">
+                                    ▶
+                                </div>
+                                <span style="font-weight: 700; font-size: 15px; color: #ffffff;">Watch Our 60-Second Practice Welcome</span>
+                                <span style="font-size: 12px; color: #cbd5e1;">See what your first visit feels like</span>
+                            </div>
                         </div>
-                        <div class="grid grid-cols-2 gap-4 text-sm">
-                            <div>
-                                <strong style="color: #16437e; display: block;">Office Location</strong>
-                                <span style="color: #475569;">1234 Legacy Pkwy, Suite 100</span>
+
+                        <div class="grid grid-cols-2 gap-4 pt-1 text-left">
+                            <div style="background: rgba(255,255,255,0.07); padding: 14px; border-radius: 14px;">
+                                <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #63aaed; font-weight: 700; display: block;">Same-Week Intake</span>
+                                <strong style="font-size: 15px; color: #ffffff;">In-Person &amp; Telehealth</strong>
                             </div>
-                            <div>
-                                <strong style="color: #16437e; display: block;">Direct Intake Line</strong>
-                                <span style="color: #2ea3f2; font-weight: 700;">(555) 019-2834</span>
+                            <div style="background: rgba(255,255,255,0.07); padding: 14px; border-radius: 14px;">
+                                <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #fde047; font-weight: 700; display: block;">Direct Care Line</span>
+                                <strong style="font-size: 15px; color: #ffffff;">(555) 019-2834</strong>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Floating Credibility Metrics Bar -->
+        <div class="fancy-stat-bar">
+            <div class="fancy-container">
+                <div class="fancy-stat-grid">
+                    <div>
+                        <div style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: #16437e;">30+ Years</div>
+                        <div style="font-size: 14px; color: #475569; font-weight: 500;">Serving Individuals, Marriages &amp; Families</div>
+                    </div>
+                    <div>
+                        <div style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: #2ea3f2;">12 Clinicians</div>
+                        <div style="font-size: 14px; color: #475569; font-weight: 500;">LPCs, LMFTs &amp; Board Supervisors</div>
+                    </div>
+                    <div>
+                        <div style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: #16437e;">5.0 ★★★★★</div>
+                        <div style="font-size: 14px; color: #475569; font-weight: 500;">Highest-Rated Practice in the Region</div>
+                    </div>
+                    <div class="flex items-center">
+                        <a href="#" onclick="openExamplePopup(event)" style="display: block; width: 100%; text-align: center; background: #F0F7FF; border: 2px solid #2ea3f2; color: #16437e; font-weight: 700; padding: 14px; border-radius: 14px; text-decoration: none; font-size: 14px;">
+                            Find Your Counselor Match &darr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 12 Specialties Transformed Into 3 Luxury Bento Care Pathways -->
+        <div id="fancy-pathways" style="padding: 88px 0 72px 0;">
+            <div class="fancy-container space-y-12">
+                <div class="text-center max-w-3xl mx-auto space-y-3">
+                    <span style="color: #2ea3f2; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;">All 12 Counseling &amp; Coaching Specialties</span>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 40px; color: #0d2c54; margin: 0;">Tailored Care Pathways — Never One-Size-Fits-All</h3>
+                    <p style="font-size: 17px; color: #475569;">We replaced the 12 repetitive blue boxes with three intuitive clinical pathways so overwhelmed clients immediately find the support they need.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Bento 1 -->
+                    <div class="fancy-bento-card space-y-5" onclick="openExamplePopup(event)">
+                        <div style="width: 52px; height: 52px; border-radius: 16px; background: linear-gradient(135deg, #16437e 0%, #2ea3f2 100%); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700;">
+                            01
+                        </div>
+                        <h4 style="font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: #0d2c54;">Marriage, Couples &amp; Family</h4>
+                        <p style="font-size: 15px; line-height: 1.65; color: #475569;">
+                            Whether you are preparing for marriage, repairing trust after crisis, or restoring peace in your household, we equip you with actionable tools to reconnect.
+                        </p>
+                        <div class="pt-2">
+                            <span class="fancy-specialty-pill">✓ Marriage Counseling</span>
+                            <span class="fancy-specialty-pill">✓ Couples Counseling</span>
+                            <span class="fancy-specialty-pill">✓ Pre-marital Counseling</span>
+                            <span class="fancy-specialty-pill">✓ Family Counseling</span>
+                            <span class="fancy-specialty-pill">✓ Conflict Resolution</span>
+                        </div>
+                    </div>
+
+                    <!-- Bento 2 -->
+                    <div class="fancy-bento-card space-y-5" onclick="openExamplePopup(event)">
+                        <div style="width: 52px; height: 52px; border-radius: 16px; background: linear-gradient(135deg, #16437e 0%, #2ea3f2 100%); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700;">
+                            02
+                        </div>
+                        <h4 style="font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: #0d2c54;">Anxiety, Trauma &amp; Emotional Healing</h4>
+                        <p style="font-size: 15px; line-height: 1.65; color: #475569;">
+                            Uncover and heal the root causes of anxiety, past trauma, grief, and depression using proven neuroscience and trauma-informed protocols.
+                        </p>
+                        <div class="pt-2">
+                            <span class="fancy-specialty-pill">✓ Counseling for Anxiety</span>
+                            <span class="fancy-specialty-pill">✓ Trauma Recovery</span>
+                            <span class="fancy-specialty-pill">✓ Depression</span>
+                            <span class="fancy-specialty-pill">✓ Grief Counseling</span>
+                        </div>
+                    </div>
+
+                    <!-- Bento 3 -->
+                    <div class="fancy-bento-card space-y-5" onclick="openExamplePopup(event)">
+                        <div style="width: 52px; height: 52px; border-radius: 16px; background: linear-gradient(135deg, #16437e 0%, #2ea3f2 100%); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700;">
+                            03
+                        </div>
+                        <h4 style="font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: #0d2c54;">Stress, Anger &amp; Executive Growth</h4>
+                        <p style="font-size: 15px; line-height: 1.65; color: #475569;">
+                            Regulate high-pressure stress, get to the deeper hurt beneath anger, and build resilient leadership habits—with optional Christian worldview integration.
+                        </p>
+                        <div class="pt-2">
+                            <span class="fancy-specialty-pill">✓ Stress Management</span>
+                            <span class="fancy-specialty-pill">✓ Anger Resolution</span>
+                            <span class="fancy-specialty-pill">✓ Business Coaching</span>
+                            <span class="fancy-specialty-pill">✓ Faith Integration</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- 12 Specialties Organized into 3 Scannable Pathways (Same 12 Services!) -->
-        <div id="mod-specialties" style="padding: 72px 0; background-color: #ffffff; border-bottom: 1px solid #e2e8f0;">
-            <div class="modern-container space-y-10">
-                <div class="text-center max-w-2xl mx-auto space-y-2">
-                    <span style="color: #2ea3f2; font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Our 12 Counseling &amp; Therapy Services</span>
-                    <h3 style="font-family: 'Poppins', sans-serif; font-size: 32px; font-weight: 700; color: #16437e;">Focused Care Pathways for Every Season</h3>
-                    <p style="font-size: 16px; color: #475569;">Instead of an overwhelming wall of 12 separate links, explore our organized clinical specialties below.</p>
+        <!-- Interactive 12-Therapist Matcher (Same Exact 12 Names & Photos!) -->
+        <div id="fancy-directory" style="padding: 84px 0; background-color: #ffffff; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+            <div class="fancy-container space-y-10">
+                <div class="text-center max-w-3xl mx-auto space-y-3">
+                    <span style="color: #2ea3f2; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;">Interactive Clinician Directory</span>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 40px; color: #0d2c54; margin: 0;">Meet Our 12 Licensed Counselors &amp; Therapists</h3>
+                    <p style="font-size: 17px; color: #475569;">Click any specialty below to filter our team and find the right therapist for your goals.</p>
+                </div>
+
+                <!-- Interactive Filter Buttons -->
+                <div class="flex flex-wrap justify-center gap-3">
+                    <button type="button" onclick="filterModernTeam('all', this)" class="fancy-filter-pill active">All 12 Therapists</button>
+                    <button type="button" onclick="filterModernTeam('marriage', this)" class="fancy-filter-pill">Marriage &amp; Couples</button>
+                    <button type="button" onclick="filterModernTeam('trauma', this)" class="fancy-filter-pill">Anxiety, Trauma &amp; Grief</button>
+                    <button type="button" onclick="filterModernTeam('supervisors', this)" class="fancy-filter-pill">LPC-S &amp; Leadership</button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+                    <div class="fancy-therapist-card" data-spec="marriage trauma supervisors" onclick="openExamplePopup(event)">
+                        <div>
+                            <div class="fancy-therapist-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=80" alt="John Example, LPC" />
+                                <span class="fancy-avail-badge">Clinical Director</span>
+                            </div>
+                            <div class="p-6 space-y-2">
+                                <span style="font-size: 12px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">Licensed Professional Counselor</span>
+                                <h4 style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #0d2c54;">John Example, LPC</h4>
+                                <p style="font-size: 14px; color: #475569; line-height: 1.55;">Marriage Restoration, Trauma Recovery, EMDR &amp; Executive Business Coaching.</p>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6">
+                            <span style="display: block; text-align: center; padding: 10px; border-radius: 12px; background: #F0F7FF; color: #16437e; font-size: 13px; font-weight: 700;">Book With John &rarr;</span>
+                        </div>
+                    </div>
+
+                    <div class="fancy-therapist-card" data-spec="trauma" onclick="openExamplePopup(event)">
+                        <div>
+                            <div class="fancy-therapist-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80" alt="Lauren Sample, MA" />
+                                <span class="fancy-avail-badge">Accepting Clients</span>
+                            </div>
+                            <div class="p-6 space-y-2">
+                                <span style="font-size: 12px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">Counselor • MA</span>
+                                <h4 style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #0d2c54;">Lauren Sample, MA</h4>
+                                <p style="font-size: 14px; color: #475569; line-height: 1.55;">Anxiety, Young Adults, Athletic &amp; Performance Mindset Support.</p>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6">
+                            <span style="display: block; text-align: center; padding: 10px; border-radius: 12px; background: #F0F7FF; color: #16437e; font-size: 13px; font-weight: 700;">Book With Lauren &rarr;</span>
+                        </div>
+                    </div>
+
+                    <div class="fancy-therapist-card" data-spec="supervisors trauma" onclick="openExamplePopup(event)">
+                        <div>
+                            <div class="fancy-therapist-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80" alt="Emily Demo, LPC-S" />
+                                <span class="fancy-avail-badge">Board Supervisor</span>
+                            </div>
+                            <div class="p-6 space-y-2">
+                                <span style="font-size: 12px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">LPC-S • Supervisor</span>
+                                <h4 style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #0d2c54;">Emily Demo, LPC-S</h4>
+                                <p style="font-size: 14px; color: #475569; line-height: 1.55;">Complex Trauma, Anxiety, Grief Recovery &amp; Clinical Supervision.</p>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6">
+                            <span style="display: block; text-align: center; padding: 10px; border-radius: 12px; background: #F0F7FF; color: #16437e; font-size: 13px; font-weight: 700;">Book With Emily &rarr;</span>
+                        </div>
+                    </div>
+
+                    <div class="fancy-therapist-card" data-spec="marriage trauma" onclick="openExamplePopup(event)">
+                        <div>
+                            <div class="fancy-therapist-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80" alt="Sarah Placeholder, LPC" />
+                                <span class="fancy-avail-badge">Accepting Clients</span>
+                            </div>
+                            <div class="p-6 space-y-2">
+                                <span style="font-size: 12px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">Licensed Counselor</span>
+                                <h4 style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #0d2c54;">Sarah Placeholder, LPC</h4>
+                                <p style="font-size: 14px; color: #475569; line-height: 1.55;">Couples Communication, Stress Management &amp; Life Transitions.</p>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6">
+                            <span style="display: block; text-align: center; padding: 10px; border-radius: 12px; background: #F0F7FF; color: #16437e; font-size: 13px; font-weight: 700;">Book With Sarah &rarr;</span>
+                        </div>
+                    </div>
+
+                    <div class="fancy-therapist-card" data-spec="marriage" onclick="openExamplePopup(event)">
+                        <div>
+                            <div class="fancy-therapist-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&q=80" alt="Ben Standard, LMFT" />
+                                <span class="fancy-avail-badge">Marriage Specialist</span>
+                            </div>
+                            <div class="p-6 space-y-2">
+                                <span style="font-size: 12px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">Licensed MFT</span>
+                                <h4 style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #0d2c54;">Ben Standard, LMFT</h4>
+                                <p style="font-size: 14px; color: #475569; line-height: 1.55;">Marriage Crisis, Premarital Counseling &amp; Family Systems.</p>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6">
+                            <span style="display: block; text-align: center; padding: 10px; border-radius: 12px; background: #F0F7FF; color: #16437e; font-size: 13px; font-weight: 700;">Book With Ben &rarr;</span>
+                        </div>
+                    </div>
+
+                    <div class="fancy-therapist-card" data-spec="trauma" onclick="openExamplePopup(event)">
+                        <div>
+                            <div class="fancy-therapist-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=500&q=80" alt="Deborah Model, LPC" />
+                                <span class="fancy-avail-badge">Accepting Clients</span>
+                            </div>
+                            <div class="p-6 space-y-2">
+                                <span style="font-size: 12px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">Licensed Counselor</span>
+                                <h4 style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #0d2c54;">Deborah Model, LPC</h4>
+                                <p style="font-size: 14px; color: #475569; line-height: 1.55;">Grief, Depression, Couples Tools &amp; Compassionate Care.</p>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6">
+                            <span style="display: block; text-align: center; padding: 10px; border-radius: 12px; background: #F0F7FF; color: #16437e; font-size: 13px; font-weight: 700;">Book With Deborah &rarr;</span>
+                        </div>
+                    </div>
+
+                    <div class="fancy-therapist-card" data-spec="marriage trauma" onclick="openExamplePopup(event)">
+                        <div>
+                            <div class="fancy-therapist-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=500&q=80" alt="Kristen Practice, LPC" />
+                                <span class="fancy-avail-badge">Accepting Clients</span>
+                            </div>
+                            <div class="p-6 space-y-2">
+                                <span style="font-size: 12px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">Licensed Counselor</span>
+                                <h4 style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #0d2c54;">Kristen Practice, LPC</h4>
+                                <p style="font-size: 14px; color: #475569; line-height: 1.55;">Marriage Restoration, Family Dynamics &amp; Faith Integration.</p>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6">
+                            <span style="display: block; text-align: center; padding: 10px; border-radius: 12px; background: #F0F7FF; color: #16437e; font-size: 13px; font-weight: 700;">Book With Kristen &rarr;</span>
+                        </div>
+                    </div>
+
+                    <div class="fancy-therapist-card" data-spec="trauma" onclick="openExamplePopup(event)">
+                        <div>
+                            <div class="fancy-therapist-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80" alt="Hannah Counselor, LPC" />
+                                <span class="fancy-avail-badge">Accepting Clients</span>
+                            </div>
+                            <div class="p-6 space-y-2">
+                                <span style="font-size: 12px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">Licensed Counselor</span>
+                                <h4 style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #0d2c54;">Hannah Counselor, LPC</h4>
+                                <p style="font-size: 14px; color: #475569; line-height: 1.55;">Individual Anxiety, Women's Issues &amp; Self-Worth.</p>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6">
+                            <span style="display: block; text-align: center; padding: 10px; border-radius: 12px; background: #F0F7FF; color: #16437e; font-size: 13px; font-weight: 700;">Book With Hannah &rarr;</span>
+                        </div>
+                    </div>
+
+                    <div class="fancy-therapist-card" data-spec="trauma" onclick="openExamplePopup(event)">
+                        <div>
+                            <div class="fancy-therapist-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=500&q=80" alt="Charlie Test, LPC-C" />
+                                <span class="fancy-avail-badge">Accepting Clients</span>
+                            </div>
+                            <div class="p-6 space-y-2">
+                                <span style="font-size: 12px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">LPC Candidate</span>
+                                <h4 style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #0d2c54;">Charlie Test, LPC-C</h4>
+                                <p style="font-size: 14px; color: #475569; line-height: 1.55;">Adolescents, Young Adults &amp; Emotional Regulation.</p>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6">
+                            <span style="display: block; text-align: center; padding: 10px; border-radius: 12px; background: #F0F7FF; color: #16437e; font-size: 13px; font-weight: 700;">Book With Charlie &rarr;</span>
+                        </div>
+                    </div>
+
+                    <div class="fancy-therapist-card" data-spec="marriage" onclick="openExamplePopup(event)">
+                        <div>
+                            <div class="fancy-therapist-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80" alt="Marcus Vance, MA, LPC-C" />
+                                <span class="fancy-avail-badge">Accepting Clients</span>
+                            </div>
+                            <div class="p-6 space-y-2">
+                                <span style="font-size: 12px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">MA • LPC Candidate</span>
+                                <h4 style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #0d2c54;">Marcus Vance, MA, LPC-C</h4>
+                                <p style="font-size: 14px; color: #475569; line-height: 1.55;">Men's Issues, Anger Resolution &amp; Marital Growth.</p>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6">
+                            <span style="display: block; text-align: center; padding: 10px; border-radius: 12px; background: #F0F7FF; color: #16437e; font-size: 13px; font-weight: 700;">Book With Marcus &rarr;</span>
+                        </div>
+                    </div>
+
+                    <div class="fancy-therapist-card" data-spec="marriage supervisors" onclick="openExamplePopup(event)">
+                        <div>
+                            <div class="fancy-therapist-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=500&q=80" alt="Arthur Mason, LPC" />
+                                <span class="fancy-avail-badge">Pastoral &amp; Clinical</span>
+                            </div>
+                            <div class="p-6 space-y-2">
+                                <span style="font-size: 12px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">LPC • M.S. • M.Div</span>
+                                <h4 style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #0d2c54;">Arthur Mason, LPC, M.Div</h4>
+                                <p style="font-size: 14px; color: #475569; line-height: 1.55;">Christian Counseling, Marriage, Grief &amp; Life Purpose.</p>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6">
+                            <span style="display: block; text-align: center; padding: 10px; border-radius: 12px; background: #F0F7FF; color: #16437e; font-size: 13px; font-weight: 700;">Book With Arthur &rarr;</span>
+                        </div>
+                    </div>
+
+                    <div class="fancy-therapist-card" data-spec="trauma" onclick="openExamplePopup(event)">
+                        <div>
+                            <div class="fancy-therapist-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80" alt="Carter Lane, MA (Intern)" />
+                                <span class="fancy-avail-badge">Reduced-Rate Option</span>
+                            </div>
+                            <div class="p-6 space-y-2">
+                                <span style="font-size: 12px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">Clinical Intern • MA</span>
+                                <h4 style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #0d2c54;">Carter Lane, MA (Intern)</h4>
+                                <p style="font-size: 14px; color: #475569; line-height: 1.55;">Accessible Individual, Adolescent &amp; Family Support.</p>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6">
+                            <span style="display: block; text-align: center; padding: 10px; border-radius: 12px; background: #F0F7FF; color: #16437e; font-size: 13px; font-weight: 700;">Book With Carter &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Client Transformation Stories & Conversion CTA -->
+        <div id="fancy-stories" style="padding: 84px 0; background: linear-gradient(135deg, #091e3a 0%, #16437e 100%); color: #ffffff;">
+            <div class="fancy-container space-y-12">
+                <div class="text-center max-w-2xl mx-auto space-y-3">
+                    <span style="color: #fde047; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;">Stories of Transformation</span>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 40px; color: #ffffff; margin: 0;">Real Healing. Lasting Tools.</h3>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="modern-pathway-card space-y-3" onclick="openExamplePopup(event)" style="cursor: pointer;">
-                        <span style="background-color: #e0f2fe; color: #16437e; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 9999px; text-transform: uppercase;">Marriages &amp; Families</span>
-                        <h4 style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: #16437e;">Relationship &amp; Family Care</h4>
-                        <ul class="space-y-2 text-base" style="color: #334155; padding-left: 0; list-style: none;">
-                            <li>✓ <strong>Marriage Counseling</strong></li>
-                            <li>✓ <strong>Couples Counseling</strong></li>
-                            <li>✓ <strong>Pre-marital Counseling</strong></li>
-                            <li>✓ <strong>Family &amp; Conflict Resolution</strong></li>
-                        </ul>
+                    <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.18); border-radius: 24px; padding: 32px;" onclick="openExamplePopup(event)">
+                        <div style="color: #fde047; font-size: 18px; margin-bottom: 12px;">★★★★★</div>
+                        <p style="font-size: 16px; line-height: 1.7; color: #f1f5f9;">"Saved our marriage and helped me deal with deep-rooted anxiety. Working with John Example, LPC gave us life-saving tools we never thought possible."</p>
+                        <strong style="display: block; margin-top: 16px; font-size: 14px; color: #63aaed;">— Verified Marriage Client</strong>
                     </div>
-
-                    <div class="modern-pathway-card space-y-3" onclick="openExamplePopup(event)" style="cursor: pointer;">
-                        <span style="background-color: #e0f2fe; color: #16437e; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 9999px; text-transform: uppercase;">Emotional Healing</span>
-                        <h4 style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: #16437e;">Anxiety, Trauma &amp; Grief</h4>
-                        <ul class="space-y-2 text-base" style="color: #334155; padding-left: 0; list-style: none;">
-                            <li>✓ <strong>Counseling for Anxiety</strong></li>
-                            <li>✓ <strong>Trauma Counseling (EMDR)</strong></li>
-                            <li>✓ <strong>Depression Counseling</strong></li>
-                            <li>✓ <strong>Grief &amp; Loss Recovery</strong></li>
-                        </ul>
+                    <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.18); border-radius: 24px; padding: 32px;" onclick="openExamplePopup(event)">
+                        <div style="color: #fde047; font-size: 18px; margin-bottom: 12px;">★★★★★</div>
+                        <p style="font-size: 16px; line-height: 1.7; color: #f1f5f9;">"From the very first call, the intake coordinator made us feel comfortable and connected. Emily Demo, LPC-S helped me finally process decades of feeling stuck."</p>
+                        <strong style="display: block; margin-top: 16px; font-size: 14px; color: #63aaed;">— Verified Individual Client</strong>
                     </div>
-
-                    <div class="modern-pathway-card space-y-3" onclick="openExamplePopup(event)" style="cursor: pointer;">
-                        <span style="background-color: #e0f2fe; color: #16437e; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 9999px; text-transform: uppercase;">Growth &amp; Regulation</span>
-                        <h4 style="font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: #16437e;">Stress, Anger &amp; Leadership</h4>
-                        <ul class="space-y-2 text-base" style="color: #334155; padding-left: 0; list-style: none;">
-                            <li>✓ <strong>Stress Management</strong></li>
-                            <li>✓ <strong>Anger Resolution</strong></li>
-                            <li>✓ <strong>Executive Business Coaching</strong></li>
-                            <li>✓ <strong>Optional Christian Integration</strong></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Same 12 Counselors — Now With Interactive Specialty Filtering! -->
-        <div id="mod-team" style="padding: 72px 0; background-color: #f4f6f9;">
-            <div class="modern-container space-y-8">
-                <div class="text-center max-w-2xl mx-auto space-y-2">
-                    <span style="color: #2ea3f2; font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Our Clinical Team</span>
-                    <h3 style="font-family: 'Poppins', sans-serif; font-size: 32px; font-weight: 700; color: #16437e;">Filter Our 12 Counselors by Specialty</h3>
-                    <p style="font-size: 16px; color: #475569;">Same exact clinicians and photos—now organized so clients can find their match in one click.</p>
-                </div>
-
-                <!-- Interactive Filter Pills -->
-                <div class="flex flex-wrap justify-center gap-3">
-                    <button type="button" onclick="filterModernTeam('all', this)" class="modern-filter-btn active">All 12 Counselors</button>
-                    <button type="button" onclick="filterModernTeam('marriage', this)" class="modern-filter-btn">Marriage &amp; Couples</button>
-                    <button type="button" onclick="filterModernTeam('trauma', this)" class="modern-filter-btn">Anxiety &amp; Trauma</button>
-                    <button type="button" onclick="filterModernTeam('supervisors', this)" class="modern-filter-btn">LPC-S / Leadership</button>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="modern-clinician-card" data-spec="marriage trauma supervisors" onclick="openExamplePopup(event)">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="John Example, LPC" />
-                        <div class="p-5 space-y-1">
-                            <span style="font-size: 11px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">Clinical Director • LPC</span>
-                            <h4 style="font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; color: #16437e;">John Example, LPC</h4>
-                            <p style="font-size: 14px; color: #475569;">Marriage, Trauma, EMDR &amp; Business Coaching</p>
-                        </div>
-                    </div>
-                    <div class="modern-clinician-card" data-spec="trauma" onclick="openExamplePopup(event)">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Lauren Sample, MA" />
-                        <div class="p-5 space-y-1">
-                            <span style="font-size: 11px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">Counselor • MA</span>
-                            <h4 style="font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; color: #16437e;">Lauren Sample, MA</h4>
-                            <p style="font-size: 14px; color: #475569;">Anxiety, Young Adults &amp; Stress Management</p>
-                        </div>
-                    </div>
-                    <div class="modern-clinician-card" data-spec="supervisors trauma" onclick="openExamplePopup(event)">
-                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80" alt="Emily Demo, LPC-S" />
-                        <div class="p-5 space-y-1">
-                            <span style="font-size: 11px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">LPC Supervisor</span>
-                            <h4 style="font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; color: #16437e;">Emily Demo, LPC-S</h4>
-                            <p style="font-size: 14px; color: #475569;">Trauma Recovery, Grief &amp; Clinical Supervision</p>
-                        </div>
-                    </div>
-                    <div class="modern-clinician-card" data-spec="marriage trauma" onclick="openExamplePopup(event)">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80" alt="Sarah Placeholder, LPC" />
-                        <div class="p-5 space-y-1">
-                            <span style="font-size: 11px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">Licensed Counselor</span>
-                            <h4 style="font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; color: #16437e;">Sarah Placeholder, LPC</h4>
-                            <p style="font-size: 14px; color: #475569;">Couples Therapy, Anxiety &amp; Life Transitions</p>
-                        </div>
-                    </div>
-                    <div class="modern-clinician-card" data-spec="marriage" onclick="openExamplePopup(event)">
-                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" alt="Ben Standard, LMFT" />
-                        <div class="p-5 space-y-1">
-                            <span style="font-size: 11px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">Marriage &amp; Family • LMFT</span>
-                            <h4 style="font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; color: #16437e;">Ben Standard, LMFT</h4>
-                            <p style="font-size: 14px; color: #475569;">Marriage Crisis, Premarital &amp; Family Systems</p>
-                        </div>
-                    </div>
-                    <div class="modern-clinician-card" data-spec="trauma" onclick="openExamplePopup(event)">
-                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80" alt="Deborah Model, LPC" />
-                        <div class="p-5 space-y-1">
-                            <span style="font-size: 11px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">Licensed Counselor</span>
-                            <h4 style="font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; color: #16437e;">Deborah Model, LPC</h4>
-                            <p style="font-size: 14px; color: #475569;">Grief, Depression &amp; Compassionate Care</p>
-                        </div>
-                    </div>
-                    <div class="modern-clinician-card" data-spec="marriage trauma" onclick="openExamplePopup(event)">
-                        <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=400&q=80" alt="Kristen Practice, LPC" />
-                        <div class="p-5 space-y-1">
-                            <span style="font-size: 11px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">Licensed Counselor</span>
-                            <h4 style="font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; color: #16437e;">Kristen Practice, LPC</h4>
-                            <p style="font-size: 14px; color: #475569;">Marriage Restoration &amp; Individual Healing</p>
-                        </div>
-                    </div>
-                    <div class="modern-clinician-card" data-spec="trauma" onclick="openExamplePopup(event)">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Hannah Counselor, LPC" />
-                        <div class="p-5 space-y-1">
-                            <span style="font-size: 11px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">Licensed Counselor</span>
-                            <h4 style="font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; color: #16437e;">Hannah Counselor, LPC</h4>
-                            <p style="font-size: 14px; color: #475569;">Women's Issues, Anxiety &amp; Self-Worth</p>
-                        </div>
-                    </div>
-                    <div class="modern-clinician-card" data-spec="trauma" onclick="openExamplePopup(event)">
-                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Charlie Test, LPC-C" />
-                        <div class="p-5 space-y-1">
-                            <span style="font-size: 11px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">LPC Candidate</span>
-                            <h4 style="font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; color: #16437e;">Charlie Test, LPC-C</h4>
-                            <p style="font-size: 14px; color: #475569;">Adolescents, Stress &amp; Emotional Growth</p>
-                        </div>
-                    </div>
-                    <div class="modern-clinician-card" data-spec="marriage" onclick="openExamplePopup(event)">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Marcus Vance, MA, LPC-C" />
-                        <div class="p-5 space-y-1">
-                            <span style="font-size: 11px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">LPC Candidate</span>
-                            <h4 style="font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; color: #16437e;">Marcus Vance, MA, LPC-C</h4>
-                            <p style="font-size: 14px; color: #475569;">Men's Issues, Anger &amp; Relationship Skills</p>
-                        </div>
-                    </div>
-                    <div class="modern-clinician-card" data-spec="marriage supervisors" onclick="openExamplePopup(event)">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80" alt="Arthur Mason, LPC" />
-                        <div class="p-5 space-y-1">
-                            <span style="font-size: 11px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">LPC • M.Div</span>
-                            <h4 style="font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; color: #16437e;">Arthur Mason, LPC, M.Div</h4>
-                            <p style="font-size: 14px; color: #475569;">Christian Counseling, Marriage &amp; Grief</p>
-                        </div>
-                    </div>
-                    <div class="modern-clinician-card" data-spec="trauma" onclick="openExamplePopup(event)">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Carter Lane, MA (Intern)" />
-                        <div class="p-5 space-y-1">
-                            <span style="font-size: 11px; font-weight: 700; color: #2ea3f2; text-transform: uppercase;">Clinical Intern</span>
-                            <h4 style="font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; color: #16437e;">Carter Lane, MA (Intern)</h4>
-                            <p style="font-size: 14px; color: #475569;">Accessible Individual &amp; Family Support</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Same Verified Client Reviews + Modern CTA -->
-        <div id="mod-stories" style="padding: 72px 0; background-color: #16437e; color: #ffffff;">
-            <div class="modern-container space-y-10">
-                <div class="text-center max-w-2xl mx-auto space-y-2">
-                    <span style="color: #fde047; font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase;">Stories of Transformation</span>
-                    <h3 style="font-family: 'Poppins', sans-serif; font-size: 32px; font-weight: 700; color: #ffffff;">What Our Clients Experience</h3>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 16px; padding: 24px;" onclick="openExamplePopup(event)">
-                        <div style="color: #fde047; margin-bottom: 8px;">★★★★★</div>
-                        <p style="font-size: 15px; line-height: 1.6; color: #f1f5f9;">"Helped my spouse and me rebuild our communication during a very difficult season. Working with John Example, LPC gave us practical tools we use every day."</p>
-                        <strong style="display: block; margin-top: 12px; font-size: 13px; color: #63aaed;">— Alex M., Verified Client</strong>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 16px; padding: 24px;" onclick="openExamplePopup(event)">
-                        <div style="color: #fde047; margin-bottom: 8px;">★★★★★</div>
-                        <p style="font-size: 15px; line-height: 1.6; color: #f1f5f9;">"The intake team made scheduling simple and stress-free, and Emily Demo, LPC-S created a welcoming, safe environment from day one."</p>
-                        <strong style="display: block; margin-top: 12px; font-size: 13px; color: #63aaed;">— Jordan T., Verified Client</strong>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 16px; padding: 24px;" onclick="openExamplePopup(event)">
-                        <div style="color: #fde047; margin-bottom: 8px;">★★★★★</div>
-                        <p style="font-size: 15px; line-height: 1.6; color: #f1f5f9;">"I was hesitant to start therapy for anxiety, but Ben Standard, LMFT helped me understand the root causes and find lasting relief."</p>
-                        <strong style="display: block; margin-top: 12px; font-size: 13px; color: #63aaed;">— Taylor R., Verified Client</strong>
+                    <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.18); border-radius: 24px; padding: 32px;" onclick="openExamplePopup(event)">
+                        <div style="color: #fde047; font-size: 18px; margin-bottom: 12px;">★★★★★</div>
+                        <p style="font-size: 16px; line-height: 1.7; color: #f1f5f9;">"I was skeptical about therapy at first, but Ben Standard, LMFT helped my spouse and me stop talking at each other and start truly listening."</p>
+                        <strong style="display: block; margin-top: 16px; font-size: 14px; color: #63aaed;">— Verified Couples Client</strong>
                     </div>
                 </div>
 
-                <div class="text-center pt-4">
-                    <a href="get-started.html" style="display: inline-block; background-color: #2ea3f2; color: #ffffff; font-family: 'Poppins', sans-serif; font-size: 17px; font-weight: 700; padding: 18px 40px; border-radius: 12px; text-decoration: none; box-shadow: 0 10px 25px rgba(0,0,0,0.25);">
-                        Want Us to Redesign Your Practice Site Like This? Get Started &rarr;
+                <!-- High-Converting Practice Owner Callout -->
+                <div style="background: #ffffff; color: #0f172a; border-radius: 28px; padding: 48px 32px; text-align: center; max-width: 900px; margin: 24px auto 0 auto; box-shadow: 0 25px 60px rgba(0,0,0,0.35);">
+                    <span style="background: #e0f2fe; color: #16437e; font-size: 12px; font-weight: 800; padding: 6px 16px; border-radius: 9999px; text-transform: uppercase;">Want This Upgrade for Your Practice?</span>
+                    <h4 style="font-family: 'Playfair Display', serif; font-size: 34px; color: #0d2c54; margin: 14px 0 10px 0;">
+                        Keep Your Domain &amp; Colors. Ditch the Monthly Rent.
+                    </h4>
+                    <p style="font-size: 17px; color: #475569; max-width: 620px; margin: 0 auto 24px auto;">
+                        We transform your outdated counseling site into a custom, high-converting digital sanctuary—with $0/month hosting fees forever.
+                    </p>
+                    <a href="get-started.html" style="display: inline-block; background: #2ea3f2; color: #ffffff; font-size: 17px; font-weight: 700; padding: 18px 42px; border-radius: 14px; text-decoration: none; box-shadow: 0 10px 25px rgba(46, 163, 242, 0.35);">
+                        Request Your Custom Redesign in 2 Minutes &rarr;
                     </a>
                 </div>
             </div>
@@ -999,7 +1262,16 @@
     </div>
 
     <!-- ========================================================= -->
-    <!-- 4. POP-UP MODAL WHEN ANY DEMO LINK IS CLICKED             -->
+    <!-- 4. STOCK PHOTOGRAPHY & FICTIONAL PERSONA DISCLOSURE       -->
+    <!-- ========================================================= -->
+    <div class="bg-[#EAEFE9] border-t border-[#D5DFD7] py-6 px-6 text-center">
+        <p class="text-sm text-textdark/80 max-w-4xl mx-auto leading-relaxed">
+            <strong>Demonstration &amp; Stock Photography Disclosure:</strong> Both views above (<em>&ldquo;Old Way Counseling&rdquo;</em> and <em>&ldquo;New Way Counseling&rdquo;</em>) are illustrative design demonstrations. All clinician names (e.g., <em>John Example, LPC</em>; <em>Emily Demo, LPC-S</em>) and client reviews are fictionalized personas. Portrait and service photography is licensed royalty-free via <a href="https://unsplash.com/license" target="_blank" rel="noopener" class="underline text-rentblue font-semibold">Unsplash</a>; depicted models are stock photography subjects and not actual licensed mental health clinicians.
+        </p>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 5. POP-UP MODAL WHEN ANY DEMO LINK IS CLICKED             -->
     <!-- ========================================================= -->
     <div id="exampleSitePopup" class="example-popup-overlay" onclick="if(event.target === this) closeExamplePopup()">
         <div class="glass-panel p-8 sm:p-10 rounded-3xl max-w-lg w-11/12 text-center space-y-5 bg-white border-2 border-rentblue shadow-2xl">
@@ -1010,26 +1282,26 @@
                 This Site Is Only an Example.
             </h3>
             <p class="text-base text-textdark/90 leading-relaxed">
-                All clinician names and practice details on this page are fictionalized to demonstrate how <strong>Private Practice Designer</strong> upgrades an outdated counseling website into a modern, high-converting layout—while keeping your exact brand colors and content.
+                You clicked a link inside our live demonstration site. Notice how the layout, readability, and clinician directory completely transform when you toggle between the <strong>Old Site Type</strong> and our <strong>Modern Redesign</strong>!
             </p>
             <div class="pt-3 flex flex-col sm:flex-row justify-center gap-3">
                 <button type="button" id="popupSwapBtn" onclick="toggleFromPopup()" class="px-6 py-4 bg-rentblue hover:bg-[#2C6A90] text-white text-base font-semibold rounded-xl transition shadow-lg cursor-pointer">
                     ✨ Switch to Modern Redesign View
                 </button>
                 <a href="get-started.html" class="px-6 py-4 bg-boxgreen-600 hover:bg-boxgreen-700 text-white text-base font-semibold rounded-xl transition shadow-md">
-                    Request Your Redesign &rarr;
+                    Redesign My Practice Site &rarr;
                 </a>
             </div>
             <div>
                 <button type="button" onclick="closeExamplePopup()" class="text-sm text-textdark/70 hover:text-textdark underline cursor-pointer">
-                    Close pop-up &amp; keep scrolling
+                    Close pop-up &amp; keep exploring
                 </button>
             </div>
         </div>
     </div>
 
     <!-- ========================================================= -->
-    <!-- 5. YOUR PRIVATE PRACTICE DESIGNER STATUTORY FOOTER        -->
+    <!-- 6. YOUR PRIVATE PRACTICE DESIGNER STATUTORY FOOTER        -->
     <!-- ========================================================= -->
     <footer class="border-t border-[#D5DFD7] py-8 bg-[#222A24] text-sm text-[#C8D3CA]">
         <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-between items-center gap-4">
@@ -1079,25 +1351,42 @@
             const btnOld = document.getElementById('btnShowOld');
             const btnNew = document.getElementById('btnShowNew');
             const popupSwapBtn = document.getElementById('popupSwapBtn');
+            const liveBadge = document.getElementById('liveModeBadge');
 
             if (mode === 'new') {
                 oldContainer.classList.add('hidden');
                 newContainer.classList.remove('hidden');
+                newContainer.classList.remove('view-morph-enter');
+                void newContainer.offsetWidth; // trigger crisp reflow animation
+                newContainer.classList.add('view-morph-enter');
+
                 btnOld.classList.remove('active-old');
+                btnNew.classList.remove('pulse-invite');
                 btnNew.classList.add('active-new');
                 btnNew.innerHTML = '✨ Modern Redesign (Viewing)';
-                btnOld.innerHTML = '← Switch Back to Old Site Type';
+                btnOld.innerHTML = '← Compare With Old Site';
                 popupSwapBtn.innerHTML = '← Switch Back to Old Site View';
+
+                liveBadge.className = 'inline-block px-4 py-1.5 bg-boxgreen-100 text-boxgreen-700 text-sm font-bold uppercase tracking-wider rounded-full border border-boxgreen-200';
+                liveBadge.textContent = '✓ Currently Viewing: Private Practice Designer Modern Revamp';
             } else {
                 newContainer.classList.add('hidden');
                 oldContainer.classList.remove('hidden');
+                oldContainer.classList.remove('view-morph-enter');
+                void oldContainer.offsetWidth;
+                oldContainer.classList.add('view-morph-enter');
+
                 btnNew.classList.remove('active-new');
+                btnNew.classList.add('pulse-invite');
                 btnOld.classList.add('active-old');
-                btnOld.innerHTML = '😞 Typical Wix / Old Site Type';
-                btnNew.innerHTML = '✨ Click for Modern Redesign →';
+                btnOld.innerHTML = '😞 Typical Old Site (Viewing)';
+                btnNew.innerHTML = '✨ Click to Transform to Modern Design →';
                 popupSwapBtn.innerHTML = '✨ Switch to Modern Redesign View';
+
+                liveBadge.className = 'inline-block px-4 py-1.5 bg-red-50/70 text-red-700 text-sm font-bold uppercase tracking-wider rounded-full border border-red-200';
+                liveBadge.textContent = 'Currently Viewing: Outdated Stretched Website';
             }
-            window.scrollTo({ top: 180, behavior: 'smooth' });
+            window.scrollTo({ top: 160, behavior: 'smooth' });
         }
 
         function toggleFromPopup() {
@@ -1105,15 +1394,27 @@
             switchSiteMode(currentMode === 'old' ? 'new' : 'old');
         }
 
+        function toggleLegacyReadMore() {
+            const box = document.getElementById('legacyMoreText');
+            const btn = document.getElementById('legacyFlipBtn');
+            if (box.style.display === 'none') {
+                box.style.display = 'block';
+                btn.textContent = 'Read Less ›';
+            } else {
+                box.style.display = 'none';
+                btn.textContent = 'Read More ›';
+            }
+        }
+
         function filterModernTeam(spec, btnEl) {
-            const cards = document.querySelectorAll('.modern-clinician-card');
-            const btns = document.querySelectorAll('.modern-filter-btn');
+            const cards = document.querySelectorAll('.fancy-therapist-card');
+            const btns = document.querySelectorAll('.fancy-filter-pill');
             btns.forEach(b => b.classList.remove('active'));
             btnEl.classList.add('active');
 
             cards.forEach(card => {
                 const tags = card.getAttribute('data-spec');
-                card.style.display = (spec === 'all' || tags.includes(spec)) ? 'block' : 'none';
+                card.style.display = (spec === 'all' || tags.includes(spec)) ? 'flex' : 'none';
             });
         }
 
